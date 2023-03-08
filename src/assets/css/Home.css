@@ -353,7 +353,8 @@ article img {
     text-align: center;
     margin-top: 10px;
 }
-footer{
+
+footer {
     background-color: var(--brown);
     display: flex;
     justify-content: space-between;
@@ -362,22 +363,22 @@ footer{
     color: var(--pink);
 }
 
-footer a{
+footer a {
     color: var(--pink);
     text-decoration: none;
 }
 
-footer-menu{
+footer-menu {
     display: flex;
     gap: 10px;
     align-items: center;
     gap: 2%;
 }
 
-footer-menu a{
+footer-menu a {
     margin: 0 0px;
 }
 
-.content-footer{
+.content-footer {
     margin: 0 5px;
 }

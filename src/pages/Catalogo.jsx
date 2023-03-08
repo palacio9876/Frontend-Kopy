@@ -3,7 +3,8 @@ import { Header } from '../layouts/Header/Header.jsx'
 
 export const Catalogo = () => {
   return (
-    <Header/>   
+    // <Header/>   
+    <h1>Catalogo</h1>
 
   )
 }

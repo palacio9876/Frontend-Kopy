@@ -1,7 +1,9 @@
 import React from 'react'
+import { Header } from '../layouts/Header/Header'
 
 export const Nosotros = () => {
   return (
-    <div>Nosotros</div>
+    // <Header />
+    <h1>Nosotros</h1>
   )
 }
