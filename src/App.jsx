@@ -1,10 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useState } from "react";
 import { Home } from "./pages/Home";
 import { Catalogo } from "./pages/Catalogo.jsx";
-import { Categorias } from "./pages/Categorias";
 import { Nosotros } from "./pages/Nosotros.jsx";
-import { NotNull } from "./pages/NotNull.jsx";
+import { Error404 } from "./pages/Error404.jsx";
 
 function App() {
   return (
@@ -12,9 +10,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />
-        <Route path="/categorias" element={<Categorias />} />
         <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="*" element={<NotNull />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
   );

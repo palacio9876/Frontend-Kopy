@@ -11,7 +11,7 @@ export const Home = () => {
     <>
       <Helmet>
         <link rel="shortcut icon" href={logo} />
-        <title>Home Kopy</title>
+        <title>Kopy</title>
       </Helmet>
       <Header />
       <Main />

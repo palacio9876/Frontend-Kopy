@@ -1,0 +1,40 @@
+img {
+    width: 40%;
+}
+
+.error404-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--pink);
+    gap: 2%;
+}
+
+.text-error404 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.error404-container h1 {
+    font-size: 5rem;
+    color: var(--brown);
+    font-weight: bold;
+    margin: 0;
+}
+
+.error404-container h2 {
+    font-size: 2rem;
+    color: var(--brown);
+    font-weight: bold;
+}
+
+.error404-container a {
+    text-decoration: dotted;
+    color: var(--orange);
+    font-size: 2rem;
+    font-weight: bold;
+}
