@@ -4,13 +4,12 @@ import { Header } from "../layouts/Header/Header";
 import { Main } from "../layouts/Main/Main";
 import { Footer } from "../layouts/Footer/Footer";
 import "../assets/css/Home.css";
-import logo from "../assets/img/logo.png";
 
 export const Home = () => {
   return (
     <>
       <Helmet>
-        <link rel="shortcut icon" href={logo} />
+        <link rel="shortcut icon" href="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721656/kopy/logo_cblkd0.png" />
         <title>Kopy</title>
       </Helmet>
       <Header />

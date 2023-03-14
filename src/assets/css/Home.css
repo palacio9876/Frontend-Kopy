@@ -291,14 +291,18 @@ nav ul li a {
     transition: all 0.3s ease;
 }
 
-.btn-products span {
+.btn-products span{
     position: relative;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.05em;
     color: var(--brown);
+    text-decoration: none;
 }
-
+a{
+    text-decoration: none;
+    color: var(--brown);
+}
 .btn-products svg {
     position: relative;
     top: 0;

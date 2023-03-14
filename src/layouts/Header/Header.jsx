@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from '../../assets/img/logo.png';
 import {NavLink} from 'react-router-dom'; 
 
 
@@ -8,11 +7,11 @@ export const Header = () => {
   return (
     <header>
         <div className="logo">
-            <img className="logo" src={ logo } />
+            <img className="logo" src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721656/kopy/logo_cblkd0.png" />
         </div>
         <nav>
             <ul>
-                <li><NavLink to="">Inicio |</NavLink></li>
+                <li><NavLink to="/">Inicio |</NavLink></li>
                 <li><NavLink to="/catalogo">Catalogo |</NavLink></li>
                 <li><NavLink to="/nosotros">Nosotros</NavLink></li>
             </ul>

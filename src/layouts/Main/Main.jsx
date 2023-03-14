@@ -1,18 +1,5 @@
 import React from "react";
-import imageMain from "../../assets/img/canva.jpg";
-import imageCafeRosa from "../../assets/img/caferosa.jpg";
-import imageCafeMora from "../../assets/img/cafemora.jpg";
-import imageCafeVerde from "../../assets/img/cafeverde.jpg";
-import imageCafe from "../../assets/img/cafe.jpg";
-import pagos from "../../assets/img/pagos.png";
-import mapa from "../../assets/img/mapa.png";
-import satisfecho from "../../assets/img/satisfecho.png";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { EffectCoverflow, Pagination, Navigation } from "swiper";
+import { NavLink } from "react-router-dom";
 
 export const Main = () => {
   return (
@@ -25,7 +12,9 @@ export const Main = () => {
             <span> Los mejores precios! </span>
           </p>
           <button className="btn-main">
-            <span>Ver catalogo</span>
+            <span>
+              <NavLink to="/catalogo">Ver catalogo</NavLink>
+            </span>
             <svg viewBox="0 0 13 10" height="10px" width="15px">
               <path d="M1,5 L11,5"></path>
               <polyline points="8 1 12 5 8 9"></polyline>
@@ -33,7 +22,10 @@ export const Main = () => {
           </button>
         </div>
         <div className="section-right">
-          <img src={imageMain} alt="imagen demostrativa" />
+          <img
+            src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721661/kopy/canva_c8envd.jpg"
+            alt="imagen demostrativa"
+          />
         </div>
       </section>
       <section className="products-container">
@@ -41,7 +33,7 @@ export const Main = () => {
         <div className="products">
           <div className="card">
             <div className="image-card">
-              <img src={imageCafeRosa} />
+              <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721659/kopy/cafe-rosa_jn8jjd.jpg" />
             </div>
             <div className="info-card">
               <p className="tittle-product">Cafe fresa</p>
@@ -50,7 +42,7 @@ export const Main = () => {
           </div>
           <div className="card">
             <div className="image-card">
-              <img src={imageCafeMora} />
+              <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721659/kopy/cafe-mora_dv2sdt.jpg" />
             </div>
             <div className="info-card">
               <p className="tittle-product">Cafe mora</p>
@@ -59,7 +51,10 @@ export const Main = () => {
           </div>
           <div className="card">
             <div className="image-card">
-              <img className="coffi" src={imageCafeVerde} />
+              <img
+                className="coffi"
+                src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721659/kopy/cafeverde_d78xkr.jpg"
+              />
             </div>
             <div className="info-card">
               <p className="tittle-product">Cafe lite</p>
@@ -68,7 +63,7 @@ export const Main = () => {
           </div>
           <div className="card">
             <div className="image-card">
-              <img src={imageCafe} />
+              <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721660/kopy/cafe-tradicional_vlqwlt.jpg" />
             </div>
             <div className="info-card">
               <p className="tittle-product">Cafe con chocolate</p>
@@ -77,7 +72,9 @@ export const Main = () => {
           </div>
         </div>
         <button className="btn-products">
-          <span>Ver más</span>
+          <span>
+            <NavLink to="/catalogo">Ver más</NavLink>
+          </span>
           <svg viewBox="0 0 13 10" height="10px" width="15px">
             <path d="M1,5 L11,5"></path>
             <polyline points="8 1 12 5 8 9"></polyline>
@@ -86,15 +83,15 @@ export const Main = () => {
       </section>
       <article>
         <div className="box-mini">
-          <img src={mapa} />
+          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721655/kopy/mapa_p94m4b.png" />
           <p> Envios a toda la ciudad</p>
         </div>
         <div className="box-mini">
-          <img src={pagos} />
+          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721656/kopy/pagos_bobco7.png" />
           <p> Todos los medios de pago</p>
         </div>
         <div className="box-mini">
-          <img src={satisfecho} />
+          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721657/kopy/satisfecho_bw1h1c.png" />
           <p> Cliente satisfecho</p>
         </div>
       </article>

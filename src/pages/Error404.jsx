@@ -1,5 +1,4 @@
 import React from "react";
-import imageError404 from "../assets/img/error404.jpg";
 import logo from "../assets/img/logo.png";
 import "../assets/css/Error404.css";
 import { NavLink } from "react-router-dom";
@@ -17,7 +16,7 @@ export const Error404 = () => {
           <h2>La pagina que buscas no existe</h2>
           <NavLink to="/">Volver al inicio</NavLink>
         </div>
-        <img src={imageError404} alt="image error404" />
+        <img className="img-error404" src="https://res.cloudinary.com/dkdvqvmdx/image/upload/v1678720736/Kopy/error404_ik3v2y.png" alt="image error404" />
       </div>
     </>
   );

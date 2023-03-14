@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --brown: rgba(71, 59, 59, 0.89);
+    --pink: rgb(236, 218, 206);
+    --green: rgba(0, 68, 0, 1);
+    --blue: rgba(34, 146, 164, 1);
+    --orange: rgb(213, 96, 18);
+}
+
+.main-catalogo {
+    background-color: var(--pink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 5% 40px;
+
+}
+
+.tittle-catalogo {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--brown);
+}
+
+.btn-catalogo {
+    background-color: var(--orange);
+    color: var(--pink);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.3rem;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.btn-catalogo:hover,
+.btn-catalogo:active {
+    background-color: var(--green);
+    color: var(--pink);
+}
+
+.btns-catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.btns-catalogo .btn-catalogo {
+    flex: 0 0 calc(50% - 1rem);
+    padding: 1rem 3rem;
+}
+
+@media(min-width: 768px) {
+    .btns-catalogo {
+        display: inline-block;
+    }
+
+    .btns-catalogo .btn-catalogo {
+        flex: unset;
+        padding: 10px 15px;
+
+    }
+}
+
+@media(min-width: 768px) {
+    .platillos {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+@media(min-width: 768px) {
+    .cards-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+.card-catalogo {
+    flex: 0 0 calc(26% - 2rem);
+    border: 1px solid var(--brown);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.card-catalogo img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-catalogo h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--brown);
+}
+
+.card-catalogo p {
+    font-size: 1.5rem;
+}
+
+.price-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-btn p {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--orange);
+}
+
+.price-btn button {
+    background-color: var(--orange);
+    color: var(--pink);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
