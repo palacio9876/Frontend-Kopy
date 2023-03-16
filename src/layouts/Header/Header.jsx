@@ -7,7 +7,7 @@ export const Header = () => {
   return (
     <header>
         <div className="logo">
-            <img className="logo" src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721656/kopy/logo_cblkd0.png" />
+            <img className="logo" src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678978833/kopy/1_rah6cb.png" />
         </div>
         <nav>
             <ul>

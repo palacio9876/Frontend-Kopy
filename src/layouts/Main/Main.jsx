@@ -83,15 +83,15 @@ export const Main = () => {
       </section>
       <article>
         <div className="box-mini">
-          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721655/kopy/mapa_p94m4b.png" />
+          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980032/kopy/camionEnvio_yn0wjt.webp" />
           <p> Envios a toda la ciudad</p>
         </div>
         <div className="box-mini">
-          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721656/kopy/pagos_bobco7.png" />
+          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980057/kopy/pagsos_o0lwmc.png" />
           <p> Todos los medios de pago</p>
         </div>
         <div className="box-mini">
-          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721657/kopy/satisfecho_bw1h1c.png" />
+          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980047/kopy/sonreir_a61eep.png" />
           <p> Cliente satisfecho</p>
         </div>
       </article>
