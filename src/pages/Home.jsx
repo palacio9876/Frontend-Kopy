@@ -9,7 +9,7 @@ export const Home = () => {
   return (
     <>
       <Helmet>
-        <link className="logo-pestaña" rel="shortcut icon" href="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678978391/kopy/K_2_v9swkk.png" />
+        <link className="rounded-3xl" rel="shortcut icon" href="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678978391/kopy/K_2_v9swkk.png" />
         <title>Kopy</title>
       </Helmet>
       <Header />

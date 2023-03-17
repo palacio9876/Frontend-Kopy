@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./index.css";
 import { Home } from "./pages/Home";
 import { Catalogo } from "./pages/Catalogo.jsx";
 import { Nosotros } from "./pages/Nosotros.jsx";
@@ -13,7 +14,9 @@ function App() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
-    </div>
+      <div className="bg-blue-500">Hello, world!</div>
+      
+      </div>
   );
 }
 
