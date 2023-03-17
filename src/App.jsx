@@ -3,6 +3,8 @@ import "./index.css";
 import { Home } from "./pages/Home";
 import { Catalogo } from "./pages/Catalogo.jsx";
 import { Nosotros } from "./pages/Nosotros.jsx";
+import {Register} from "./pages/Register.jsx";
+import {Login} from "./pages/Login"
 import { Error404 } from "./pages/Error404.jsx";
 import { Helmet } from "react-helmet";
 
@@ -17,6 +19,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/nosotros" element={<Nosotros />} />
+        <Route path="/registro" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
       
