@@ -6,12 +6,13 @@
 
 :root {
     --brown: rgba(71, 59, 59, 0.89);
-    --pink: rgb(236, 218, 206);
+    --pink: rgb(206, 236, 213);
     --green: rgba(0, 68, 0, 1);
     --blue: rgba(34, 146, 164, 1);
     --orange: rgb(213, 96, 18);
 }
 
+<<<<<<< HEAD
 header img {
     width: 70px;
     height: 70px;
@@ -107,6 +108,8 @@ nav ul li a {
     width: 400px;
 }
 
+=======
+>>>>>>> bec983bda8f1d5ffbcc17135281d411c1a095edb
 .section-main {
     display: flex;
     justify-content: space-between;
