@@ -11,9 +11,6 @@
     --blue: rgba(34, 146, 164, 1);
     --orange: rgb(213, 96, 18);
 }
-header img {
-    @apply w-[70px] h-[70px] rounded-[50%];
-}
 
 nav {
     margin-left: 100px;
@@ -108,6 +105,7 @@ nav ul li a {
     padding: 4% 10%;
     flex-wrap: wrap;
     gap: 2%;
+    height: 100vh;
     /* background-color: var(--pink); */
     background-image: url(https://res.cloudinary.com/dyhfwq81d/image/upload/v1679002786/simple_ufhyhm.svg);
     background-repeat: no-repeat;
@@ -129,8 +127,11 @@ nav ul li a {
 }
 
 .section-right img {
-    width: 350px;
-    border-radius: 50%;
+    width: 30rem;
+    height: 30rem;
+    object-fit: cover;
+    object-position: center -238px;
+    border-radius: 100%;
 }
 
 .text-main {
@@ -344,8 +345,8 @@ a{
 }
 
 article img {
-    width: 80%;
-    height: 140px;
+    width: 60%;
+    height: 160px;
     border-radius: 10px;
 }
 

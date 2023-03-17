@@ -21,7 +21,7 @@ export const Catalogo = () => {
           <button className="desayunos btn-catalogo">Desayunos</button>
         </div>
         <div className="cards-container">
-          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="cafe">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="7000" data-catalogo="cafe">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721659/kopy/cafe-oscuro_zlyaem.jpg"
               alt="Cafe oscuro"

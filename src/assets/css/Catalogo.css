@@ -80,11 +80,13 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        margin: 1rem 0;
+        gap: 1rem;
     }
 }
 
 .card-catalogo {
-    flex: 0 0 calc(26% - 2rem);
+    flex: 0 0 calc(23% - 2rem);
     border: 1px solid var(--brown);
     padding: 1rem;
     border-radius: 10px;
