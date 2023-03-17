@@ -21,12 +21,7 @@
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.14",
-<<<<<<< HEAD
     "postcss": "^8.4.21",
-=======
-    "browserslist": "^4.21.5",
-    "postcss-cli": "^10.1.0",
->>>>>>> bec983bda8f1d5ffbcc17135281d411c1a095edb
     "tailwindcss": "^3.2.7",
     "vite": "^4.1.0"
   },

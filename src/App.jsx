@@ -19,7 +19,6 @@ function App() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
-      <div className="bg-blue-500">Hello, world!</div>
       
       </div>
   );
