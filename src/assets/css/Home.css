@@ -12,19 +12,6 @@
     --orange: rgb(213, 96, 18);
 }
 
-.logo-pestaña{
-   border-radius: 30%;
-}
-
-
-header {
-    background-color: var(--brown);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 5%;
-}
-
 header img {
     width: 70px;
     height: 70px;
@@ -127,7 +114,11 @@ nav ul li a {
     padding: 4% 10%;
     flex-wrap: wrap;
     gap: 2%;
-    background-color: var(--pink);
+    /* background-color: var(--pink); */
+    background-image: url(https://res.cloudinary.com/dyhfwq81d/image/upload/v1679002786/simple_ufhyhm.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .section-left {
@@ -153,7 +144,6 @@ nav ul li a {
     font-weight: bold;
     text-transform: uppercase;
     color: var(--brown);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .text-main span {
@@ -169,6 +159,8 @@ nav ul li a {
     background: none;
     cursor: pointer;
     border-radius: 50px;
+    display: flex;
+    align-items: center;
 }
 
 .btn-main:before {
@@ -287,7 +279,8 @@ nav ul li a {
     background: none;
     cursor: pointer;
     border-radius: 50px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    align-items: center;
 }
 
 .btn-products:before {
@@ -342,12 +335,12 @@ a{
     transform: scale(0.95);
 }
 
-article {
+.services {
     background-color: var(--pink);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 1%;
+    padding: 1rem;
 }
 
 .box-mini {
@@ -361,6 +354,7 @@ article {
 
 article img {
     width: 80%;
+    height: 140px;
     border-radius: 10px;
 }
 

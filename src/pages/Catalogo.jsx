@@ -2,9 +2,11 @@ import React from "react";
 import { Footer } from "../layouts/Footer/Footer.jsx";
 import { Header } from "../layouts/Header/Header.jsx";
 import "../assets/css/Catalogo.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export const Catalogo = () => {
-  
+  AOS.init();
   return (
     <>
       <Header />
@@ -19,7 +21,7 @@ export const Catalogo = () => {
           <button className="desayunos btn-catalogo">Desayunos</button>
         </div>
         <div className="cards-container">
-          <div className="card-catalogo" data-catalogo="cafe">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="cafe">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721659/kopy/cafe-oscuro_zlyaem.jpg"
               alt="Cafe oscuro"
@@ -31,7 +33,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="cafe">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="cafe">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721658/kopy/cafe-leche_wv0caq.jpg"
               alt="Cafe con leche"
@@ -43,7 +45,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="cafe">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="cafe">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721658/kopy/cafe-fusion_ekejg7.jpg"
               alt="Cafe fusion"
@@ -55,7 +57,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="cafe">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="cafe">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721658/kopy/cafe-helado_wgyu8h.webp"
               alt="Cafe helado"
@@ -67,7 +69,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="cafe">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="cafe">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721659/kopy/cafe-mango_nrjxp6.jpg"
               alt="Cafe mango"
@@ -79,7 +81,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="cafe">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="cafe">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721660/kopy/capuchino_gtvlmz.jpg"
               alt="capuchino"
@@ -91,7 +93,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="panaderia">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="panaderia">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721657/kopy/bu%C3%B1uelo_cscvqj.jpg"
               alt="panaderia"
@@ -103,7 +105,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="panaderia">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="panaderia">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721664/kopy/croasan_p1jcki.jpg"
               alt="panaderia"
@@ -115,7 +117,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="panaderia">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="panaderia">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721680/kopy/gaelletas-rellenas_gh9fac.webp"
               alt="panaderia"
@@ -127,7 +129,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="panaderia">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="panaderia">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721662/kopy/gaelltas-azules_yeuzcr.jpg"
               alt="panaderia"
@@ -139,7 +141,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="panaderia">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="panaderia">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721662/kopy/galletas-chispas_lpt2we.jpg"
               alt="panaderia"
@@ -151,7 +153,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="panaderia">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="panaderia">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721662/kopy/galletas_fv5kni.jpg"
               alt="panaderia"
@@ -163,7 +165,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="panaderia">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="panaderia">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721657/kopy/pan-casero_xrsdfm.jpg"
               alt="panaderia"
@@ -175,7 +177,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="panaderia">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="panaderia">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721656/kopy/pan-de-queso_rzyjb5.jpg"
               alt="panaderia"
@@ -187,7 +189,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="panaderia">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="panaderia">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721657/kopy/pan-galleta_ododjk.jpg"
               alt="panaderia"
@@ -199,7 +201,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="panaderia">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="panaderia">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721656/kopy/pan_tbwrsy.jpg"
               alt="panaderia"
@@ -211,7 +213,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="jugos">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="jugos">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721655/kopy/milo_voamzu.webp"
               alt="jugos"
@@ -223,7 +225,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="jugos">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="jugos">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721663/kopy/jugo-naranja_v5qmln.webp"
               alt="jugos"
@@ -235,7 +237,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="jugos">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="jugos">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721662/kopy/jugo-mango_rskvos.jpg"
               alt="jugos"
@@ -247,7 +249,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="jugos">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="jugos">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721656/kopy/JUGOS_NATURALES_cmkkn9.jpg"
               alt="jugos"
@@ -259,7 +261,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="chocolates">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="chocolates">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721660/kopy/chocolate-sin_xe70pb.jpg"
               alt="chocolate"
@@ -271,7 +273,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="chocolates">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="chocolates">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721660/kopy/chocolate_2_thkrdb.jpg"
               alt="chocolate"
@@ -283,7 +285,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="chocolates">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="chocolates">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721660/kopy/chocolate_mi0wv7.jpg"
               alt="chocolate"
@@ -295,7 +297,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="chocolates">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="chocolates">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721660/kopy/chocolate-sin_xe70pb.jpg"
               alt="chocolate"
@@ -307,7 +309,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="chocolates">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="chocolates">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721660/kopy/chocolate-sin_xe70pb.jpg"
               alt="chocolate"
@@ -319,7 +321,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="desayunos">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="desayunos">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721660/kopy/cale_fyjexs.webp"
               alt="desayunos"
@@ -331,7 +333,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="desayunos">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="desayunos">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721660/kopy/calentado_l9ohnj.jpg"
               alt="desayunos"
@@ -343,7 +345,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="desayunos">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="desayunos">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721661/kopy/desayunos_caqpds.jpg"
               alt="desayunos"
@@ -355,7 +357,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="desayunos">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="desayunos">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721662/kopy/huevo-frito_ab4gno.jpg"
               alt="desayunos"
@@ -367,7 +369,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="desayunos">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="desayunos">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721662/kopy/huevos-revueltos_rc9mhv.webp"
               alt="desayunos"
@@ -379,7 +381,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="desayunos">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="desayunos">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721656/kopy/perico_fyfttb.jpg"
               alt="desayunos"
@@ -391,7 +393,7 @@ export const Catalogo = () => {
               <button>comprar</button>
             </div>
           </div>
-          <div className="card-catalogo" data-catalogo="desayunos">
+          <div className="card-catalogo" data-aos="zoom-in" data-aos-duration="1000" data-catalogo="desayunos">
             <img
               src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678829157/kopy/receta-desayuno-con-salchicha_goxw0r.jpg"
               alt="desayunos"
