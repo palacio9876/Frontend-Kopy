@@ -1,107 +1,44 @@
-.body{
-    background-image: url('https://res.cloudinary.com/dyhfwq81d/image/upload/v1679053889/pexels-hu%E1%BB%B3nh-%C4%91%E1%BA%A1t-2313037_qvujla.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding: 4% 10%;
-    flex-wrap: wrap;
-    gap: 2%;
-    height: 100vh;
-}
-
 .login-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    margin: 20px auto;
-    transform: translate(-50%, -55%);
+    @apply absolute w-[400px] -translate-x-2/4 translate-y-[-55%] box-border shadow-[0_15px_25px_#00000099] mx-auto my-5 p-10 rounded-[10px] left-2/4 top-2/4;
     background: #473b3be3;
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px #00000099;
-    border-radius: 10px;
-  }
+}
   
   .login-box p:first-child {
-    margin: 0 0 30px;
-    padding: 0;
-    color: #fff;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-  }
+    @apply text-white text-center text-2xl font-[bold] tracking-[1px] mt-0 mb-[30px] mx-0 p-0;
+}
   
   .login-box .user-box {
-    position: relative;
-  }
+    @apply relative;
+}
   
-  .login-box .user-box input {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    margin-bottom: 30px;
-    border: none;
-    border-bottom: 1px solid #fff;
+ .login-box .user-box input {
+    @apply w-full text-base text-white mb-[30px] px-0 py-2.5 border-b-white border-[none] border-b border-solid;
     outline: none;
     background: transparent;
-  }
-  
-  .login-box .user-box label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    pointer-events: none;
-    transition: .5s;
-  }
+}
+.login-box .user-box label {
+    @apply absolute text-base text-white pointer-events-none transition-[0.5s] px-0 py-2.5 left-0 top-0;
+}
   
   .login-box .user-box input:focus ~ label,
   .login-box .user-box input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #fff;
-    font-size: 12px;
-  }
-  
-  .login-box form a {
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    font-weight: bold;
-    color: #fff;
-    font-size: 16px;
-    text-decoration: none;
-    text-transform: uppercase;
-    overflow: hidden;
-    transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 3px
-  }
-  
-  .login-box a:hover {
+    @apply text-white text-xs left-0 -top-5;
+}
+.login-box form a {
+    @apply relative inline-block font-[bold] text-white text-base no-underline uppercase overflow-hidden transition-[0.5s] tracking-[3px] mt-10 px-5 py-2.5
+}
+.login-box a:hover {
+    @apply text-[#272727] rounded-[5px];
     background: #fff;
-    color: #272727;
-    border-radius: 5px;
-  }
+}
+.login-box a span {
+    @apply absolute block;
+}
   
-  .login-box a span {
-    position: absolute;
-    display: block;
-  }
-  
-  .login-box a span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
+ .login-box a span:nth-child(1) {
+    @apply w-full h-0.5 animate-[btn-anim1_1.5s_linear_infinite] -left-full top-0;
     background: linear-gradient(90deg, transparent, #fff);
-    animation: btn-anim1 1.5s linear infinite;
-  }
+}
   
   @keyframes btn-anim1 {
     0% {
@@ -114,14 +51,10 @@
   }
   
   .login-box a span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
+    @apply w-0.5 h-full animate-[btn-anim2_1.5s_linear_infinite] right-0 -top-full;
     background: linear-gradient(180deg, transparent, #fff);
-    animation: btn-anim2 1.5s linear infinite;
     animation-delay: .375s
-  }
+}
   
   @keyframes btn-anim2 {
     0% {
@@ -134,14 +67,10 @@
   }
   
   .login-box a span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
+    @apply w-full h-0.5 animate-[btn-anim3_1.5s_linear_infinite] -right-full bottom-0;
     background: linear-gradient(270deg, transparent, #fff);
-    animation: btn-anim3 1.5s linear infinite;
     animation-delay: .75s
-  }
+}
   
   @keyframes btn-anim3 {
     0% {
@@ -152,16 +81,11 @@
       right: 100%;
     }
   }
-  
-  .login-box a span:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
+ .login-box a span:nth-child(4) {
+    @apply w-0.5 h-full animate-[btn-anim4_1.5s_linear_infinite] left-0 -bottom-full;
     background: linear-gradient(360deg, transparent, #fff);
-    animation: btn-anim4 1.5s linear infinite;
     animation-delay: 1.125s
-  }
+}
   
   @keyframes btn-anim4 {
     0% {
@@ -173,18 +97,12 @@
     }
   }
   
-  .login-box p:last-child {
-    color: #aaa;
-    font-size: 14px;
-  }
-  
-  .login-box a.a2 {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .login-box a.a2:hover {
+.login-box p:last-child {
+    @apply text-[#aaa] text-sm;
+}
+.login-box a.a2 {
+    @apply text-white no-underline hover:text-[#aaa] hover:rounded-[5px];
+}
+.login-box a.a2:hover {
     background: transparent;
-    color: #aaa;
-    border-radius: 5px;
-  }
+}

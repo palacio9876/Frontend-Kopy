@@ -1,68 +1,75 @@
-.body{
-    background-image: url('https://res.cloudinary.com/dyhfwq81d/image/upload/v1679053889/pexels-hu%E1%BB%B3nh-%C4%91%E1%BA%A1t-2313037_qvujla.jpg');
-    
+
+ .box-submit a {
+    @apply relative inline-block font-[bold] text-white text-base no-underline uppercase overflow-hidden transition-[0.5s] tracking-[3px] mt-10 px-5 py-2.5
 }
-.form {
-    max-width: 320px;
-    width: 100%;
-    background: rgba(71, 59, 59, 0.89);
-    padding: 20px;
-    box-shadow: 0px 0px 0px 4px rgba(226, 226, 231, 0.185);
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-    position: absolute;
-    top: 20%;
-    left: 40%;
-    
+.box-submit a:hover {
+    @apply text-[#272727] rounded-[5px];
+    background: #fff;
+}
+.box-submit a span {
+    @apply absolute block;
 }
   
-  .title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #ffffff;
-  }
-  
-  .label {
-    color: white;
-    margin-bottom: 4px;
-  }
-  
-  .input {
-    padding: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    font-size: 1rem;
-    color: #776349;
-    outline: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    transition: all 0.2s ease-in-out;
+.box-submit a span:nth-child(1) {
+    @apply w-full h-0.5 animate-[btn-anim1_1.5s_linear_infinite] -left-full top-0;
+    background: linear-gradient(90deg, transparent, #fff);
 }
   
-  .input:focus {
-    background-color: #fff;
-    box-shadow: 0 0 0 2px #cbd5e0;
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+  
+    50%,100% {
+      left: 100%;
+    }
   }
   
-  .input:valid {
-    border: 1px solid #755032;
+ .box-submit a span:nth-child(2) {
+    @apply w-0.5 h-full animate-[btn-anim2_1.5s_linear_infinite] right-0 -top-full;
+    background: linear-gradient(180deg, transparent, #fff);
+    animation-delay: .375s
+}
+  
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+  
+    50%,100% {
+      top: 100%;
+    }
   }
   
-  .input:invalid {
-    border: 1px solid rgba(211, 150, 150, 0.205);
-  }
+ .box-submit a span:nth-child(3) {
+    @apply w-full h-0.5 animate-[btn-anim3_1.5s_linear_infinite] -right-full bottom-0;
+    background: linear-gradient(270deg, transparent, #fff);
+    animation-delay: .75s
+}
   
-  .submit {
-    background-color: #706153;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+  
+    50%,100% {
+      right: 100%;
+    }
+  }
+ .box-submit a span:nth-child(4) {
+    @apply w-0.5 h-full animate-[btn-anim4_1.5s_linear_infinite] left-0 -bottom-full;
+    background: linear-gradient(360deg, transparent, #fff);
+    animation-delay: 1.125s
+}
+  
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+  
+    50%,100% {
+      bottom: 100%;
+    }
   }
       
       
