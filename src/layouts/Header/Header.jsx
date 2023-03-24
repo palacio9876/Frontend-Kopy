@@ -9,9 +9,9 @@ export const Header = () => {
         <div className="logo">
             <img className="w-[70px] h-[70px] rounded-[50%]" src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678978833/kopy/1_rah6cb.png" />
         </div>
-        <nav>
-            <ul>
-                <li><NavLink to="/">Inicio |</NavLink></li>
+        <nav className='ml-[100px]'>
+            <ul className='flex items-center justify-center flex-wrap'>
+                <li className='mx-[5px] my-0'><NavLink to="/">Inicio |</NavLink></li>
                 <li><NavLink to="/catalogo">Catálogo |</NavLink></li>
                 <li><NavLink to="/nosotros">Nosotros</NavLink></li>
             </ul>

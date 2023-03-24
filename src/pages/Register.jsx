@@ -20,12 +20,12 @@ border border-solid border-yellow-700
 border border-solid border-yellow-700
 " />
                 <div className='box-submit'>
-                <a href="#">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Registrate
+                <a className='group relative inline-block font-[bold] text-white text-base no-underline uppercase overflow-hidden transition-[0.5s] tracking-[3px] mt-10 px-5 py-2.5 hover:bg-white ' href="#">
+                    <span className='absolute block animate-[btn-anim1_1.5s_linear_infinite]-left-full w-full h-0.5 top-0 background: linear-gradient(90deg, transparent, #fff)'></span>
+                    <span className='absolute block animate-[btn-anim2_1.5s_linear_infinite]-top-full w-0.5 h-full right-0 background: linear-gradient(180deg, transparent, #fff)'></span>
+                    <span className='absolute block animate-[btn-anim3_1.5s_linear_infinite]-right-full bottom-0 background: linear-gradient(270deg, transparent, #fff) animation-delay: .75s'></span>
+                    <span className='absolute block animate-[btn-anim4_1.5s_linear_infinite]-bottom-full w-0.5 left-0 background: linear-gradient(360deg, transparent, #fff)'></span>
+                   <p className='group-hover:text-black'>Registrate</p> 
                 </a>
                 </div>
             </form>

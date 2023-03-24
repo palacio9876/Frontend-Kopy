@@ -1,9 +1,6 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    @apply box-border m-0 p-0;
 }
-
 :root {
     --brown: rgba(71, 59, 59, 0.89);
     --pink: rgb(206, 236, 213);
@@ -11,92 +8,33 @@
     --blue: rgba(34, 146, 164, 1);
     --orange: rgb(213, 96, 18);
 }
-
 nav {
-    margin-left: 100px;
+    @apply ml-[100px];
 }
-
 nav ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    @apply flex items-center justify-center flex-wrap;
 }
-
 nav ul li {
+    @apply mx-[5px] my-0;
     list-style: none;
-    margin: 0 5px;
 }
-
 nav ul li a {
-    color: var(--pink);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-
+    @apply text-[color:var(--pink)] no-underline font-[bold] text-[1.2rem];
 }
-
 .login-register {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    @apply flex justify-center items-center flex-wrap gap-2.5;
 }
-
 .login-register a {
-    width: 150px;
-    text-align: center;
+    @apply w-[150px] text-center;
 }
-
 .login {
-    position: relative;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 14px;
-    transition: all .2s;
-    border: 2px solid var(--orange);
-    font-weight: 500;
-    color: var(--orange);
+    @apply relative uppercase no-underline transition-all duration-[0.2s] border-[color:var(--orange)] font-medium text-[color:var(--orange)] p-2.5 rounded-[14px] border-2 border-solid hover:shadow-[0_5px_10px_var(--orange)] active:-translate-y-px active:shadow-[0_5px_10px_rgba(0,0,0,0.2)] active:bg-[color:var(--orange)] active:text-[color:var(--pink)];
 }
-
-.login:hover {
-    box-shadow: 0 5px 10px var(--orange);
-}
-
-.login:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    background-color: var(--orange);
-    color: var(--pink);
-}
-
 .register {
-    position: relative;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 10px;
-    color: var(--pink);
-    border-radius: 14px;
-    transition: all .2s;
-    border: 2px solid var(--pink);
-    font-weight: 500;
+    @apply relative uppercase no-underline text-[color:var(--pink)] transition-all duration-[0.2s] border-[color:var(--pink)] font-medium p-2.5 rounded-[14px] border-2 border-solid hover:shadow-[0_5px_10px_var(--pink)] active:-translate-y-px active:shadow-[0_5px_10px_rgba(0,0,0,0.2)] active:bg-[color:var(--pink)] active:text-[color:var(--brown)];
 }
-
-.register:hover {
-    box-shadow: 0 5px 10px var(--pink);
-}
-
-.register:active {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    background-color: var(--pink);
-    color: var(--brown);
-}
-
 .btn-login {
-    width: 400px;
+    @apply w-[400px];
 }
 .section-main {
     display: flex;
@@ -114,274 +52,113 @@ nav ul li a {
 }
 
 .section-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @apply flex justify-center items-center flex-col;
 }
-
 .section-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @apply flex justify-center items-center;
 }
-
 .section-right img {
-    width: 30rem;
-    height: 30rem;
-    object-fit: cover;
-    object-position: center -238px;
-    border-radius: 100%;
+    @apply w-[30rem] h-[30rem] object-cover object-[center_-238px] rounded-[100%];
 }
-
 .text-main {
-    font-size: 3rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--brown);
+    @apply text-5xl font-[bold] uppercase text-[color:var(--brown)];
 }
-
 .text-main span {
-    color: var(--orange);
+    @apply text-[color:var(--orange)];
 }
-
 .btn-main {
-    position: relative;
-    margin: auto;
-    padding: 12px 18px;
-    transition: all 0.2s ease;
-    border: none;
+    @apply relative transition-all duration-[0.2s] ease-[ease] cursor-pointer flex items-center m-auto px-[18px] py-3 rounded-[50px] border-[none] before:content-[""] before:absolute before:block before:w-[45px] before:h-[45px] before:transition-all before:duration-[0.3s] before:ease-[ease] before:rounded-[50px] before:left-0 before:top-0 hover:before:w-full active:scale-95;
     background: none;
-    cursor: pointer;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
 }
-
 .btn-main:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    border-radius: 50px;
     background: var(--orange);
-    width: 45px;
-    height: 45px;
-    transition: all 0.3s ease;
 }
-
 .btn-main span {
-    position: relative;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--brown);
+    @apply relative text-lg font-bold tracking-wider text-[color:var(--brown)];
 }
-
 .btn-main svg {
-    position: relative;
-    top: 0;
-    margin-left: 10px;
-    fill: none;
+    @apply relative fill-none stroke-[color:var(--brown)] stroke-2 translate-x-[-5px] transition-all duration-[0.3s] ease-[ease] ml-2.5 top-0;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke: var(--brown);
-    stroke-width: 2;
-    transform: translateX(-5px);
-    transition: all 0.3s ease;
 }
-
 .btn-main:hover:before {
-    width: 100%;
     background: var(--orange);
 }
-
 .btn-main:hover svg {
-    transform: translateX(0);
+    @apply translate-x-0;
 }
-
-.btn-main:active {
-    transform: scale(0.95);
-}
-
 .products-container {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-top: 2%;
+    @apply flex items-center flex-wrap flex-col mt-[2%];
 }
-
 .products-container h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--brown);
-    margin-bottom: 1%;
+    @apply text-[2.5rem] font-[bold] text-[color:var(--brown)] mb-[1%];
 }
-
 .products {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2%;
+    @apply w-full flex justify-center flex-wrap gap-[2%];
 }
-
 .card {
-    background-color: var(--orange);
-    padding: 10px;
-    border-radius: 10px;
-    width: 300px;
-    background-color: var(--brown);
-    
+    @apply bg-[color:var(--orange)] w-[300px] bg-[color:var(--brown)] p-2.5 rounded-[10px];
 }
-
 .card .image-card {
-    width: 100%;
-    height: 200px;
-    border-radius: 10px;
-    padding: 5px;
+    @apply w-full h-[200px] p-[5px] rounded-[10px];
 }
-
 .card p {
-    font-size: 1.2rem;
-    color: var(--pink);
-    text-align: center;
-    margin: 10px 0;
-
+    @apply text-[1.2rem] text-[color:var(--pink)] text-center mx-0 my-2.5;
 }
-
 .card img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
+    @apply w-full h-full rounded-[10px];
 }
-
 .info-card {
-    display: flex;
-    justify-content: space-evenly;
+    @apply flex justify-evenly;
 }
-
 .btn-products {
-    position: relative;
-    margin: 2% 0;
-    padding: 12px 18px;
-    transition: all 0.2s ease;
-    border: none;
+    @apply relative transition-all duration-[0.2s] ease-[ease] cursor-pointer flex items-center mx-0 my-[2%] px-[18px] py-3 rounded-[50px] border-[none] before:content-[""] before:absolute before:block before:w-[45px] before:h-[45px] before:transition-all before:duration-[0.3s] before:ease-[ease] before:rounded-[50px] before:left-0 before:top-0 hover:before:w-full active:scale-95;
     background: none;
-    cursor: pointer;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
 }
-
 .btn-products:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    border-radius: 50px;
     background: var(--pink);
-    width: 45px;
-    height: 45px;
-    transition: all 0.3s ease;
 }
-
 .btn-products span{
-    position: relative;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--brown);
-    text-decoration: none;
+    @apply relative text-lg font-bold tracking-wider text-[color:var(--brown)] no-underline;
 }
 a{
-    text-decoration: none;
-    color: var(--brown);
+    @apply no-underline text-[color:var(--brown)];
 }
 .btn-products svg {
-    position: relative;
-    top: 0;
-    margin-left: 10px;
-    fill: none;
+    @apply relative fill-none stroke-[color:var(--brown)] stroke-2 translate-x-[-5px] transition-all duration-[0.3s] ease-[ease] ml-2.5 top-0;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke: var(--brown);
-    stroke-width: 2;
-    transform: translateX(-5px);
-    transition: all 0.3s ease;
 }
-
 .btn-products:hover:before {
-    width: 100%;
     background: var(--pink);
 }
-
 .btn-products:hover svg {
-    transform: translateX(0);
+    @apply translate-x-0;
 }
-
-.btn-products:active {
-    transform: scale(0.95);
-}
-
 .services {
-    background-color: var(--pink);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 1rem;
+    @apply bg-[color:var(--pink)] flex justify-evenly items-center p-4;
 }
-
 .box-mini {
-    width: 15%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2%;
+    @apply w-[15%] flex justify-evenly items-center flex-wrap gap-[2%];
 }
-
 article img {
-    width: 60%;
-    height: 160px;
-    border-radius: 10px;
+    @apply w-3/5 h-40 rounded-[10px];
 }
-
 .box-mini p {
-    font-size: 1.2rem;
-    color: var(--brown);
-    text-align: center;
-    margin-top: 10px;
+    @apply text-[1.2rem] text-[color:var(--brown)] text-center mt-2.5;
 }
-
 footer {
-    background-color: var(--brown);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 15%;
-    color: var(--pink);
+    @apply bg-[color:var(--brown)] flex justify-between items-center text-[color:var(--pink)] px-[15%] py-10;
 }
-
 footer a {
-    color: var(--pink);
-    text-decoration: none;
+    @apply text-[color:var(--pink)] no-underline;
 }
-
 footer-menu {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    gap: 2%;
+    @apply flex gap-2.5 items-center gap-[2%];
 }
-
 footer-menu a {
-    margin: 0 0px;
+    @apply m-0;
 }
-
 .content-footer {
-    margin: 0 5px;
+    @apply mx-[5px] my-0;
 }

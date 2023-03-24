@@ -1,41 +1,4 @@
-.login-box {
-    @apply absolute w-[400px] -translate-x-2/4 translate-y-[-55%] box-border shadow-[0_15px_25px_#00000099] mx-auto my-5 p-10 rounded-[10px] left-2/4 top-2/4;
-    background: #473b3be3;
-}
-  
-  .login-box p:first-child {
-    @apply text-white text-center text-2xl font-[bold] tracking-[1px] mt-0 mb-[30px] mx-0 p-0;
-}
-  
-  .login-box .user-box {
-    @apply relative;
-}
-  
- .login-box .user-box input {
-    @apply w-full text-base text-white mb-[30px] px-0 py-2.5 border-b-white border-[none] border-b border-solid;
-    outline: none;
-    background: transparent;
-}
-.login-box .user-box label {
-    @apply absolute text-base text-white pointer-events-none transition-[0.5s] px-0 py-2.5 left-0 top-0;
-}
-  
-  .login-box .user-box input:focus ~ label,
-  .login-box .user-box input:valid ~ label {
-    @apply text-white text-xs left-0 -top-5;
-}
-.login-box form a {
-    @apply relative inline-block font-[bold] text-white text-base no-underline uppercase overflow-hidden transition-[0.5s] tracking-[3px] mt-10 px-5 py-2.5
-}
-.login-box a:hover {
-    @apply text-[#272727] rounded-[5px];
-    background: #fff;
-}
-.login-box a span {
-    @apply absolute block;
-}
-  
- .login-box a span:nth-child(1) {
+a span:nth-child(1) {
     @apply w-full h-0.5 animate-[btn-anim1_1.5s_linear_infinite] -left-full top-0;
     background: linear-gradient(90deg, transparent, #fff);
 }
@@ -50,7 +13,7 @@
     }
   }
   
-  .login-box a span:nth-child(2) {
+a span:nth-child(2) {
     @apply w-0.5 h-full animate-[btn-anim2_1.5s_linear_infinite] right-0 -top-full;
     background: linear-gradient(180deg, transparent, #fff);
     animation-delay: .375s
@@ -66,7 +29,7 @@
     }
   }
   
-  .login-box a span:nth-child(3) {
+a span:nth-child(3) {
     @apply w-full h-0.5 animate-[btn-anim3_1.5s_linear_infinite] -right-full bottom-0;
     background: linear-gradient(270deg, transparent, #fff);
     animation-delay: .75s
@@ -81,7 +44,7 @@
       right: 100%;
     }
   }
- .login-box a span:nth-child(4) {
+ a span:nth-child(4) {
     @apply w-0.5 h-full animate-[btn-anim4_1.5s_linear_infinite] left-0 -bottom-full;
     background: linear-gradient(360deg, transparent, #fff);
     animation-delay: 1.125s
@@ -97,12 +60,3 @@
     }
   }
   
-.login-box p:last-child {
-    @apply text-[#aaa] text-sm;
-}
-.login-box a.a2 {
-    @apply text-white no-underline hover:text-[#aaa] hover:rounded-[5px];
-}
-.login-box a.a2:hover {
-    background: transparent;
-}
