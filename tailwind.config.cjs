@@ -5,6 +5,11 @@ module.exports = {
     "./public/index.html",
   ],
   theme: {
+     fontFamily: {
+      'alkatra': 'Alkatra',
+      'roboto': ['Roboto'],
+      'nunito': ['Nunito Sans']
+    },
     extend: {},
   },
   plugins: [],

@@ -9,14 +9,13 @@ export const Main = () => {
     <main>
       <section className="section-main">
         <div
-          className="section-left"
+          className="flex justify-center items-center flex-col"
           data-aos="fade-up-right"
-          data-aos-duration="1500"
-        >
-          <p className="text-main">
+          data-aos-duration="1500">
+          <p className="text-5xl font-bold uppercase text-[color:var(--brown)] text-center">
             Deleitate con nuestros <br />
             deliciosos productos <br />
-            <span> Los mejores precios! </span>
+            <span className="text-[color:var(--orange)]"> Los mejores precios! </span>
           </p>
           <button className="btn-main">
             <span>
@@ -36,6 +35,7 @@ export const Main = () => {
           <img
             src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721661/kopy/canva_c8envd.jpg"
             alt="imagen demostrativa"
+            className="w-full h-full object-cover object-[center_-110px] rounded-[100%] "
           />
         </div>
       </section>
@@ -43,7 +43,7 @@ export const Main = () => {
         <h2 data-aos="zoom-out" data-aos-duration="1000">
           Productos destacados
         </h2>
-        <div className="products">
+        <div className="w-full flex justify-center flex-wrap">
           <div className="card" data-aos="zoom-in-up" data-aos-duration="1000">
             <div className="image-card">
               <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721659/kopy/cafe-rosa_jn8jjd.jpg" />
@@ -93,16 +93,16 @@ export const Main = () => {
           </svg>
         </button>
       </section>
-      <article className="services">
-        <div className="box-mini" data-aos="fade-right" data-aos-duration="1500">
+      <article className="bg-[color:var(--pink)] flex items-center p-4 flex-wrap flex-col sm:flex sm:flex-row sm:justify-evenly gap-5">
+        <div className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]" data-aos="fade-up" data-aos-duration="1500">
           <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980032/kopy/camionEnvio_yn0wjt.webp" />
           <p> Envios a toda la ciudad</p>
         </div>
-        <div className="box-mini" data-aos="fade-up" data-aos-duration="1500">
+        <div className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]" data-aos="fade-up" data-aos-duration="1500">
           <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980057/kopy/pagsos_o0lwmc.png" />
           <p> Todos los medios de pago</p>
         </div>
-        <div className="box-mini" data-aos="fade-left" data-aos-duration="1500">
+        <div className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]" data-aos="fade-up" data-aos-duration="1500">
           <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980047/kopy/sonreir_a61eep.png" />
           <p> Cliente satisfecho</p>
         </div>

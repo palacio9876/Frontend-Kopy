@@ -8,22 +8,6 @@
     --blue: rgba(34, 146, 164, 1);
     --orange: rgb(213, 96, 18);
 }
-nav {
-    @apply ml-[100px];
-}
-nav ul {
-    @apply flex items-center justify-center flex-wrap;
-}
-nav ul li {
-    @apply mx-[5px] my-0;
-    list-style: none;
-}
-nav ul li a {
-    @apply text-[color:var(--pink)] no-underline font-[bold] text-[1.2rem];
-}
-.login-register {
-    @apply flex justify-center items-center flex-wrap gap-2.5;
-}
 .login-register a {
     @apply w-[150px] text-center;
 }
@@ -44,27 +28,13 @@ nav ul li a {
     flex-wrap: wrap;
     gap: 2%;
     height: 100vh;
-    /* background-color: var(--pink); */
     background-image: url(https://res.cloudinary.com/dyhfwq81d/image/upload/v1679002786/simple_ufhyhm.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
-
-.section-left {
-    @apply flex justify-center items-center flex-col;
-}
 .section-right {
-    @apply flex justify-center items-center;
-}
-.section-right img {
-    @apply w-[30rem] h-[30rem] object-cover object-[center_-238px] rounded-[100%];
-}
-.text-main {
-    @apply text-5xl font-[bold] uppercase text-[color:var(--brown)];
-}
-.text-main span {
-    @apply text-[color:var(--orange)];
+    @apply flex justify-center items-center w-96 h-96;
 }
 .btn-main {
     @apply relative transition-all duration-[0.2s] ease-[ease] cursor-pointer flex items-center m-auto px-[18px] py-3 rounded-[50px] border-[none] before:content-[""] before:absolute before:block before:w-[45px] before:h-[45px] before:transition-all before:duration-[0.3s] before:ease-[ease] before:rounded-[50px] before:left-0 before:top-0 hover:before:w-full active:scale-95;
@@ -93,11 +63,8 @@ nav ul li a {
 .products-container h2 {
     @apply text-[2.5rem] font-[bold] text-[color:var(--brown)] mb-[1%];
 }
-.products {
-    @apply w-full flex justify-center flex-wrap gap-[2%];
-}
 .card {
-    @apply bg-[color:var(--orange)] w-[300px] bg-[color:var(--brown)] p-2.5 rounded-[10px];
+    @apply w-[300px] bg-[color:var(--brown)] p-2.5 rounded-[10px] m-2;
 }
 .card .image-card {
     @apply w-full h-[200px] p-[5px] rounded-[10px];
@@ -135,14 +102,8 @@ a{
 .btn-products:hover svg {
     @apply translate-x-0;
 }
-.services {
-    @apply bg-[color:var(--pink)] flex justify-evenly items-center p-4;
-}
-.box-mini {
-    @apply w-[15%] flex justify-evenly items-center flex-wrap gap-[2%];
-}
 article img {
-    @apply w-3/5 h-40 rounded-[10px];
+    @apply w-3/5 h-32 rounded-[10px];
 }
 .box-mini p {
     @apply text-[1.2rem] text-[color:var(--brown)] text-center mt-2.5;
@@ -154,7 +115,7 @@ footer a {
     @apply text-[color:var(--pink)] no-underline;
 }
 footer-menu {
-    @apply flex gap-2.5 items-center gap-[2%];
+    @apply flex items-center gap-[2%];
 }
 footer-menu a {
     @apply m-0;
