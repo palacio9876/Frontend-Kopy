@@ -7,6 +7,8 @@ import {Register} from "./pages/Register.jsx";
 import {Login} from "./pages/Login"
 import { Error404 } from "./pages/Error404.jsx";
 import { Helmet } from "react-helmet";
+import {Recuerarpassword}  from "./pages/Recuerar-password";
+import { Recuperar } from "./pages/Recuperar";
 
 function App() {
   return (
@@ -20,6 +22,10 @@ function App() {
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/registro" element={<Register />} />
+        <Route path="/recuperar" element={<Recuerarpassword/>} />
+        <Route path="/recover" element={<Recuperar/>} />
+
+
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Error404 />} />
       </Routes>

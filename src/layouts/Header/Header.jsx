@@ -19,6 +19,7 @@ export const Header = () => {
         <div className="flex justify-center items-center flex-wrap gap-2.5 font-roboto text-center w-34">
             <NavLink to='/login' className="relative uppercase no-underline p-2.5 rounded-2xl border-solid border-orange-500 border-2 font-medium text-orange-500">Iniciar sesion</NavLink>
             <NavLink to='/registro' className="relative uppercase no-underline p-2.5 rounded-2xl  border-solid border-red-200 border-2 font-medium text-red-100">Registro</NavLink>
+            <NavLink to='/recuperar' className="relative uppercase no-underline p-2.5 rounded-2xl  border-solid border-red-200 border-2 font-medium text-red-100">Recuperar Contraseña</NavLink>
         </div>
     </header>
   )
