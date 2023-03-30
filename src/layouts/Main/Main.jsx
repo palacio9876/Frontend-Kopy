@@ -12,7 +12,7 @@ export const Main = () => {
           className="flex justify-center items-center flex-col"
           data-aos="fade-up-right"
           data-aos-duration="1500">
-          <p className="text-5xl font-bold uppercase text-[color:var(--brown)] text-center">
+          <p className="text-5xl font-bold uppercase text-[color:var(--brown)] text-center font-alkatra">
             Deleitate con nuestros <br />
             deliciosos productos <br />
             <span className="text-[color:var(--orange)]"> Los mejores precios! </span>

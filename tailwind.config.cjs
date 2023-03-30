@@ -5,9 +5,8 @@ module.exports = {
     "./public/index.html",
   ],
   theme: {
-     fontFamily: {
+    fontFamily: {
       'alkatra': 'Alkatra',
-      'roboto': ['Roboto'],
       'nunito': ['Nunito Sans']
     },
     extend: {},
