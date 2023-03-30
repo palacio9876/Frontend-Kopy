@@ -41,7 +41,7 @@ export const Login = () => {
         <p className="text-[#aaa] text-sm">
           ¿No tienes una cuenta?{" "}
           <NavLink
-            to="/registro"
+            to="/register"
             className="text-white no-underline hover:text-[#aaa] hover:rounded-[5px] hover:bg-transparent"
           >
             Registrate!
@@ -49,7 +49,7 @@ export const Login = () => {
         </p>
         <p className="text-[#aaa] text-sm">
           <NavLink
-            to="/recuperar"
+            to="/recoverpassword"
             className="text-white no-underline hover:text-[#aaa] hover:rounded-[5px] hover:bg-transparent"
           >
             ¿Olvidaste tu contraseña?

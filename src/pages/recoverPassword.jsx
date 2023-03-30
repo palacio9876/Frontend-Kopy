@@ -1,25 +1,16 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
-
-export const Recuerarpassword = () => {
-    const [email, setEmail] = useState('');
-
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      console.log('Email:', email);
-    };
-  
-    const handleEmailChange = (event) => {
-      setEmail(event.target.value);
-    };
+export const RecoverPassword = () => {
+     
+ 
 
   return (
     <>
     <div className="bg-[url('https://res.cloudinary.com/dyhfwq81d/image/upload/v1679053889/pexels-hu%E1%BB%B3nh-%C4%91%E1%BA%A1t-2313037_qvujla.jpg')] h-screen W-full bg-cover bg-center p-24 flex items-center justify-center ">
-
-<form onSubmit={handleSubmit}>
+    <div className="absolute w-[400px] -translate-x-2/4 translate-y-[-55%] box-border shadow-[0_15px_25px_#00000099] mx-auto my-5 p-10 rounded-[10px] left-2/4 top-2/4 bg-[#473b3be3]">
+<form >
          
           <div className="relative">
             <input
@@ -28,12 +19,12 @@ export const Recuerarpassword = () => {
               name="email"
               id="email"
               type="email"
-              onChange={handleEmailChange}
               placeholder="Correo electronico"
             />
 
           </div>  
-          <button type="submit">
+           <button type='Submit'  >
+            <NavLink to='/recover'>
             <a className="group relative inline-block font-[bold] text-white text-base no-underline uppercase overflow-hidden transition-[0.5s] tracking-[3px] mt-10 px-5 py-2.5 hover:bg-white ">
               <span className="absolute block animate-[btn-anim1_1.5s_linear_infinite]-left-full w-full h-0.5 top-0 background: linear-gradient(90deg, transparent, #fff)"></span>
               <span className="absolute block animate-[btn-anim2_1.5s_linear_infinite]-top-full w-0.5 h-full right-0 background: linear-gradient(180deg, transparent, #fff)"></span>
@@ -41,21 +32,12 @@ export const Recuerarpassword = () => {
               <span className="absolute block animate-[btn-anim4_1.5s_linear_infinite]-bottom-full w-0.5 left-0 background: linear-gradient(360deg, transparent, #fff)"></span>
               <p className="group-hover:text-black">Enviar codigo</p>
             </a>
-             </button> 
-             <br/>
-             <NavLink
-            to="/recover"
-            className="text-white no-underline hover:text-[#aaa] hover:rounded-[4px] hover:bg-transparen<"
-          >
-            Recuperar Cuanta
-          </NavLink>
-
+            </NavLink>
+             </button>
              </form>
-               
-
+        </div> 
         </div>
-         
-        
-    </>
-  )
-};
+          </>
+  );
+}
+
