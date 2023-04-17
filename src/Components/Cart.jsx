@@ -27,6 +27,9 @@ export const Cart = ({
         setTotal(0);
         setCountProducts(0);
     };
+    const onCashProduct = () => {
+       alert('Esta efectuando una compra de '+ total)
+    };
     return (
         <header>
             <h1>Tienda</h1>
@@ -101,6 +104,9 @@ export const Cart = ({
 
                             <button className='btn-clear-all' onClick={onCleanCart}>
                                 Vaciar Carrito
+                            </button>
+                            <button className='btn-clear-all' onClick={onCashProduct}>
+                               Comprar
                             </button>
                         </>
                     ) : (

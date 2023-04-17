@@ -41,9 +41,9 @@ export const Register = () => {
             <input
               className="w-full text-base text-white mb-[30px] px-0 py-2.5 border-b-white border-[none] border-b border-solid bg-transparent outline-0 left-0 -top-5 placeholder:text-white"
               required
-              id="username"
+              id="name"
               onChange={handleInputChange}
-              name="username"
+              name="nombre"
               type="text"
               placeholder="Nombre"
             />
