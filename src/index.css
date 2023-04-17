@@ -136,6 +136,9 @@ header {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 20px;
+	width: 70%;
+	height: 50%;
+	margin-left: 200px;
 }
 
 .item {
