@@ -9,6 +9,8 @@ import { Error404 } from "./pages/Error404.jsx";
 import { Helmet } from "react-helmet";
 import { RecoverPassword } from "./pages/recoverPassword";
 import { Recover } from "./pages/Recover";
+import { RegisterAdmin } from "./pages/RegisterAdmin";
+import { LoginAdmin } from "./pages/LoginAdmin";
 
 function App() {
   return (
@@ -26,9 +28,12 @@ function App() {
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/registerAdmin" element={<RegisterAdmin />} />
         <Route path="/recoverpassword" element={<RecoverPassword />} />
         <Route path="/recover" element={<Recover />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/loginAdmin" element={<LoginAdmin />} />
+
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
