@@ -9,6 +9,7 @@ import { Error404 } from "./pages/Error404.jsx";
 import { Helmet } from "react-helmet";
 import { RecoverPassword } from "./pages/recoverPassword";
 import { Recover } from "./pages/Recover";
+import { ProfileUser } from "./pages/ProfileUser";
 import { RegisterAdmin } from "./pages/RegisterAdmin";
 import { LoginAdmin } from "./pages/LoginAdmin";
 
@@ -17,7 +18,6 @@ function App() {
     <div className="App">
       <Helmet>
         <link
-          className="logo-pestaña"
           rel="shortcut icon"
           href="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678978391/kopy/K_2_v9swkk.png"
         />
@@ -28,12 +28,12 @@ function App() {
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/registerAdmin" element={<RegisterAdmin />} />
         <Route path="/recoverpassword" element={<RecoverPassword />} />
+        <Route path="/registerAdmin" element={<RegisterAdmin />} />
+        <Route path="/loginAdmin" element={<LoginAdmin />} />
         <Route path="/recover" element={<Recover />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/loginAdmin" element={<LoginAdmin />} />
-
+        <Route path="/profile" element={<ProfileUser />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
