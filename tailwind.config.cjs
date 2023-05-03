@@ -6,8 +6,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'alkatra': 'Alkatra',
-      'nunito': ['Nunito Sans']
+      'alkatra': ['Alkatra', 'Sans Serif']
     },
     extend: {},
   },
