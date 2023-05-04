@@ -5,10 +5,10 @@
 }
 
 :root {
-    --brown: rgba(71, 59, 59, 0.89);
-    --pink: rgb(236, 218, 206);
-    --green: rgba(0, 68, 0, 1);
-    --blue: rgba(34, 146, 164, 1);
+    --brown: #473b3be3;
+    --pink: #ecdbcf;
+    --green: #004400;
+    --blue: #2292a4;
     --orange: #d56012;
 }
 

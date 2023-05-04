@@ -1,14 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx}",
-    "./public/index.html",
-  ],
+  content: ["./src/**/*.{js,jsx}", "./public/index.html"],
   theme: {
-    fontFamily: {
-      'alkatra': ['Alkatra', 'Sans Serif']
+    extend: { 
+      colors: {
+      'brown-kopy':'#473b3be3',
+      'pink-kopy': '#ecdbcf',
+      'green-kopy':'#004400',
+      'blue-kopy': '#2292a4',
+      'orange-kopy': '#d56012'
     },
-    extend: {},
+    fontFamily: {
+      alkatra: ["Alkatra", "Sans Serif"],
+    }
+  },
   },
   plugins: [],
-}
+};

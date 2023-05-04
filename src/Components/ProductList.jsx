@@ -37,7 +37,7 @@ import React from "react";
         <h2>{article.nameProduct}</h2>
         <p className="price">${article.price}</p>
         <div className="article-footer">
-          <span>{article.date} · </span>
+          <span>{article.date} </span>
           <span>{article.ReadingTime}</span>
         </div>
         <button onClick={() => onAddProduct(article)}>Añadir al carrito</button>
