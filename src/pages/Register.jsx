@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import register from '../api/ApiConnection'
+
 
 export const Register = () => {
   // CONECTAR CON BACKEND MEDIANTE AXIOS Y USESTATE
@@ -36,19 +36,19 @@ export const Register = () => {
       
 
 
-    // toast.success("Resgister is sucessfull!", {
-    //   position: "top-right",
-    //   autoClose: 1000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    //   theme: "Dark",
-    // });
-    // setTimeout(() => {
-    //   navigate("/login");
-    // }, 2000);
+    toast.success("Resgister is sucessfull!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "Dark",
+    });
+    setTimeout(() => {
+      navigate("/login");
+    }, 2000);
   };
   const validate = (e) => {
     if (input.lenght == 0) {
