@@ -21,11 +21,6 @@
 
 }
 
-.tittle-catalogo {
-    text-align: center;
-    font-size: 3rem;
-    color: var(--brown);
-}
 
 .btn-catalogo {
     background-color: var(--orange);

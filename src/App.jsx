@@ -35,7 +35,7 @@ function App() {
         <Route path="/recover" element={<Recover />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<ProfileUser />} />
-        <Route path="/addProducto" element={<AddProduct />} />
+        <Route path="/addProduct" element={<AddProduct />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
