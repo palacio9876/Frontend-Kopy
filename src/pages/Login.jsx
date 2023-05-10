@@ -3,11 +3,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../assets/css/Login.css";
 import Axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Login = () => {
   const [form, setForm] = useState({
-    nombre: "",
-    apellido: "",
     email: "",
     password: "",
   });
@@ -15,8 +15,7 @@ export const Login = () => {
   const handleInputChange = ({ target }) => {
     setForm({
       ...form,
-      [target.name]: target.value,
-      [target.apellido]: target.value,
+  
       [target.email]: target.value,
       [target.password]: target.value,
     });
@@ -25,10 +24,39 @@ export const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form);
-    Axios.post("http://localhost:3020/api/login", form)
+    Axios.post("http://localhost:3020/user/login", form)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    navigate("/login");
+
+      toast.success("Login is sucessfull!", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "Dark",
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    
+    const validate = (e) => {
+      if (input.lenght == 0) {
+        toast.success("this field Don't be empty !", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "Dark",
+        });
+      }
+    };
+  
 
     
   };
@@ -40,12 +68,13 @@ export const Login = () => {
         <p className="text-white text-center text-2xl font-[bold] tracking-[1px] mt-0 mb-[30px] mx-0 p-0;">
           Inicio de sesión
         </p>
-        <form className="flex flex-col">
+        <form onSubmit={handleSubmit} className="flex flex-col">
           <div className="relative">
             <input
               className="w-full text-base mb-[30px] px-0 py-2.5 border-b-white border-[none] border-b border-solid bg-transparent outline-0 text-white left-0 -top-5 placeholder:text-white"
-              name=""
-              type="text"
+              onChange={handleInputChange}
+              name="email"
+              type="email"
               placeholder="Correo"
             />
           </div>
@@ -53,7 +82,8 @@ export const Login = () => {
             <input
               className="w-full text-base mb-[30px] px-0 py-2.5 border-b-white border-[none] border-b border-solid bg-transparent outline-0 text-white left-0 -top-5 placeholder:text-white"
               required=""
-              name=""
+              onChange={handleInputChange}
+              name="password"
               type="password"
               placeholder="Contraseña"
             />
