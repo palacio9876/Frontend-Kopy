@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import register from '../api/ApiConnection'
 
 export const Register = () => {
   // CONECTAR CON BACKEND MEDIANTE AXIOS Y USESTATE
@@ -25,26 +26,29 @@ export const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
-    Axios.post("http://localhost:3020/user/registro", form)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    let data = await Axios.post("http://localhost:3020/user/registro", form)
+      .then((res) => {return res})
+      .catch((err) => {return err});
+    console.log(data);
+      
 
-    toast.success("Resgister is sucessfull!", {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "Dark",
-    });
-    setTimeout(() => {
-      navigate("/login");
-    }, 2000);
+
+    // toast.success("Resgister is sucessfull!", {
+    //   position: "top-right",
+    //   autoClose: 1000,
+    //   hideProgressBar: false,
+    //   closeOnClick: true,
+    //   pauseOnHover: true,
+    //   draggable: true,
+    //   progress: undefined,
+    //   theme: "Dark",
+    // });
+    // setTimeout(() => {
+    //   navigate("/login");
+    // }, 2000);
   };
   const validate = (e) => {
     if (input.lenght == 0) {
