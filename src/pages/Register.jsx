@@ -9,6 +9,8 @@ export const Register = () => {
   const [form, setForm] = useState({
     nombre: "",
     apellido: "",
+    telefono: "",
+    direccion: "",
     email: "",
     password: "",
   });
@@ -26,7 +28,7 @@ export const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form);
-    Axios.post("http://localhost:3020/api/registro", form)
+    Axios.post("http://localhost:3020/user/registro", form)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
@@ -86,6 +88,28 @@ export const Register = () => {
                 name="apellido"
                 type="text"
                 placeholder="Apellido"
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="relative">
+              <input
+                className="w-full text-base text-white mb-[30px] px-0 py-2.5 border-b-white border-[none] border-b border-solid bg-transparent outline-0 left-0 -top-5 placeholder:text-white"
+                required
+                name="telefono"
+                type="text"
+                placeholder="Telefono"
+                onChange={handleInputChange}
+                minLength={10}
+                maxLength={10}
+              />
+            </div>
+            <div className="relative">
+              <input
+                className="w-full text-base text-white mb-[30px] px-0 py-2.5 border-b-white border-[none] border-b border-solid bg-transparent outline-0 left-0 -top-5 placeholder:text-white"
+                required
+                name="direccion"
+                type="text"
+                placeholder="Direccion"
                 onChange={handleInputChange}
               />
             </div>

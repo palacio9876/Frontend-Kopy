@@ -12,6 +12,7 @@ import { Recover } from "./pages/Recover";
 import { ProfileUser } from "./pages/ProfileUser";
 import { RegisterAdmin } from "./pages/RegisterAdmin";
 import { LoginAdmin } from "./pages/LoginAdmin";
+import { AddProduct } from "./pages/AddProduct";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/recover" element={<Recover />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<ProfileUser />} />
+        <Route path="/addProduct" element={<AddProduct />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>

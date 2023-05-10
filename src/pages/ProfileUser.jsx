@@ -1,8 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "../layouts/Header/Header";
 import { Footer } from "../layouts/Footer/Footer";
-
+import { useNavigate } from "react-router-dom";
+import Axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 export const ProfileUser = () => {
+  const [data, setData] = useState({
+    id: "",
+    nombre: "",
+    apellido: "",
+    telefono: "",
+    direccion: "",
+    email: "",
+  });
+  const navigate = useNavigate();
+  const handleInputChange = ({ target }) => {
+    setData({
+      ...data,
+      [target.id]: target.value,
+      [target.name]: target.value,
+      [target.apellido]: target.value,
+      [target.telefono]: target.value,
+      [target.direccion]: target.value,
+      [target.email]: target.value,
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(data);
+    Axios.post("http://localhost:3020/user/update", data)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+
+    toast.success("UPDATE profile is sucessfull!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "Dark",
+    });
+    setTimeout(() => {
+      navigate("/");
+    }
+    , 2000);
+
+
+  };
+
   console.log("profile");
   return (
     <>
@@ -45,11 +92,31 @@ export const ProfileUser = () => {
               Informacion de tu cuenta
             </p>
             <div className="flex flex-wrap gap-4">
+
+
+              <form onSubmit={handleSubmit}>
+
+              <fieldset className="w-[49%]">
+                <label for="" className="text-gray-500">
+                  Identificacion
+                </label>
+                <input
+                  onChange={handleInputChange}
+                  name="id"
+                  type="number"
+                  className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
+                />
+              </fieldset>
+
+
+
               <fieldset className="w-[49%]">
                 <label for="" className="text-gray-500">
                   Nombre
                 </label>
                 <input
+                  onChange={handleInputChange}
+                  name="nombre"
                   type="text"
                   className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
                 />
@@ -59,6 +126,8 @@ export const ProfileUser = () => {
                   Apellido
                 </label>
                 <input
+                  name="apellido"
+                  onChange={handleInputChange}
                   type="text"
                   className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
                 />
@@ -67,7 +136,10 @@ export const ProfileUser = () => {
                 <label for="" className="text-gray-500">
                   Correo Electronico
                 </label>
+
                 <input
+                onChange={handleInputChange}
+                name="email"
                   type="text"
                   className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
                 />
@@ -76,7 +148,10 @@ export const ProfileUser = () => {
                 <label for="" className="text-gray-500">
                   Celular
                 </label>
+
                 <input
+                onChange={handleInputChange}
+                  name="telefono"
                   type="number"
                   className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
                 />
@@ -86,23 +161,30 @@ export const ProfileUser = () => {
                   Direccion
                 </label>
                 <input
+                onChange={handleInputChange}
+                  name="direccion"
                   type="text"
                   className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
                 />
               </fieldset>
+              <button type="submit" className="btn-main">
+              <span>
+                <a>Actualizar datos</a>
+              </span>
+              <svg viewBox="0 0 13 10" height="10px" width="15px">
+                <path d="M1,5 L11,5"></path>
+                <polyline points="8 1 12 5 8 9"></polyline>
+              </svg>
+            </button>
+            
+              </form>
             </div>
-            <button className="btn-main">
-            <span>
-              <a>Actualizar datos</a>
-            </span>
-            <svg viewBox="0 0 13 10" height="10px" width="15px">
-              <path d="M1,5 L11,5"></path>
-              <polyline points="8 1 12 5 8 9"></polyline>
-            </svg>
-          </button>
+            
+           
           </div>
           
         </div>
+        
       </main>
       <Footer />
     </>

@@ -34,7 +34,7 @@ export const Catalogo = () => {
     <>
       <Header />
       <main className="main-catalogo">
-        <h1 className="tittle-catalogo">Catalogo</h1>
+        <h1 className="text-center text-5xl text-brown-kopy my-3">Catalogo</h1>
 
         <div className="btns-catalogo">{categories.map((category) => (
           <button className="todo btn-catalogo"
