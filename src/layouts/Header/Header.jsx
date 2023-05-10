@@ -10,21 +10,6 @@ const datauser = async () =>
   });
 
 export const Header = () => {
-  
- 
-  const [user, setUser] = useState([{ name: "", email: "" }]);
-  AOS.init();
-  useEffect(() => {
-    async function dataUserLoad() {
-      const response = await dataUser();
-      if (response.data.name) {
-        setUser(response.data);
-      } else {
-        console.log("not response");
-      }
-    }
-    dataUserLoad();
-  }, [user]);
   return (
     <header className="bg-brown-kopy flex justify-between items-center px-[5%] py-2.5">
       <div className="logo">
@@ -61,14 +46,6 @@ export const Header = () => {
           </li>
         </ul>
       </nav>
-      {/* {data ? (
-        <p>{data}</p>
-      ) : (
-        <p>Cargando...</p>
-      )} */}
-      {user[0].name != "" ? (
-        user[0].name
-      ) : (
         <div className="flex justify-center items-center flex-wrap gap-2.5 font-roboto text-center w-34">
           <NavLink
             to="/login"
@@ -83,7 +60,6 @@ export const Header = () => {
             Registro
           </NavLink>
         </div>
-      )}
     </header>
   );
 };

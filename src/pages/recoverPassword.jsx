@@ -48,10 +48,6 @@ export const RecoverPassword = () => {
 
   };
 
-
-
- 
-
   return (
     <>
     <div className="bg-[url('https://res.cloudinary.com/dyhfwq81d/image/upload/v1679053889/pexels-hu%E1%BB%B3nh-%C4%91%E1%BA%A1t-2313037_qvujla.jpg')] h-screen W-full bg-cover bg-center p-24 flex items-center justify-center ">
