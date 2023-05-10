@@ -9,20 +9,18 @@ import { toast } from 'react-toastify';
 export const RecoverPassword = () => {
 
 
-  const [form, setForm] = useState({
-    email: ""
+  const [form, setForm ,] = useState({
+    email: "",
   })
   
   const navigate = useNavigate();
   const handleInputChange = ({ target }) => {
-    console.log(target);
     setForm({
-      
       ...form,
-      [target.email]: target.value,
+      [target.name]: target.value,
+
       
     });
-    console.log(email);
   };
 
   const handleSubmitForm = (e) => {
@@ -31,20 +29,20 @@ export const RecoverPassword = () => {
     Axios.post("http://localhost:3020/user/recuperar", form)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    // toast.success("Recover is sucessfull!", {
-    //   position: "top-right",
-    //   autoClose: 1000,
-    //   hideProgressBar: false,
-    //   closeOnClick: true,
-    //   pauseOnHover: true,
-    //   draggable: true,
-    //   progress: undefined,
-    //   theme: "Dark",
-    // });
-    // setTimeout(() => {
-    //   navigate("/");
-    // }
-    // , 2000);
+    toast.success("Recover is sucessfull!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "Dark",
+    });
+    setTimeout(() => {
+      navigate("/recover");
+    }
+    , 2000);
 
 
 

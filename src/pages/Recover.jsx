@@ -27,17 +27,6 @@ export const Recover = () => {
             <input
               className="w-full text-base text-white mb-[30px] px-0 py-2.5 border-b-white border-[none] border-b border-solid bg-transparent outline-0 left-0 -top-5 placeholder:text-white"
               required
-              name="email"
-              id="email"
-              type="email"
-              onChange={handleEmailChange}
-              placeholder="Correo electronico"
-            />
-          </div>  
-          <div className="relative">
-            <input
-              className="w-full text-base text-white mb-[30px] px-0 py-2.5 border-b-white border-[none] border-b border-solid bg-transparent outline-0 left-0 -top-5 placeholder:text-white"
-              required
               name="id"
               id="email"
               type="password"
