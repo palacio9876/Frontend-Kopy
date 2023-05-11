@@ -31,6 +31,7 @@ export const Recover = () => {
               id="email"
               type="password"
               onChange={handleEmailChange}
+              autoComplete='off'
               placeholder="Ingrese su codigo de verificacion"
             />
           </div>  
@@ -42,6 +43,7 @@ export const Recover = () => {
               id="email"
               type="password"
               onChange={handleEmailChange}
+              autoComplete='off'
               placeholder="Ingrese su nueva contraseña"
             />
           </div>  
