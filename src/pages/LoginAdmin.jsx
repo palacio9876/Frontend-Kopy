@@ -45,10 +45,8 @@ const navigate= useNavigate();
               name=""
               type="text"
               placeholder="Correo"
-              
+              autoComplete="off"
             />
-            
-            
           </div>
           <div className="relative">
             <input
@@ -57,6 +55,7 @@ const navigate= useNavigate();
               name=""
               type="password"
               placeholder="Contraseña"
+              autoComplete="off"
             />
           </div>
           <button type="submit">
@@ -65,7 +64,7 @@ const navigate= useNavigate();
               <span className="absolute block animate-[btn-anim2_1.5s_linear_infinite]-top-full w-0.5 h-full right-0 background: linear-gradient(180deg, transparent, #fff)"></span>
               <span className="absolute block animate-[btn-anim3_1.5s_linear_infinite]-right-full bottom-0 background: linear-gradient(270deg, transparent, #fff) animation-delay: .75s"></span>
               <span className="absolute block animate-[btn-anim4_1.5s_linear_infinite]-bottom-full w-0.5 left-0 background: linear-gradient(360deg, transparent, #fff)"></span>
-              <p className="group-hover:text-black">Entrar</p>
+              <p className="group-hover:text-black">Iniciar sesión</p>
             </a>
           </button>
         </form>

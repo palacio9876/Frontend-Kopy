@@ -61,6 +61,7 @@ export const RecoverPassword = () => {
               name="email"
               type="email"
               onChange={handleInputChange}
+              autoComplete='off'
               placeholder="Correo electronico"
             />
 
