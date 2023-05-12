@@ -1,6 +1,22 @@
-import React from "react";
+import React,{useState} from "react";
 
 export const MainAddProducto = () => {
+
+
+  const [product, setProduct]=useState({
+    name:'',
+    price:'',
+    descripcion:'',
+    categoria:'',
+    image:''  });
+
+    const handleInputChange = (e) => {}
+
+
+
+
+
+
   return (
     <main className="bg-pink-kopy">
       <h1 className="text-brown-kopy text-center text-4xl pt-4">Agregar un producto</h1>
