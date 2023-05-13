@@ -1,15 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-
-
 import Axios from 'axios';
 import { toast } from 'react-toastify';
 
-export const RecoverPassword = () => {
-
-
-
+export const RecoverPasswordAdmin = () => {
   const [form, setForm ,] = useState({
     email: "",   
   })
@@ -18,7 +13,7 @@ export const RecoverPassword = () => {
   const handleInputChange = ({ target }) => {
     setForm({
       ...form,
-      [target.name]: target.value,
+      [target.email]: target.value,
 
       
     });
@@ -27,7 +22,7 @@ export const RecoverPassword = () => {
   const handleSubmitForm = (e) => {
     e.preventDefault();
     console.log(form);
-    Axios.post("http://localhost:3020/user/recuperar", form)
+    Axios.post("http://localhost:3020/admin/verificar", form)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     toast.success("Recover is sucessfull!", {
@@ -41,7 +36,7 @@ export const RecoverPassword = () => {
       theme: "Dark",
     });
     setTimeout(() => {
-      navigate("/recover");
+      navigate("/recoverAdmi");
     }
     , 2000);
 
