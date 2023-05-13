@@ -22,12 +22,16 @@ import "react-toastify/dist/ReactToastify.css";
       });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       
-      Axios.post("http://localhost:3020/user/login", form)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err)); 
+      const response = await Axios.post("http://localhost:3020/user/login", form)
+      console.log(response);
+      if (response.status == 200) {
+        let rol = 'cliente';
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("rol", rol);
+      }
         
       toast.success("Login is sucessfull!", {
         position: "top-right",
@@ -39,9 +43,7 @@ import "react-toastify/dist/ReactToastify.css";
         progress: undefined,
         theme: "Dark",
       });
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
+      navigate("/");
 
       const validate = (e) => {
         if (input.lenght == 0) {

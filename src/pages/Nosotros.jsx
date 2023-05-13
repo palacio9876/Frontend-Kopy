@@ -1,12 +1,19 @@
 import React from "react";
 import { Footer } from "../layouts/Footer/Footer";
-import { Header } from "../layouts/Header/Header";
 import "../assets/css/Investiga.css";
+import { Header2 } from "../layouts/Header/Header2";
+import { Header } from "../layouts/Header/Header";
 
 export const Nosotros = () => {
+  
+  let rol = localStorage.getItem('rol')
+  
+  
   return (
     <>
-      <Header />
+    {
+        rol === null ? <Header /> : <Header2 />
+    }
       <main className="bg-pink-kopy p-9 flex flex-col gap-5">
         <h1 className="text-center text-5xl text-brown-kopy">Sobre nosotros</h1>
         <div className="grid grid-cols-3">

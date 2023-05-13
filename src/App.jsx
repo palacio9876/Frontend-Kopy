@@ -14,6 +14,8 @@ import { RegisterAdmin } from "./pages/RegisterAdmin";
 import { LoginAdmin } from "./pages/LoginAdmin";
 import { AddProduct } from "./pages/AddProduct";
 
+
+
 function App() {
   return (
     <div className="App">
@@ -36,6 +38,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<ProfileUser />} />
         <Route path="/addProduct" element={<AddProduct />} />
+        <Route path="/editProduct/:id" element={<AddProduct />} />
+        <Route path="/editUser/:id" element={<Register />} />
+        <Route path="/editAdmin/:id" element={<RegisterAdmin />} />
+        
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>

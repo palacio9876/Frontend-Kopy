@@ -7,8 +7,11 @@ import "aos/dist/aos.css";
 import { Cart } from "../Components/Cart";
 import { data } from "../data.js";
 import { ProductList } from "../Components/ProductList";
+import { Header2 } from "../layouts/Header/Header2.jsx";
 
 export const Catalogo = () => {
+
+
   const [allProducts, setAllProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [countProducts, setCountProducts] = useState(0);
@@ -32,9 +35,15 @@ export const Catalogo = () => {
     );
     setArticles(filteredData);
   };
+
+  let rol = localStorage.getItem('rol')
+  
+  
   return (
     <>
-      <Header />
+    {
+        rol === null ? <Header /> : <Header2 />
+    }
       <main className="main-catalogo">
         <h1 className="text-center text-5xl text-brown-kopy my-3">Catalogo</h1>
 

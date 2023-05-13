@@ -1,8 +1,9 @@
-import { NavLink } from "react-router-dom";
-  export const Header = () => {
-    
-  return (
-    
+
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+export const Header2 = () => {
+
+    return (
       <header className="bg-brown-kopy flex justify-between items-center px-[5%] py-2.5">
         <div className="logo">
           <img
@@ -34,28 +35,10 @@ import { NavLink } from "react-router-dom";
                 to="/nosotros"
               >
                 Nosotros
-              </NavLink>
+              </NavLink>  
             </li>
           </ul>
         </nav>
-        <div className="flex justify-center items-center flex-wrap gap-2.5 font-roboto text-center w-34">
-            <>
-              <NavLink
-              
-                to="/login"
-                className="relative uppercase no-underline p-2.5 rounded-2xl border-solid border-orange-kopy border-2 font-medium text-orange-kopy"
-              >
-                Iniciar sesion
-              </NavLink>
-              <NavLink
-
-                to="/register"
-                className="relative uppercase no-underline p-2.5 rounded-2xl  border-solid border-pink-kopy border-2 font-medium text-pink-kopy"
-              >
-                Registro
-              </NavLink>
-            </> 
-        </div>
       </header>
     ); 
   };
