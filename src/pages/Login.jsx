@@ -31,6 +31,7 @@ import "react-toastify/dist/ReactToastify.css";
         let rol = 'cliente';
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("rol", rol);
+
       }
         
       toast.success("Login is sucessfull!", {
@@ -61,7 +62,7 @@ import "react-toastify/dist/ReactToastify.css";
       };
     };
 
-
+   
 
   return (
     <>

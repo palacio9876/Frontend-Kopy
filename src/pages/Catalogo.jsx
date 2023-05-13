@@ -44,6 +44,7 @@ export const Catalogo = () => {
     {
         rol === null ? <Header /> : <Header2 />
     }
+    
       <main className="main-catalogo">
         <h1 className="text-center text-5xl text-brown-kopy my-3">Catalogo</h1>
 

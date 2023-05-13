@@ -11,10 +11,12 @@ export const Home = () => {
   let rol = localStorage.getItem('rol')
   
   
+  
   return (
     <>
 {
   rol === null ? <Header /> : <Header2 />
+  
 }
       <Main />
       <Footer />

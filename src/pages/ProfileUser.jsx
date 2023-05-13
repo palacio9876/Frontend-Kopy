@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Header } from "../layouts/Header/Header";
 import { Footer } from "../layouts/Footer/Footer";
 import { useNavigate } from "react-router-dom";
+import { Header2 } from "../layouts/Header/Header2";
 import Axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+
 export const ProfileUser = () => {
   const [data, setData] = useState({
     id: "",
@@ -51,9 +53,16 @@ export const ProfileUser = () => {
   };
 
   console.log("profile");
+
+  let rol = localStorage.getItem('rol')
+  
+  
   return (
     <>
-      <Header />
+    {
+        rol === null ? <Header /> : <Header2 />
+    }
+
       <main className="py-6 px-16 bg-[color:var(--pink)]">
         <div className="flex flex-row items-stretch py-8 px-5 bg-[color:var(--brown)] rounded-2xl">
           <div className="flex flex-col w-1/5 rounded-2xl border-[--brown] bg-[color:var(--pink)]">
