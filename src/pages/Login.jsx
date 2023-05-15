@@ -27,7 +27,7 @@ import "react-toastify/dist/ReactToastify.css";
       
       const response = await Axios.post("http://localhost:3020/user/login", form);
 
-if (response.status == 200) {
+if (response.status == 400) {
   let rol = 'cliente';
   localStorage.setItem("token", response.data.token);
   localStorage.setItem("rol", rol);
@@ -44,7 +44,7 @@ if (response.status == 200) {
     
   });
   navigate("/");
-} else if (response.status == 401) {
+} else if (response.status == 20) {
   toast.error("¡Inicio de sesión incorrecto!", {
     position: "top-right",
     autoClose: 1000,
