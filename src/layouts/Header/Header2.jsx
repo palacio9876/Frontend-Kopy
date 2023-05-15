@@ -54,7 +54,7 @@ export const Header2 = () => {
             to="/profile"
             className="relative uppercase no-underline p-2.5 rounded-2xl border-solid  text-orange-kopy"
           >
-            
+         
               <img
                 src="https://cdn-icons-png.flaticon.com/512/64/64572.png"
                 alt=""
