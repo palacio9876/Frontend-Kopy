@@ -52,9 +52,14 @@ export const Header2 = () => {
         <>
           <NavLink
             to="/profile"
-            className="relative uppercase no-underline p-2.5 rounded-2xl border-solid border-orange-kopy border-2 font-medium text-orange-kopy"
+            className="relative uppercase no-underline p-2.5 rounded-2xl border-solid  text-orange-kopy"
           >
-            Perfil
+            
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/64/64572.png"
+                alt=""
+                className="w-12 "
+              />
           </NavLink>
           <NavLink
             className="relative uppercase no-underline p-2.5 rounded-2xl  border-solid border-pink-kopy border-2 font-medium text-pink-kopy"

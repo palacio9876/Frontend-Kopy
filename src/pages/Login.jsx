@@ -28,10 +28,20 @@ import "react-toastify/dist/ReactToastify.css";
       const response = await Axios.post("http://localhost:3020/user/login", form)
       console.log(response);
       if (response.status == 200) {
-        let rol = 'cliente';
+        let rol = 'Cliente';
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("rol", rol);
-
+        localStorage.setItem("rol", rol)
+      } else {
+        toast.error("Error al iniciar sesion", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "Dark",
+        });
       }
         
       toast.success("Login is sucessfull!", {
