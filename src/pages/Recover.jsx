@@ -2,6 +2,8 @@ import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
 import { NavLink } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 
@@ -16,7 +18,7 @@ export const Recover = () => {
   const handleInputChange = (event) => {
     setData({
       ...data,
-      [event.target.name]: event.target.value,
+      [event.target.token]: event.target.value,
       [event.target.password]: event.target.value,
     });
   };
@@ -24,7 +26,7 @@ export const Recover = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       console.log(data);
-      let response = await axios.post("http://localhost:3020/user/recuperar", data)
+      let response = await axios.post("http://localhost:3020/user/verificar", data)
         .then((res) => {
           return res;
         }).catch((err) => {
@@ -34,7 +36,7 @@ export const Recover = () => {
       console.log(response);
       
         if (response.status==200) {
-          toast.success("recover is sucessfull!", {
+          toast.success("email send is sucessfull!", {
             position: "top-right",
             autoClose: 1000,
             hideProgressBar: false,
@@ -70,7 +72,7 @@ export const Recover = () => {
 
   return (
     <>
-
+  <ToastContainer/>
       <div className="bg-[url('https://res.cloudinary.com/dyhfwq81d/image/upload/v1679053889/pexels-hu%E1%BB%B3nh-%C4%91%E1%BA%A1t-2313037_qvujla.jpg')] h-screen W-full bg-cover bg-center p-24 flex items-center justify-center ">
         <div className="absolute w-[400px] -translate-x-2/4 translate-y-[-55%] box-border shadow-[0_15px_25px_#00000099] mx-auto my-5 p-10 rounded-[10px] left-2/4 top-2/4 bg-[#473b3be0]">
           <form onSubmit={handleSubmit}>
