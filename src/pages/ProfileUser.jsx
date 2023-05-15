@@ -8,12 +8,12 @@ import { ToastContainer, toast } from "react-toastify";
 
 export const ProfileUser = () => {
   const [data, setData] = useState({
-    id: "",
-    nombre: "",
-    apellido: "",
-    telefono: "",
-    direccion: "",
-    email: "",
+    id: "3222",
+    nombre: "Nicolas mazo",
+    apellido: "mazooo",
+    telefono: "3226663322",
+    direccion: "carrera 24 ayhaj",
+    email: "NicolasMao@",
   });
   const navigate = useNavigate();
   const handleInputChange = ({ target }) => {
@@ -30,7 +30,7 @@ export const ProfileUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(data);
-    Axios.post("http://localhost:3020/user/update", data)
+   const data2= Axios.post("http://localhost:3020/user/update", data2)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
@@ -59,6 +59,7 @@ export const ProfileUser = () => {
   
   return (
     <>
+    <ToastContainer/>
     {
         rol === null ? <Header /> : <Header2 />
     }
@@ -75,7 +76,9 @@ export const ProfileUser = () => {
               <div className="flex flex-col">
                 <p className="">Mi perfil</p>
                 <p className="flex flex-wrap text-[color:var(--orange)] font-semibold text-xl">
-                  -Nombre-
+                 {data.nombre}
+                  {console.log(data)}
+                  
                 </p>
               </div>
             </div>
@@ -114,6 +117,7 @@ export const ProfileUser = () => {
                   name="id"
                   type="number"
                   className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
+                  value={data.id}    
                 />
               </fieldset>
 
@@ -128,18 +132,12 @@ export const ProfileUser = () => {
                   name="nombre"
                   type="text"
                   className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
+                  value={data.nombre}    
                 />
               </fieldset>
               <fieldset className="w-[49%]">
-                <label for="" className="text-gray-500">
-                  Apellido
-                </label>
-                <input
-                  name="apellido"
-                  onChange={handleInputChange}
-                  type="text"
-                  className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
-                />
+  
+              
               </fieldset>
               <fieldset className="w-[49%]">
                 <label for="" className="text-gray-500">
@@ -151,7 +149,7 @@ export const ProfileUser = () => {
                 name="email"
                   type="text"
                   className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
-                />
+                  value={data.email}             />
               </fieldset>
               <fieldset className="w-[49%]">
                 <label for="" className="text-gray-500">
@@ -163,6 +161,7 @@ export const ProfileUser = () => {
                   name="telefono"
                   type="number"
                   className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
+                  value={data.telefono}    
                 />
               </fieldset>
               <fieldset className="w-[49%]">
@@ -174,6 +173,7 @@ export const ProfileUser = () => {
                   name="direccion"
                   type="text"
                   className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent "
+                  value={data.direccion}    
                 />
               </fieldset>
               <button type="submit" className="btn-main">

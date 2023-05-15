@@ -25,46 +25,66 @@ import "react-toastify/dist/ReactToastify.css";
     const handleSubmit = async (e) => {
       e.preventDefault();
       
-      const response = await Axios.post("http://localhost:3020/user/login", form);
+    //   const response = await Axios.post("http://localhost:3020/user/login", form)
+    //   if (response.status == 200) {
+    //     let rol = 'cliente';
 
-if (response.status == 400) {
-  let rol = 'cliente';
-  localStorage.setItem("token", response.data.token);
-  localStorage.setItem("rol", rol);
-
-  toast.success("¡Inicio de sesión exitoso!", {
-    position: "top-right",
-    autoClose: 1000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "Dark",
-    
-  });
-  navigate("/");
-} else if (response.status == 20) {
-  toast.error("¡Inicio de sesión incorrecto!", {
-    position: "top-right",
-    autoClose: 1000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "Dark",
-  });
-
-  navigate('/login');
-}
-
-      
         
-      };
-    
+    //     localStorage.setItem("token", response.data.token);
+    //     localStorage.setItem("rol", rol);
 
-   
+    //   }
+      
+      
+    // };
+
+  try {
+    const response = await Axios.post("http://localhost:3020/user/login", form);
+
+    if (response.status === 200) {
+      let rol = 'cliente';
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("rol", rol);
+
+      toast.success("¡Login successful!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      });
+      setTimeout(() => {
+        navigate("/");
+      },2000);
+    } else {
+      toast.error("¡Login is not successful!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      });
+    }
+  } catch (error) {
+    console.log("Error en la solicitud de inicio de sesión:", error);
+    toast.error("!Error please enter the correct email and password!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    });
+  }
+};
+
+
+
 
   return (
     <>
