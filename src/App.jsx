@@ -15,6 +15,8 @@ import { LoginAdmin } from "./pages/LoginAdmin";
 import { AddProduct } from "./pages/AddProduct";
 import { RecoverAdmin } from "./pages/RecoverAdmin";
 import { RecoverPassword } from "./pages/recoverPassword";
+import { DomiCar } from "./pages/DomiCar";
+import { HomeAdmin } from "./pages/HomeAdmin"
 
 
 
@@ -43,11 +45,9 @@ function App() {
         <Route path="/recover" element={<Recover />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<ProfileUser />} />
-        <Route path="/addProduct" element={<AddProduct />} />
-        <Route path="/editProduct/:id" element={<AddProduct />} />
-        <Route path="/editUser/:id" element={<Register />} />
-        <Route path="/editAdmin/:id" element={<RegisterAdmin />} />
-        
+        <Route path="/addProduct" element={<AddProduct />} /> 
+        <Route path="/domiCar" element={<DomiCar />} />
+        <Route path="/homeAdmin" element={<HomeAdmin />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
