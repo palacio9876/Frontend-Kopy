@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
-import { NavLink } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 
@@ -14,11 +14,11 @@ export const Recover = () => {
     password: "",
 
   });
-
+  const navigate = useNavigate();
   const handleInputChange = (event) => {
     setData({
       ...data,
-      [event.target.token]: event.target.value,
+      [event.target.name]: event.target.value,
       [event.target.password]: event.target.value,
     });
   };
@@ -33,10 +33,11 @@ export const Recover = () => {
           return err;
 
         })
+      
       console.log(response);
       
         if (response.status==200) {
-          toast.success("email send is sucessfull!", {
+          toast.success("Recover password is sucessfull!", {
             position: "top-right",
             autoClose: 1000,
             hideProgressBar: false,
