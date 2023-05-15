@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 export const RecoverPasswordAdmin = () => {
   const [form, setForm ,] = useState({
-    email: "",   
+    email: " ",   
   })
   
   const navigate = useNavigate();

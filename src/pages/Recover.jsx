@@ -16,7 +16,7 @@ export const Recover = () => {
   const handleInputChange = (event) => {
     setData({
       ...data,
-      [event.target.token]: event.target.value,
+      [event.target.name]: event.target.value,
       [event.target.password]: event.target.value,
     });
   };
