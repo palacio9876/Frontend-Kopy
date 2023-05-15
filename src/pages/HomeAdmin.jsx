@@ -1,7 +1,15 @@
-import React from 'react'
+import React from "react";
+import { Header } from "../layouts/Header/Header";
+import { Footer } from "../layouts/Footer/Footer";
+import { Main } from "../layouts/Main/Main";
+
 
 export const HomeAdmin = () => {
   return (
-    <div>HomeAdmin</div>
-  )
-}
+    <>
+      <Header />
+      <Main/>
+      <Footer />
+    </>
+  );
+};

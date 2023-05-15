@@ -24,6 +24,9 @@ export const ProductList = ({
     setAllProducts([...allProducts, product]);
   };
 
+  let rol = localStorage.getItem("rol");
+  let rolAdmin = localStorage.getItem("rolAdmin");
+
   return (
     <div className="container-items">
       {articles.map((article) => (
@@ -38,9 +41,19 @@ export const ProductList = ({
               <span>{article.date} </span>
               <span>{article.ReadingTime}</span>
             </div>
-            <button onClick={() => onAddProduct(article)}>
-              Añadir al carrito
-            </button>
+            {rolAdmin === "rolAdmin" ? (
+              <>
+              <button className="btn btn-danger">Editar</button>
+              <button className="btn btn-danger">Eliminar</button>
+              </>
+            ) : (
+              <>
+                <button onClick={() => onAddProduct(article)}>
+                Añadir al carrito
+              </button>
+              </>
+            )
+          }
           </div>
         </div>
       ))}
