@@ -16,10 +16,8 @@ import { AddProduct } from "./pages/AddProduct";
 import { RecoverAdmin } from "./pages/RecoverAdmin";
 import { RecoverPassword } from "./pages/recoverPassword";
 import { DomiCar } from "./pages/DomiCar";
-import { HomeAdmin } from "./pages/HomeAdmin"
-
-
-
+import { HomeAdmin } from "./pages/HomeAdmin";
+import { RegisterDomiciliario } from "./pages/RegisterDomiciliario";
 
 
 function App() {
@@ -48,6 +46,7 @@ function App() {
         <Route path="/addProduct" element={<AddProduct />} /> 
         <Route path="/domiCar" element={<DomiCar />} />
         <Route path="/homeAdmin" element={<HomeAdmin />} />
+        <Route path="/registerDomiciliario" element={<RegisterDomiciliario />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
