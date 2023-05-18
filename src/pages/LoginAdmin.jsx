@@ -3,47 +3,95 @@ import { NavLink,useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../assets/css/Login.css";
 import Axios from "axios";
-export const LoginAdmin = () => {
-  const [form, setForm] = useState({
-    nombre: "",
-    apellido: "",
-    email: "",
-    password: "",
-  });
-const navigate= useNavigate();
-  const handleInputChange = ({ target }) => {
-    setForm({
-      ...form,
-      [target.name]: target.value,
-      [target.apellido]: target.value,
-      [target.email]: target.value,
-      [target.password]: target.value,
-    });
-  };
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(form);
-    Axios.post("http://localhost:3020/api/login", form)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-      navigate("/login");
+export const LoginAdmin = () => {
+
+const [data, setData] = useState({
+  email:"",
+  password:"",
+})
+const navigate= useNavigate();
+  const handleInputChange= ({ target }) => {
+    setData({
+      ...data,
+      [target.name]: target.value,
+      [target.password]: target.value,    });
   };
- 
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
+    try {
+      const response = await Axios.post(
+        "http://localhost:3020/admin/login",
+        data
+      );
+      if (response.status === 200) {
+        let rolAdmin = "rolAdmin";
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("rolAdmin", rolAdmin);
+        toast.success("¡Login successful!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+    
+      } else {
+        toast.error("¡Login is not successful!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    } catch (error) {
+      
+      console.log("Error en la solicitud de inicio de sesión:", error);
+      toast.error("!Error please enter the correct email and password!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+  }
+
+  
+
+
 
   return (
+    <>
+    <ToastContainer />
     <div className="bg-[url('https://res.cloudinary.com/digw0vkdp/image/upload/v1682270938/kopy/pexels-cottonbro-studio-3205736_lxn4mm.jpg')] h-screen W-full bg-cover bg-center p-24 flex items-center justify-center opacity-2 ">
       <div className="absolute w-[400px] -translate-x-2/4 translate-y-[-55%] box-border shadow-[0_15px_25px_#00000099] mx-auto my-5 p-10 rounded-[10px] left-2/4 top-2/4 bg-[#473b3be3]">
         <p className="text-white text-center text-2xl font-[bold] tracking-[1px] mt-0 mb-[30px] mx-0 p-0;">
           Inicio de sesión Administrador
         </p>
-        <form className="flex flex-col">
+        <form onSubmit={handleSubmit} className="flex flex-col">
           <div className="relative">
             
             <input
               className="w-full text-base mb-[30px] px-0 py-2.5 border-b-white border-[none] border-b border-solid bg-transparent outline-0 text-white left-0 -top-5 placeholder:text-white"
-              name=""
-              type="text"
+              name="email"
+              id="email"
+              onChange={handleInputChange}
+              type="email"
               placeholder="Correo"
               autoComplete="off"
             />
@@ -52,7 +100,9 @@ const navigate= useNavigate();
             <input
               className="w-full text-base mb-[30px] px-0 py-2.5 border-b-white border-[none] border-b border-solid bg-transparent outline-0 text-white left-0 -top-5 placeholder:text-white"
               required=""
-              name=""
+              onChange={handleInputChange}
+              id="password"
+              name="password"
               type="password"
               placeholder="Contraseña"
               autoComplete="off"
@@ -88,5 +138,6 @@ const navigate= useNavigate();
         </p>
       </div>
     </div>
+    </>
   );
 };
