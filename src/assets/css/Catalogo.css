@@ -22,22 +22,6 @@
 }
 
 
-.btn-catalogo {
-    background-color: var(--orange);
-    color: var(--pink);
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 1.3rem;
-    margin: 10px;
-    cursor: pointer;
-}
-
-.btn-catalogo:hover,
-.btn-catalogo:active {
-    background-color: var(--green);
-    color: var(--pink);
-}
 
 .btns-catalogo {
     display: flex;

@@ -14,12 +14,19 @@ import { RegisterAdmin } from "./pages/RegisterAdmin";
 import { LoginAdmin } from "./pages/LoginAdmin";
 import { AddProduct } from "./pages/AddProduct";
 import { RecoverAdmin } from "./pages/RecoverAdmin";
+<<<<<<< HEAD
 import { RecoverPassword } from "./pages/recoverPassword"
 import { DomiCar } from "./pages/DomiCar"
 import { HomeAdmin } from "./pages/HomeAdmin"
 
 
 
+=======
+import { RecoverPassword } from "./pages/recoverPassword";
+import { DomiCar } from "./pages/DomiCar";
+import { HomeAdmin } from "./pages/HomeAdmin";
+import { RegisterDomiciliario } from "./pages/RegisterDomiciliario";
+>>>>>>> a5540a15697c2970d3a7d488a948ecd444aa4ca5
 
 
 function App() {
@@ -48,6 +55,7 @@ function App() {
         <Route path="/addProduct" element={<AddProduct />} /> 
         <Route path="/domiCar" element={<DomiCar />} />
         <Route path="/homeAdmin" element={<HomeAdmin />} />
+        <Route path="/registerDomiciliario" element={<RegisterDomiciliario />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
