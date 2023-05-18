@@ -7,12 +7,8 @@ import "aos/dist/aos.css";
 import { Cart } from "../Components/Cart";
 import { data } from "../data.js";
 import { ProductList } from "../Components/ProductList";
-<<<<<<< HEAD
 import { HeaderCliente } from "../layouts/Header/HeaderCliente.jsx";
-=======
-import { Header2 } from "../layouts/Header/Header2.jsx";
 import { NavLink, useNavigate } from "react-router-dom";
->>>>>>> a5540a15697c2970d3a7d488a948ecd444aa4ca5
 
 export const Catalogo = () => {
   const [allProducts, setAllProducts] = useState([]);
@@ -44,15 +40,10 @@ export const Catalogo = () => {
 
   return (
     <>
-<<<<<<< HEAD
     {
         rol === null ? <Header /> : <HeaderCliente />
     }
     
-=======
-      {rol === null ? <Header /> : <Header2 />}
-
->>>>>>> a5540a15697c2970d3a7d488a948ecd444aa4ca5
       <main className="main-catalogo">
         <h1 className="text-center text-5xl text-brown-kopy my-3">Catalogo</h1>
 
