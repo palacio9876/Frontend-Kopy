@@ -2,38 +2,39 @@ import React, { useState, useEffect } from "react";
 import { Header } from "../layouts/Header/Header";
 import { Footer } from "../layouts/Footer/Footer";
 import { useNavigate } from "react-router-dom";
-import { Header2 } from "../layouts/Header/Header2";
+
 import Axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { HeaderCliente } from "../layouts/Header/HeaderCliente";
 
 export const ProfileUser = () => {
-  const [data, setData] = useState({
-    id: "3222",
-    nombre: "Nicolas mazo",
-    apellido: "mazooo",
-    telefono: "3226663322",
-    direccion: "carrera 24 ayhaj",
-    email: "NicolasMao@",
+  const [data, setData] = useState([]);
+  const [form, setForm] = useState({
+    nombre: "",
+    id: "",
+    telefono: "",
+    direccion: "",
+    email: "",
+    password: "",
   });
   const navigate = useNavigate();
+
   const handleInputChange = ({ target }) => {
-    setData({
-      ...data,
-      [target.id]: target.value,
+    setForm({
+      ...form,
       [target.name]: target.value,
-      [target.apellido]: target.value,
-      [target.telefono]: target.value,
-      [target.direccion]: target.value,
+      [target.id]: target.value,
       [target.email]: target.value,
+      [target.password]: target.value,
     });
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(data);
-   const data2= Axios.post("http://localhost:3020/user/update", data2)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let data = await Axios.post("http://localhost:3020/user/registro", form)
+      .then((res) => {
+        return res;
+      })
     toast.success("UPDATE profile is sucessfull!", {
       position: "top-right",
       autoClose: 1000,
@@ -61,7 +62,7 @@ export const ProfileUser = () => {
     <>
     <ToastContainer/>
     {
-        rol === null ? <Header /> : <Header2 />
+        rol === null ? <Header /> : <HeaderCliente />
     }
 
       <main className="py-6 px-16 bg-[color:var(--pink)]">

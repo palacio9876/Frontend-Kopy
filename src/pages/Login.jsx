@@ -25,26 +25,28 @@ import "react-toastify/dist/ReactToastify.css";
     const handleSubmit = async (e) => {
       e.preventDefault();
       
-    //   const response = await Axios.post("http://localhost:3020/user/login", form)
-    //   if (response.status == 200) {
-    //     let rol = 'cliente';
+      const response = await Axios.post("http://localhost:3020/user/login", form)
+      if (response.status == 200) {
+        let rol = 'cliente';
 
         
-    //     localStorage.setItem("token", response.data.token);
-    //     localStorage.setItem("rol", rol);
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("rol", rol);
 
-    //   }
+      }
       
       
-    // };
+    };
 
   try {
     const response = await Axios.post("http://localhost:3020/user/login", form);
 
     if (response.status === 200) {
       let rol = 'cliente';
+      let rolDomi = 'Domiciliario'
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("rol", rol);
+      localStorage.setItem("rolDomi", rolDomi);
 
       toast.success("¡Login successful!", {
         position: "top-right",

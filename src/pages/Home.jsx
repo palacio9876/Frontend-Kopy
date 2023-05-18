@@ -3,7 +3,7 @@ import { Main } from "../layouts/Main/Main";
 import { Footer } from "../layouts/Footer/Footer";
 import "../assets/css/Home.css";
 import { Header } from "../layouts/Header/Header";
-import { Header2 } from "../layouts/Header/Header2";
+import { HeaderCliente } from "../layouts/Header/HeaderCliente";
 
 
 export const Home = () => {
@@ -16,7 +16,7 @@ export const Home = () => {
    
     <>
 {
-rol === null ? <Header /> : <Header2 />
+rol === null ? <Header /> : <HeaderCliente />
 
 }
 

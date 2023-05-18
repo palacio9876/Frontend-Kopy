@@ -14,8 +14,8 @@ import { RegisterAdmin } from "./pages/RegisterAdmin";
 import { LoginAdmin } from "./pages/LoginAdmin";
 import { AddProduct } from "./pages/AddProduct";
 import { RecoverAdmin } from "./pages/RecoverAdmin";
-import { RecoverPassword } from "./pages/recoverPassword";
-import { DomiCar } from "./pages/DomiCar";
+import { RecoverPassword } from "./pages/recoverPassword"
+import { DomiCar } from "./pages/DomiCar"
 import { HomeAdmin } from "./pages/HomeAdmin"
 
 

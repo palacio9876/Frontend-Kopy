@@ -1,8 +1,9 @@
 import React from "react";
 import { Footer } from "../layouts/Footer/Footer";
 import "../assets/css/Investiga.css";
-import { Header2 } from "../layouts/Header/Header2";
+
 import { Header } from "../layouts/Header/Header";
+import { HeaderCliente } from "../layouts/Header/HeaderCliente";
 
 export const Nosotros = () => {
   
@@ -12,7 +13,7 @@ export const Nosotros = () => {
   return (
     <>
     {
-        rol === null ? <Header /> : <Header2 />
+        rol === null ? <Header /> : <HeaderCliente />
     }
       <main className="bg-pink-kopy p-9 flex flex-col gap-5">
         <h1 className="text-center text-5xl text-brown-kopy">Sobre nosotros</h1>

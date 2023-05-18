@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 import { Cart } from "../Components/Cart";
 import { data } from "../data.js";
 import { ProductList } from "../Components/ProductList";
-import { Header2 } from "../layouts/Header/Header2.jsx";
+import { HeaderCliente } from "../layouts/Header/HeaderCliente.jsx";
 
 export const Catalogo = () => {
 
@@ -42,7 +42,7 @@ export const Catalogo = () => {
   return (
     <>
     {
-        rol === null ? <Header /> : <Header2 />
+        rol === null ? <Header /> : <HeaderCliente />
     }
     
       <main className="main-catalogo">

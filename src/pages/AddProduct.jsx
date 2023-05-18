@@ -1,11 +1,11 @@
 import React from "react";
-import { Header2 } from "../layouts/Header/Header2";
+import { HeaderCliente } from "../layouts/Header/HeaderCliente";
 import { Footer } from "../layouts/Footer/Footer";
 import { MainAddProducto } from "../layouts/Main/MainAddProducto";
 export const AddProduct = () => {
   return (
     <>
-      <Header2 />
+      <HeaderCliente/>
       <MainAddProducto/>
       <Footer />
     </>

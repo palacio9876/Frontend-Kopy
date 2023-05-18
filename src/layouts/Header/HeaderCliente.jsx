@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
-export const Header2 = () => {
+export const HeaderCliente = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
