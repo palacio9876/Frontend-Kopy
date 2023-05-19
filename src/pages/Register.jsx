@@ -19,7 +19,9 @@ export const Register = () => {
     setForm({
       ...form,
       [target.name]: target.value,
-      [target.id]: target.value,
+      [target.id]: target.value,  
+      [target.telefono]: target.value,
+
       [target.email]: target.value,
       [target.password]: target.value,
     });
