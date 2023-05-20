@@ -14,7 +14,9 @@ export const Nosotros = () => {
     <>
     {
         rol === null ? <Header /> : <HeaderCliente />
+        
     }
+
       <main className="bg-pink-kopy p-9 flex flex-col gap-5">
         <h1 className="text-center text-5xl text-brown-kopy">Sobre nosotros</h1>
         <div className="grid grid-cols-3">

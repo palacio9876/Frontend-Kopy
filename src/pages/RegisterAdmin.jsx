@@ -26,7 +26,7 @@ export const RegisterAdmin = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form);
-    Axios.post("http://localhost:3020/api/registroAdmin", form)
+    Axios.post("http://localhost:3020/admin/registro", form)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
@@ -127,7 +127,7 @@ export const RegisterAdmin = () => {
           <p className="text-[#aaa] text-sm">
             ¿Ya tienes una cuenta?{" "}
             <NavLink
-              to="/login"
+              to="/"
               className="text-white no-underline hover:text-[#aaa] hover:rounded-[5px] hover:bg-transparent"
             >
               Inicia sesión

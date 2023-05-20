@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 export const LoginAdmin = () => {
 
+
+
 const [data, setData] = useState({
   email:"",
   password:"",
@@ -27,9 +29,10 @@ const navigate= useNavigate();
         data
       );
       if (response.status === 200) {
+        console.log('entro');
         let rolAdmin = "rolAdmin";
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("rolAdmin", rolAdmin);
+        localStorage.setItem("rol", rolAdmin);
         toast.success("¡Login successful!", {
           position: "top-right",
           autoClose: 3000,
@@ -77,6 +80,11 @@ const navigate= useNavigate();
 
   return (
     <>
+
+    
+  
+
+
     <ToastContainer />
     <div className="bg-[url('https://res.cloudinary.com/digw0vkdp/image/upload/v1682270938/kopy/pexels-cottonbro-studio-3205736_lxn4mm.jpg')] h-screen W-full bg-cover bg-center p-24 flex items-center justify-center opacity-2 ">
       <div className="absolute w-[400px] -translate-x-2/4 translate-y-[-55%] box-border shadow-[0_15px_25px_#00000099] mx-auto my-5 p-10 rounded-[10px] left-2/4 top-2/4 bg-[#473b3be3]">
@@ -122,7 +130,7 @@ const navigate= useNavigate();
         <p className="text-[#aaa] text-sm">
           ¿No tienes una cuenta?{" "}
           <NavLink
-            to="/register"
+            to="/RegisterAdmin"
             className="text-white no-underline hover:text-[#aaa] hover:rounded-[5px] hover:bg-transparent"
           >
             Registrate!

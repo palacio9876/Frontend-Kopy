@@ -41,7 +41,7 @@ export const ProductList = ({
               <span>{article.date} </span>
               <span>{article.ReadingTime}</span>
             </div>
-            {rolAdmin === "rolAdmin" ? (
+            {rol === "rolAdmin" ? (
               <>
               <button className="btn btn-danger">Editar</button>
               <button className="btn btn-danger">Eliminar</button>

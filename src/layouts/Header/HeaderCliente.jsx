@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export const HeaderCliente = () => {
+  localStorage.getItem('rolAdmin')
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -63,7 +64,6 @@ export const HeaderCliente = () => {
           </NavLink>
           <NavLink
             className="relative uppercase no-underline p-2.5 rounded-2xl  border-solid border-pink-kopy border-2 font-medium text-pink-kopy"
-            to="/"
             onClick={() => handleLogout()}
           >
             Cerrar Sesión

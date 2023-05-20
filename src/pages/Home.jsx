@@ -7,6 +7,7 @@ import { HeaderCliente } from "../layouts/Header/HeaderCliente";
 
 export const Home = () => {
   let rol = localStorage.getItem("rol");
+ 
 
   return (
     <>

@@ -6,8 +6,18 @@ import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { HeaderCliente } from "../layouts/Header/HeaderCliente";
+import axios from "axios";
 
 export const ProfileUser = () => {
+  useEffect(
+    ()=>{
+      (
+        async ()=>{
+          let Datos = Axios.get("http://localhost:3020/user/login")
+        }
+      )()
+    },[]
+  )
   const [data, setData] = useState([]);
   const [form, setForm] = useState({
     nombre: "",
@@ -18,6 +28,7 @@ export const ProfileUser = () => {
     password: "",
   });
   const navigate = useNavigate();
+
 
   const handleInputChange = ({ target }) => {
     setForm({
@@ -33,8 +44,7 @@ export const ProfileUser = () => {
     e.preventDefault();
     let data = await Axios.post("http://localhost:3020/user/registro", form)
       .then((res) => {
-        return res;
-      })
+        
     toast.success("UPDATE profile is sucessfull!", {
       position: "top-right",
       autoClose: 1000,
@@ -49,8 +59,8 @@ export const ProfileUser = () => {
       navigate("/");
     }
     , 2000);
-
-
+  }
+      )
   };
 
   console.log("profile");
@@ -77,7 +87,7 @@ export const ProfileUser = () => {
               <div className="flex flex-col">
                 <p className="">Mi perfil</p>
                 <p className="flex flex-wrap text-[color:var(--orange)] font-semibold text-xl">
-                 {data.nombre}
+                {data.nombre}
                   {console.log(data)}
                   
                 </p>
