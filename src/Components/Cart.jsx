@@ -1,30 +1,78 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
 export const Cart = ({
   allProducts,
   setAllProducts,
   total,
   countProducts,
-  setCountProducts,
   setTotal,
+  setCountProducts,
 }) => {
   const [active, setActive] = useState(false);
 
-  const onDeleteProduct = (product) => {
-    const results = allProducts.filter((item) => item.id !== product.id);
+  const incrementQuantity = (product) => {
+    const updatedProducts = allProducts.map((item) =>
+      item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+    );
+    setAllProducts(updatedProducts);
+    setTotal(total + product.price);
+    setCountProducts(countProducts + 1);
+  };
 
+  const decrementQuantity = (product) => {
+    if (product.quantity > 1) {
+      const updatedProducts = allProducts.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+      );
+      setAllProducts(updatedProducts);
+      setTotal(total - product.price);
+      setCountProducts(countProducts - 1);
+    }
+  };
+
+  const onDeleteProduct = (product) => {
+    const updatedProducts = allProducts.filter(
+      (item) => item.id !== product.id
+    );
+    setAllProducts(updatedProducts);
     setTotal(total - product.price * product.quantity);
     setCountProducts(countProducts - product.quantity);
-    setAllProducts(results);
   };
 
   const onCleanCart = () => {
+    <ToastContainer />;
+    toast.info("Carrito vacio", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     setAllProducts([]);
     setTotal(0);
     setCountProducts(0);
   };
 
-  //conectar con el backend
+  const onCash = () => {
+    toast.success("Comprando", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    <ToastContainer />;
+  };
+
+  // Conectar con el backend
   const [cart, setCart] = useState({
     id: "",
     nameProduct: "",
@@ -60,11 +108,7 @@ export const Cart = ({
             stroke="currentColor"
             className="icon-cart"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-            />
+            {/* Icono del carrito */}
           </svg>
           <div className="count-products">
             <span id="contador-productos">{countProducts}</span>
@@ -80,32 +124,36 @@ export const Cart = ({
                 {allProducts.map((product) => (
                   <div className="cart-product" key={product.id}>
                     <div className="info-cart-product">
+                      <button
+                        className="quantity-button"
+                        onClick={() => decrementQuantity(product)}
+                      >
+                        <p className="text-red-500 text-2xl ">-</p>
+                      </button>
                       <span className="cantidad-producto-carrito">
                         {product.quantity}
                       </span>
-
+                      <button
+                        className="quantity-button"
+                        onClick={() => incrementQuantity(product)}
+                      >
+                        <p className="text-green-500 text-2xl m-20px">+</p>
+                        
+                      </button>
                       <p className="titulo-producto-carrito">
                         {product.nameProduct}
                       </p>
                       <span className="precio-producto-carrito">
-                        ${product.price}
+                        ${product.price * product.quantity}
                       </span>
                     </div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="1.5"
-                      stroke="currentColor"
-                      className="icon-close"
+
+                    <p
                       onClick={() => onDeleteProduct(product)}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
+                      className="cursor-pointer text-red-500"> 
+                    
+                      X
+                    </p>
                   </div>
                 ))}
               </div>
@@ -114,7 +162,9 @@ export const Cart = ({
                 <h3>Total:</h3>
                 <span className="total-pagar">${total}</span>
               </div>
-
+              <button className="btn-cash" onClick={onCash}>
+                Comprar
+              </button>
               <button className="btn-clear-all" onClick={onCleanCart}>
                 Vaciar Carrito
               </button>

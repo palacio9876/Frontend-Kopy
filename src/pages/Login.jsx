@@ -23,45 +23,30 @@ export const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-      
-      try {
-        const response = await Axios.post(
-          "http://localhost:3020/user/login",
-          form
-        );
-        if (response.status === 200) {
-          let rol = "cliente";
-          localStorage.setItem("token", response.data.token);
-          localStorage.setItem("rol", rol);
-          toast.success("¡Login successful!", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            
-          });
-          setTimeout(() => {
-            navigate("/");
-          }, 2000);
-      
-        } else {
-          toast.error("¡Login is not successful!", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-        }
-      } catch (error) {
-        console.log("Error en la solicitud de inicio de sesión:", error);
-        toast.error("!Error please enter the correct email and password!", {
+
+    try {
+      const response = await Axios.post(
+        "http://localhost:3020/user/login",
+        form
+      );
+      if (response.status === 200) {
+        let rol = "cliente";
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("rol", rol);
+        toast.success("¡Login successful!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      } else {
+        toast.error("¡Login is not successful!", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -71,18 +56,21 @@ export const Login = () => {
           progress: undefined,
         });
       }
-    };
-  
-   
-  
-    
-
-  
-
+    } catch (error) {
+      console.log("Error en la solicitud de inicio de sesión:", error);
+      toast.error("!Error please enter the correct email and password!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
   return (
-
     <>
-    
       <ToastContainer />
       <div className="bg-[url('https://res.cloudinary.com/dyhfwq81d/image/upload/v1679053889/pexels-hu%E1%BB%B3nh-%C4%91%E1%BA%A1t-2313037_qvujla.jpg')] h-screen W-full bg-cover bg-center p-24 flex items-center justify-center ">
         <div className="absolute w-[400px] -translate-x-2/4 translate-y-[-55%] box-border shadow-[0_15px_25px_#00000099] mx-auto my-5 p-10 rounded-[10px] left-2/4 top-2/4 bg-[#473b3be3]">
@@ -142,5 +130,5 @@ export const Login = () => {
         </div>
       </div>
     </>
-    );
-  };
+  );
+};

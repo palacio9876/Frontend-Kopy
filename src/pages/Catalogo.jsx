@@ -34,16 +34,15 @@ export const Catalogo = () => {
     );
     setArticles(filteredData);
   };
+ 
 
   let rol = localStorage.getItem("rol");
   let rolAdmin = localStorage.getItem("rolAdmin");
 
   return (
     <>
-    {
-        rol === null ? <Header /> : <HeaderCliente />
-    }
-    
+      {rol === null ? <Header /> : <HeaderCliente />}
+
       <main className="main-catalogo">
         <h1 className="text-center text-5xl text-brown-kopy my-3">Catalogo</h1>
 
@@ -58,9 +57,13 @@ export const Catalogo = () => {
               {category}
             </button>
           ))}
-          {
-          rolAdmin === "rolAdmin" ? (
-            <NavLink to="/addProduct" className="bg-orange-kopy text-pink-kopy text-[1.3rem] cursor-pointer m-2.5 p-2.5 rounded-[10px] border-[none] hover:bg-green-kopy" >Añadir producto</NavLink>
+          {rolAdmin === "rolAdmin" ? (
+            <NavLink
+              to="/addProduct"
+              className="bg-orange-kopy text-pink-kopy text-[1.3rem] cursor-pointer m-2.5 p-2.5 rounded-[10px] border-[none] hover:bg-green-kopy"
+            >
+              Añadir producto
+            </NavLink>
           ) : null}
         </div>
         <Cart
@@ -88,3 +91,5 @@ export const Catalogo = () => {
     </>
   );
 };
+
+export default Catalogo;

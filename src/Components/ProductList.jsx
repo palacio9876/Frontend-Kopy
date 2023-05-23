@@ -1,4 +1,5 @@
 import React from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 export const ProductList = ({
   allProducts,
@@ -16,6 +17,16 @@ export const ProductList = ({
       );
       setTotal(total + product.price * product.quantity);
       setCountProducts(countProducts + product.quantity);
+      toast.success("Producto agregado exitosamente", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light"
+      });
       return setAllProducts([...products]);
     }
 
@@ -28,35 +39,40 @@ export const ProductList = ({
   let rolAdmin = localStorage.getItem("rolAdmin");
 
   return (
-    <div className="container-items">
-      {articles.map((article) => (
-        <div className="item" key={article.id}>
-          <figure>
-            <img src={article.urlImage} alt={article.nameProduct} />
-          </figure>
-          <div className="info-product">
-            <h2>{article.nameProduct}</h2>
-            <p className="price">${article.price}</p>
-            <div className="article-footer">
-              <span>{article.date} </span>
-              <span>{article.ReadingTime}</span>
+    <>
+      <div className="container-items">
+        {articles.map((article) => (
+          <div className="item" key={article.id}>
+            <figure>
+              <img src={article.urlImage} alt={article.nameProduct} />
+            </figure>
+            <div className="info-product">
+              <h2>{article.nameProduct}</h2>
+              <p className="price">${article.price}</p>
+              <div className="article-footer">
+                <span>{article.date} </span>
+                <span>{article.ReadingTime}</span>
+              </div>
+              {rolAdmin === "rolAdmin" ? (
+                <>
+                  <button className="btn btn-danger">Editar</button>
+                  <button className="btn btn-danger">Eliminar</button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={() => onAddProduct(article)}
+                    className="active:scale-95"
+                  >
+                    Añadir al carrito
+                  </button>
+                </>
+              )}
             </div>
-            {rolAdmin === "rolAdmin" ? (
-              <>
-              <button className="btn btn-danger">Editar</button>
-              <button className="btn btn-danger">Eliminar</button>
-              </>
-            ) : (
-              <>
-                <button onClick={() => onAddProduct(article)}>
-                Añadir al carrito
-              </button>
-              </>
-            )
-          }
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+      <ToastContainer />
+    </>
   );
 };

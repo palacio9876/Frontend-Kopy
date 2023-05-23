@@ -42,12 +42,12 @@ header {
 	position: absolute;
 	top: 55%;
 	right: 0;
-
+    cursor: pointer;
 	background-color: #000;
 	color: #fff;
 	width: 25px;
 	height: 25px;
-
+    z-index: 200px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -101,6 +101,8 @@ header {
 }
 
 .icon-close {
+	background: yellow;
+	color: red;
 	width: 25px;
 	height: 25px;
 }
@@ -139,7 +141,7 @@ header {
 	gap: 20px;
 	width: 70%;
 	height: 50%;
-	margin-left: 200px;
+	margin-left: 15%;
 }
 
 .item {
@@ -212,9 +214,28 @@ header {
   font-size: 16px;
   transition: all .3s ease;
 }
+.btn-cash {
+	border: none;
+	background-color: #000;
+	color: #fff;
+	padding: 15px 0;
+	display: block;
+	width: 100%;
+	margin-bottom: -9px;	
+	font-family: inherit;
+	cursor: pointer;
+  font-size: 16px;
+  transition: all .3s ease;
+}
 
 .btn-clear-all:hover{
   background-color: #333;
   transform: scale(1.03);
   border-radius: 0;
 }
+.btn-cash:hover{
+	background-color: #333;
+	transform: scale(1.03);
+	border-radius: 0;
+  }
+  
