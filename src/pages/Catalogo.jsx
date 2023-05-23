@@ -11,6 +11,7 @@ import { HeaderCliente } from "../layouts/Header/HeaderCliente.jsx";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export const Catalogo = () => {
+  let rol = localStorage.getItem("rol");
   const [allProducts, setAllProducts] = useState([]);
   const [total, setTotal] = useState(0);
   const [countProducts, setCountProducts] = useState(0);
@@ -34,10 +35,6 @@ export const Catalogo = () => {
     );
     setArticles(filteredData);
   };
- 
-
-  let rol = localStorage.getItem("rol");
-  let rolAdmin = localStorage.getItem("rolAdmin");
 
   return (
     <>
@@ -57,7 +54,7 @@ export const Catalogo = () => {
               {category}
             </button>
           ))}
-          {rolAdmin === "rolAdmin" ? (
+          {rol === "rolAdmin" ? (
             <NavLink
               to="/addProduct"
               className="bg-orange-kopy text-pink-kopy text-[1.3rem] cursor-pointer m-2.5 p-2.5 rounded-[10px] border-[none] hover:bg-green-kopy"

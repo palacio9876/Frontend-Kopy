@@ -2,9 +2,10 @@ import React from "react";
 import "../assets/css/CardDomi.css";
 
 export const ArticleDomi = () => {
-  return (
+
+  return(
+  
     <>
-    
       <h1 className="title">Pedidios a Entregar</h1>
 
       <div className="cards">

@@ -5,7 +5,7 @@ import { MainAddProducto } from "../layouts/Main/MainAddProducto";
 export const AddProduct = () => {
   return (
     <>
-      <HeaderCliente/>
+      <HeaderCliente />
       <MainAddProducto/>
       <Footer />
     </>

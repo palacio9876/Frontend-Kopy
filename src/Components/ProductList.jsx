@@ -25,7 +25,7 @@ export const ProductList = ({
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light"
+        theme: "light",
       });
       return setAllProducts([...products]);
     }

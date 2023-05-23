@@ -6,8 +6,18 @@ import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { HeaderCliente } from "../layouts/Header/HeaderCliente";
+import axios from "axios";
 
 export const ProfileUser = () => {
+  useEffect(
+    ()=>{
+      (
+        async ()=>{
+          let Datos = Axios.get("http://localhost:3020/user/login")
+        }
+      )()
+    },[]
+  )
   const [data, setData] = useState([]);
   const [form, setForm] = useState({
     nombre: "",
@@ -18,6 +28,7 @@ export const ProfileUser = () => {
     password: "",
   });
   const navigate = useNavigate();
+
 
   const handleInputChange = ({ target }) => {
     setForm({
