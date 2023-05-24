@@ -75,6 +75,11 @@ export const ProfileUser = () => {
                 alt=""
                 className="w-20"
               />
+              <input
+                className="w-30 ml-[-50px] "
+                type="file"
+                
+              />
               <div className="flex flex-col">
                 <p className="">Mi perfil</p>
                 <p className="flex flex-wrap text-[color:var(--orange)] font-semibold text-xl">

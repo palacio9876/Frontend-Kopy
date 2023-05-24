@@ -43,13 +43,13 @@ export const Cart = ({
 
   const onCleanCart = () => {
     <ToastContainer />;
-    toast.info("Carrito vacio", {
-      position: "top-right",
-      autoClose: 1000,
+    toast.error("Carrito vacio", {
+      position: "top-left",
+      autoClose: 900,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
-      draggable: true,
+      draggable: false,
       progress: undefined,
       theme: "light",
     });
@@ -60,8 +60,8 @@ export const Cart = ({
 
   const onCash = () => {
     toast.success("Comprando", {
-      position: "top-right",
-      autoClose: 1000,
+      position: "top-left",
+      autoClose: 900,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -71,6 +71,20 @@ export const Cart = ({
     });
     <ToastContainer />;
   };
+
+  const deleteList= ()=>{
+    toast.error("producto eliminado del carrito ", {
+      position: "top-left",
+      autoClose: 900,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    <ToastContainer />;
+  }
 
   // Conectar con el backend
   const [cart, setCart] = useState({
@@ -130,23 +144,25 @@ export const Cart = ({
             <>
               <div className="row-product">
                 {allProducts.map((product) => (
-                  <div className="cart-product" key={product.id}>
+                  <div className="cart-product flex align-center justify-center" key={product.id}>
                     <div className="info-cart-product">
+                      <div className="flex flex-col h-5 mt-[-25px]">
                       <button
                         className="quantity-button"
-                        onClick={() => decrementQuantity(product)}
+                        onClick={() => incrementQuantity(product)}
                       >
-                        <p className="text-red-500 text-2xl ">-</p>
+                        <p className="text-green-500 text-2xl m-20px  mb-[-5px]" >+</p>
                       </button>
                       <span className="cantidad-producto-carrito">
                         {product.quantity}
                       </span>
                       <button
                         className="quantity-button"
-                        onClick={() => incrementQuantity(product)}
-                      >
-                        <p className="text-green-500 text-2xl m-20px">+</p>
+                        onClick={() => decrementQuantity(product)}   >
+                   
+                        <p className="text-red-500 text-2xl  mt-[-10px]  ">-</p>
                       </button>
+                      </div >
                       <p className="titulo-producto-carrito">
                         {product.nameProduct}
                       </p>
@@ -156,8 +172,9 @@ export const Cart = ({
                     </div>
 
                     <p
-                      onClick={() => onDeleteProduct(product)}
-                      className="cursor-pointer text-red-500"
+                      onClick={() => onDeleteProduct(product,deleteList())}
+                      
+                      className="cursor-pointer text-red-500  ml-[10px] mr-[-10px]"
                     >
                       X
                     </p>

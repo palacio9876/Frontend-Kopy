@@ -18,7 +18,7 @@ export const ProductList = ({
       setTotal(total + product.price * product.quantity);
       setCountProducts(countProducts + product.quantity);
       toast.success("Producto agregado exitosamente", {
-        position: "top-right",
+        position: "top-left",
         autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,

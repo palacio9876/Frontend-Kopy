@@ -93,17 +93,17 @@ export const Main = () => {
           </svg>
         </button>
       </section>
-      <article className="bg-[color:var(--pink)] flex items-center p-4 flex-wrap flex-col sm:flex sm:flex-row sm:justify-evenly gap-5">
+      <article className="bg-[color:var(--pink)] flex items-center p-4 flex-wrap flex-col sm:flex sm:flex-row sm:justify-evenly gap-5 h-80">
         <div className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]" data-aos="fade-up" data-aos-duration="1500">
-          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980032/kopy/camionEnvio_yn0wjt.webp" />
+          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980032/kopy/camionEnvio_yn0wjt.webp" className="w-30 h-55"/>
           <p> Envios a toda la ciudad</p>
         </div>
         <div className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]" data-aos="fade-up" data-aos-duration="1500">
-          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980057/kopy/pagsos_o0lwmc.png" />
+          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980057/kopy/pagsos_o0lwmc.png"  className="w-30 h-55"/>
           <p> Todos los medios de pago</p>
         </div>
         <div className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]" data-aos="fade-up" data-aos-duration="1500">
-          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980047/kopy/sonreir_a61eep.png" />
+          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980047/kopy/sonreir_a61eep.png" className="w-30 h-55" />
           <p> Cliente satisfecho</p>
         </div>
       </article>
