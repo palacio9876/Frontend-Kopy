@@ -102,13 +102,21 @@ export const Cart = ({
         <div className="container-cart-icon" onClick={() => setActive(!active)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
+            class="icon icon-tabler icon-tabler-shopping-cart"
+            width="44"
+            height="44"
             viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="icon-cart"
+            stroke-width="1.5"
+            stroke="#2c3e50"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           >
-            {/* Icono del carrito */}
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M17 17h-11v-14h-2" />
+            <path d="M6 5l14 1l-1 7h-13" />
           </svg>
           <div className="count-products">
             <span id="contador-productos">{countProducts}</span>
@@ -138,7 +146,6 @@ export const Cart = ({
                         onClick={() => incrementQuantity(product)}
                       >
                         <p className="text-green-500 text-2xl m-20px">+</p>
-                        
                       </button>
                       <p className="titulo-producto-carrito">
                         {product.nameProduct}
@@ -150,8 +157,8 @@ export const Cart = ({
 
                     <p
                       onClick={() => onDeleteProduct(product)}
-                      className="cursor-pointer text-red-500"> 
-                    
+                      className="cursor-pointer text-red-500"
+                    >
                       X
                     </p>
                   </div>
@@ -162,10 +169,10 @@ export const Cart = ({
                 <h3>Total:</h3>
                 <span className="total-pagar">${total}</span>
               </div>
-              <button className="btn-cash" onClick={onCash}>
+              <button className=" text-white block w-full  cursor-pointer text-base transition-all duration-[0.3s] ease-[ease] px-0 py-[15px] border-[none] bg-green-600" onClick={onCash}>
                 Comprar
               </button>
-              <button className="btn-clear-all" onClick={onCleanCart}>
+              <button className=" text-white block w-full cursor-pointer text-base transition-all duration-[0.3s] ease-[ease]  px-0 py-[15px] rounded-br-[10px] rounded-bl-[10px] border-[none] bg-red-600" onClick={onCleanCart}>
                 Vaciar Carrito
               </button>
             </>

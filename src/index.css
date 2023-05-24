@@ -40,18 +40,18 @@ header {
 
 .count-products {
 	position: absolute;
-	top: 55%;
-	right: 0;
+	top: 30%;
+	right: -19px;
     cursor: pointer;
-	background-color: #000;
+	background-color: #d56012;
 	color: #fff;
 	width: 25px;
 	height: 25px;
-    z-index: 200px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
+	margin-left: -50px;
 }
 
 #contador-productos {
@@ -199,34 +199,6 @@ header {
 	display: none;
 }
 
-.btn-clear-all {
-	border: none;
-	background-color: #000;
-	color: #fff;
-	padding: 15px 0;
-	display: block;
-	width: 100%;
-	margin-top: 10px;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	font-family: inherit;
-	cursor: pointer;
-  font-size: 16px;
-  transition: all .3s ease;
-}
-.btn-cash {
-	border: none;
-	background-color: #000;
-	color: #fff;
-	padding: 15px 0;
-	display: block;
-	width: 100%;
-	margin-bottom: -9px;	
-	font-family: inherit;
-	cursor: pointer;
-  font-size: 16px;
-  transition: all .3s ease;
-}
 
 .btn-clear-all:hover{
   background-color: #333;

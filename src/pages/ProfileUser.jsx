@@ -34,7 +34,6 @@ export const ProfileUser = () => {
     setData((prevData) => ({
       ...prevData,
       [name]: value,
-
     }));
   };
 
@@ -106,72 +105,74 @@ export const ProfileUser = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <form onSubmit={handleSubmit} className="flex flex-col">
-                <div>
-                  <fieldset className="w-[49%]">
-                    <label htmlFor="id" className="text-gray-500">
-                      Identificación
-                    </label>
-                    <input
-                      onChange={handleInputChange}
-                      name="id"
-                      type="number"
-                      className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                      value={data.id}
-                    />
-                  </fieldset>
-                  <fieldset className="w-[49%]">
-                    <label htmlFor="nombre" className="text-gray-500">
-                      Nombre
-                    </label>
-                    <input
-                      onChange={handleInputChange}
-                      name="nombre"
-                      type="text"
-                      className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                      value={data.nombre}
-                    />
-                  </fieldset>
-                  <fieldset className="w-[49%]">
-                    <label htmlFor="email" className="text-gray-500">
-                      Correo Electrónico
-                    </label>
-                    <input
-                      onChange={handleInputChange}
-                      name="email"
-                      type="text"
-                      className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                      value={data.email}
-                    />
-                  </fieldset>
-                  <fieldset className="w-[49%]">
-                    <label htmlFor="telefono" className="text-gray-500">
-                      Celular
-                    </label>
-                    <input
-                      onChange={handleInputChange}
-                      name="telefono"
-                      type="number"
-                      className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                      value={data.telefono}
-                    />
-                  </fieldset>
-                  <fieldset className="w-[49%]">
-                    <label htmlFor="direccion" className="text-gray-500">
-                      Dirección
-                    </label>
-                    <input
-                      onChange={handleInputChange}
-                      name="direccion"
-                      type="text"
-                      className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                      value={data.direccion}
-                    />
-                  </fieldset>
+                <div className="flex">
+                  <div className="w-11">
+                    <fieldset className="w-[49%]">
+                      <label htmlFor="id" className="text-gray-500">
+                        Identificación
+                      </label>
+                      <input
+                        onChange={handleInputChange}
+                        name="id"
+                        type="number"
+                        className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
+                        value={data.id}
+                      />
+                    </fieldset>
+                    <fieldset className="w-[49%]">
+                      <label htmlFor="nombre" className="text-gray-500">
+                        Nombre
+                      </label>
+                      <input
+                        onChange={handleInputChange}
+                        name="nombre"
+                        type="text"
+                        className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
+                        value={data.nombre}
+                      />
+                    </fieldset>
+                    <fieldset className="w-[49%]">
+                      <label htmlFor="email" className="text-gray-500">
+                        Correo Electrónico
+                      </label>
+                      <input
+                        onChange={handleInputChange}
+                        name="email"
+                        type="text"
+                        className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
+                        value={data.email}
+                      />
+                    </fieldset>
+                  </div>
+                  <div className="w-11">
+                    <fieldset className="w-[49%]">
+                      <label htmlFor="telefono" className="text-gray-500">
+                        Celular
+                      </label>
+                      <input
+                        onChange={handleInputChange}
+                        name="telefono"
+                        type="number"
+                        className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
+                        value={data.telefono}
+                      />
+                    </fieldset>
+                    <fieldset className="w-[49%]">
+                      <label htmlFor="direccion" className="text-gray-500">
+                        Dirección
+                      </label>
+                      <input
+                        onChange={handleInputChange}
+                        name="direccion"
+                        type="text"
+                        className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
+                        value={data.direccion}
+                      />
+                    </fieldset>
+                  </div>
                 </div>
                 <button type="submit" className="btn-main">
-                  <span>
-                    Actualizar datos ➔
-                  </span>
+                  <span>Actualizar datos ➔</span>
                   {/* <svg viewBox="0 0 13 10" height="10px" width="15px">
                       <path d="M1,5 L11,5"></path>
                       <polyline points="8 1 12 5 8 9"></polyline>
