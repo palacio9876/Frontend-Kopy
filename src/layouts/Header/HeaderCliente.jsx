@@ -1,11 +1,21 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-
+import { ToastContainer, toast } from "react-toastify";
 export const HeaderCliente = () => {
   localStorage.getItem('rolAdmin')
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    toast.warn("Sesion cerrada exitosamente", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     localStorage.clear();
     setTimeout(() => {
       navigate("/");
@@ -13,7 +23,9 @@ export const HeaderCliente = () => {
   };
 
   return (
-    <header className="bg-brown-kopy flex justify-between items-center px-[5%] py-2.5">
+  <>
+  <ToastContainer/>
+  <header className="bg-brown-kopy flex justify-between items-center px-[5%] py-2.5">
       <div className="logo">
         <img
           className="w-20 h-w-20 rounded-full"
@@ -71,5 +83,7 @@ export const HeaderCliente = () => {
         </>
       </div>
     </header>
+  </>
+    
   );
 };

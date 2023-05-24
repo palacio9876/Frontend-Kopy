@@ -39,12 +39,17 @@
 .btn-main {
     @apply relative transition-all duration-[0.2s] ease-[ease] cursor-pointer flex items-center m-auto px-[18px] py-3 rounded-[50px] border-[none] before:content-[""] before:absolute before:block before:w-[45px] before:h-[45px] before:transition-all before:duration-[0.3s] before:ease-[ease] before:rounded-[50px] before:left-0 before:top-0 hover:before:w-full active:scale-95;
     background: none;
+    margin-top: 20px;
+    margin-left: -5px;
+    
 }
 .btn-main:before {
     background: var(--orange);
 }
 .btn-main span {
     @apply relative text-lg font-bold tracking-wider text-[color:var(--brown)];
+
+
 }
 .btn-main svg {
     @apply relative fill-none stroke-[color:var(--brown)] stroke-2 translate-x-[-5px] transition-all duration-[0.3s] ease-[ease] ml-2.5 top-0;
@@ -53,7 +58,9 @@
 }
 .btn-main:hover:before {
     background: var(--orange);
+    margin-top: 2px;
 }
+
 .btn-main:hover svg {
     @apply translate-x-0;
 }
