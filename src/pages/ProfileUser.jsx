@@ -69,11 +69,11 @@ export const ProfileUser = () => {
       <main className="py-6 px-16 bg-[color:var(--pink)]">
         <div className="flex items-stretch py-8 px-5 bg-[color:var(--brown)] rounded-2xl">
           <div className="flex flex-col w-1/5 rounded-2xl border-[--brown] bg-[color:var(--pink)]">
-            <div className="flex p-2 gap-7 items-center justify-center">
+            <div className="flex p-2 gap-4 items-center justify-center flex-col my-2">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/64/64572.png"
                 alt=""
-                className="w-12"
+                className="w-20"
               />
               <div className="flex flex-col">
                 <p className="">Mi perfil</p>
@@ -86,17 +86,9 @@ export const ProfileUser = () => {
               <i className="bx bx-cog bx-spin"></i>
               <p>Ajustes de cuenta</p>
             </div>
-            <div className="flex border-solid border-b-2 border-[color:var(--brown)] px-2 py-3 gap-2 items-center">
-              <i className="bx bx-help-circle bx-tada"></i>
-              <p>Centro de ayuda</p>
-            </div>
             <div className="flex border-solid border-b-2 px-2 py-3 gap-2 border-[color:var(--brown)] items-center">
               <i className="bx bx-cog bx-spin"></i>
               <p>Eliminar cuenta</p>
-            </div>
-            <div className="flex border-solid px-2 py-3 gap-2 border-b-2 border-[color:var(--brown)] items-center">
-              <i className="bx bx-window-close"></i>
-              <p>Cerrar sesión</p>
             </div>
           </div>
           <div className="flex flex-col flex-wrap rounded-2xl border-solid border-2 px-2 py-3 gap w-4/5 ml-5 bg-[color:var(--pink)] gap-8">
@@ -104,10 +96,13 @@ export const ProfileUser = () => {
               Información de tu cuenta
             </p>
             <div className="flex flex-wrap gap-4">
-              <form onSubmit={handleSubmit} className="flex flex-col">
-                <div className="flex">
-                  <div className="w-11">
-                    <fieldset className="w-[49%]">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col w-full px-6"
+              >
+                <div className="flex w-full gap-12">
+                  <div className="w-1/2">
+                    <fieldset className="w-full">
                       <label htmlFor="id" className="text-gray-500">
                         Identificación
                       </label>
@@ -119,7 +114,7 @@ export const ProfileUser = () => {
                         value={data.id}
                       />
                     </fieldset>
-                    <fieldset className="w-[49%]">
+                    <fieldset className="w-full">
                       <label htmlFor="nombre" className="text-gray-500">
                         Nombre
                       </label>
@@ -131,7 +126,7 @@ export const ProfileUser = () => {
                         value={data.nombre}
                       />
                     </fieldset>
-                    <fieldset className="w-[49%]">
+                    <fieldset className="w-full">
                       <label htmlFor="email" className="text-gray-500">
                         Correo Electrónico
                       </label>
@@ -144,8 +139,8 @@ export const ProfileUser = () => {
                       />
                     </fieldset>
                   </div>
-                  <div className="w-11">
-                    <fieldset className="w-[49%]">
+                  <div className="w-1/2">
+                    <fieldset className="w-full">
                       <label htmlFor="telefono" className="text-gray-500">
                         Celular
                       </label>
@@ -157,7 +152,7 @@ export const ProfileUser = () => {
                         value={data.telefono}
                       />
                     </fieldset>
-                    <fieldset className="w-[49%]">
+                    <fieldset className="w-full">
                       <label htmlFor="direccion" className="text-gray-500">
                         Dirección
                       </label>
