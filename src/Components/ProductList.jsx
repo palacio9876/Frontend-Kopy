@@ -10,6 +10,19 @@ export const ProductList = ({
   setTotal,
   articles,
 }) => {
+  const addProduct =()=>{
+
+    toast.success("Producto agregado exitosamente", {
+      position: "top-left",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
   const onAddProduct = (product) => {
     if (allProducts.find((item) => item.id === product.id)) {
       const products = allProducts.map((item) =>
@@ -17,16 +30,6 @@ export const ProductList = ({
       );
       setTotal(total + product.price * product.quantity);
       setCountProducts(countProducts + product.quantity);
-      toast.success("Producto agregado exitosamente", {
-        position: "top-left",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
       return setAllProducts([...products]);
     }
 
@@ -61,7 +64,7 @@ export const ProductList = ({
               ) : (
                 <>
                   <button
-                    onClick={() => onAddProduct(article)}
+                    onClick={() => onAddProduct(article,addProduct())}
                     className="active:scale-95"
                   >
                     Añadir al carrito
