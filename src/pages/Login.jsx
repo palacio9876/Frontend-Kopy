@@ -58,7 +58,7 @@ export const Login = () => {
       }
     } catch (error) {
       console.log("Error en la solicitud de inicio de sesión:", error);
-      toast.error("!Error please enter the correct email and password!", {
+      toast.error("¡Error, por favor ingrese correctamente el correo y la contraseña!", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -72,8 +72,8 @@ export const Login = () => {
   return (
     <>
       <ToastContainer />
-      <div className="bg-[url('https://res.cloudinary.com/dyhfwq81d/image/upload/v1679053889/pexels-hu%E1%BB%B3nh-%C4%91%E1%BA%A1t-2313037_qvujla.jpg')] h-screen W-full bg-cover bg-center p-24 flex items-center justify-center ">
-        <div className="absolute w-[400px] -translate-x-2/4 translate-y-[-55%] box-border shadow-[0_15px_25px_#00000099] mx-auto my-5 p-10 rounded-[10px] left-2/4 top-2/4 bg-[#473b3be3]">
+      <div className="bg-[url('https://res.cloudinary.com/dyhfwq81d/image/upload/v1679053889/pexels-hu%E1%BB%B3nh-%C4%91%E1%BA%A1t-2313037_qvujla.jpg')] h-screen W-full bg-cover bg-center pr-24 pt-24 pl-24 pb-14 flex flex-col-reverse items-center">
+        <div className="absolute w-[400px] -translate-x-2/4 translate-y-[-55%] box-border shadow-[0_15px_25px_#00000099] mx-auto mt-5 p-10 rounded-[10px] left-2/4 top-2/4 bg-[#473b3be3] ">
           <p className="text-white text-center text-2xl font-[bold] tracking-[1px] mt-0 mb-[30px] mx-0 p-0;">
             Inicio de sesión
           </p>
@@ -128,6 +128,12 @@ export const Login = () => {
             </NavLink>
           </p>
         </div>
+        <NavLink
+          to="/PinAdmin"
+            className="text-white no-underline text-2xl border-white border-2 p-3 rounded-full   text-center flex items-center "
+        >
+          <box-icon name='user' type='solid' color='#ffffff' ></box-icon> Soy administrador
+        </NavLink>
       </div>
     </>
   );

@@ -18,6 +18,7 @@ import { RecoverPassword } from "./pages/recoverPassword"
 import { DomiCar } from "./pages/DomiCar"
 import { HomeAdmin } from "./pages/HomeAdmin"
 import { RegisterDomiciliario } from "./pages/RegisterDomiciliario";
+import { PinAdmin } from "./pages/PinAdmin";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path="/domiCar" element={<DomiCar />} />
         <Route path="/homeAdmin" element={<HomeAdmin />} />
         <Route path="/registerDomiciliario" element={<RegisterDomiciliario />} />
+        <Route path="PinAdmin" element={<PinAdmin/>}/>
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>

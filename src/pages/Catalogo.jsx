@@ -18,14 +18,14 @@ export const Catalogo = () => {
   AOS.init();
 
   const allCategories = [
-    "All",
+    "Todo",
     ...new Set(data.map((article) => article.category)),
   ];
 
   const [categories, setCategories] = useState(allCategories);
   const [articles, setArticles] = useState(data);
   const filterCategory = (category) => {
-    if (category === "All") {
+    if (category === "Todo") {
       setArticles(data);
       return;
     }
@@ -42,7 +42,6 @@ export const Catalogo = () => {
 
       <main className="main-catalogo">
         <h1 className="text-center text-5xl text-brown-kopy my-3">Catalogo</h1>
-
         <div className="btns-catalogo">
           {categories.map((category) => (
             <button
