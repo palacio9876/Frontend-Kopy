@@ -7,7 +7,7 @@ import { Register } from "./pages/Register.jsx";
 import { Login } from "./pages/Login";
 import { Error404 } from "./pages/Error404.jsx";
 import { Helmet } from "react-helmet";
-import { RecoverPasswordAdmin } from "./pages/recoverPasswordAdmin";
+import { RecoverPasswordAdmin } from "./pages/RecoverPasswordAdmin";
 import { Recover } from "./pages/Recover";
 import { ProfileUser } from "./pages/ProfileUser";
 import { RegisterAdmin } from "./pages/RegisterAdmin";
@@ -36,7 +36,7 @@ function App() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/register" element={<Register />} />
         <Route path="/recoverpassword" element={<RecoverPassword />} />
-        {/* <Route path="/recoverpasswordAdmin" element={<RecoverPasswordAdmin />} /> */}
+        <Route path="/recoverpasswordAdmin" element={<RecoverPasswordAdmin />} />
         <Route path="/registerAdmin" element={<RegisterAdmin />} />
         <Route path="/loginAdmin" element={<LoginAdmin />} />
         <Route path="/recoverAdmin" element={<RecoverAdmin />} />
