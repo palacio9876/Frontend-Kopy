@@ -36,7 +36,7 @@ function App() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/register" element={<Register />} />
         <Route path="/recoverpassword" element={<RecoverPassword />} />
-        <Route path="/recoverpasswordAdmin" element={<RecoverPasswordAdmin />} />
+        {/* <Route path="/recoverpasswordAdmin" element={<RecoverPasswordAdmin />} /> */}
         <Route path="/registerAdmin" element={<RegisterAdmin />} />
         <Route path="/loginAdmin" element={<LoginAdmin />} />
         <Route path="/recoverAdmin" element={<RecoverAdmin />} />
@@ -47,7 +47,7 @@ function App() {
         <Route path="/domiCar" element={<DomiCar />} />
         <Route path="/homeAdmin" element={<HomeAdmin />} />
         <Route path="/registerDomiciliario" element={<RegisterDomiciliario />} />
-        <Route path="PinAdmin" element={<PinAdmin/>}/>
+        <Route path="/PinAdmin" element={<PinAdmin/>}/>
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
