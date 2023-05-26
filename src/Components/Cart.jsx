@@ -11,6 +11,7 @@ export const Cart = ({
   setCountProducts,
 }) => {
   const [active, setActive] = useState(false);
+  console.log(active);
 
   const incrementQuantity = (product) => {
     const updatedProducts = allProducts.map((item) =>
