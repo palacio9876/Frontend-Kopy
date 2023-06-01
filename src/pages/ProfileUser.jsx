@@ -2,62 +2,69 @@ import React, { useState, useEffect } from "react";
 import { Header } from "../layouts/Header/Header";
 import { Footer } from "../layouts/Footer/Footer";
 import { useNavigate } from "react-router-dom";
-import Axios from "axios";
+import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { HeaderCliente } from "../layouts/Header/HeaderCliente";
 
 export const ProfileUser = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({
-    nombre: "",
     id: "",
+    nombre: "",
+    email: "",
     telefono: "",
     direccion: "",
-    email: "",
-    password: "",
   });
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await Axios.get("http://localhost:3020/user/login");
-        setData(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchData();
-  }, []);
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setData({
+      ...data,
+      [event.target.name]: event.target.value,
+    });
   };
 
-  const handleSubmit = async (event) => {
+  let token = localStorage.getItem("token");
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    try {
-      await Axios.put("http://localhost:3020/user/update", data);
-      toast.success("UPDATE profile is successful!", {
-        position: "top-right",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
+    axios
+      .put(`http://localhost:3020/user/updateDatos`,{
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+        toast.success("Actualizado correctamente");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Error al actualizar");
       });
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
-    } catch (error) {
-      console.error(error);
-    }
   };
+
+
+  useEffect(() => {
+
+    (() => {
+      axios
+        .get(`http://localhost:3020/user/profile`, {
+          headers: {
+            Authorization: token,
+
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          console.log(res.data);
+          setData(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    })();
+  }, []);
 
   const rol = localStorage.getItem("rol");
 
@@ -75,15 +82,11 @@ export const ProfileUser = () => {
                 alt=""
                 className="w-20"
               />
-              <input
-                className="w-30 ml-[-50px] "
-                type="file"
-                
-              />
+              <input className="w-30 ml-[-50px] " type="file" />
               <div className="flex flex-col">
                 <p className="">Mi perfil</p>
                 <p className="flex flex-wrap text-[color:var(--orange)] font-semibold text-xl">
-                  {data.nombre}
+                  {data.nombre_cliente}
                 </p>
               </div>
             </div>
@@ -116,19 +119,19 @@ export const ProfileUser = () => {
                         name="id"
                         type="number"
                         className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                        value={data.id}
+                        value={data.id_cliente}
+                        disabled
                       />
                     </fieldset>
                     <fieldset className="w-full">
                       <label htmlFor="nombre" className="text-gray-500">
-                        Nombre
                       </label>
                       <input
                         onChange={handleInputChange}
                         name="nombre"
                         type="text"
                         className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                        value={data.nombre}
+                        defaultValue={data.nombre_cliente}
                       />
                     </fieldset>
                     <fieldset className="w-full">
@@ -140,7 +143,7 @@ export const ProfileUser = () => {
                         name="email"
                         type="text"
                         className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                        value={data.email}
+                        value={data.email_cliente}
                       />
                     </fieldset>
                   </div>
@@ -154,7 +157,7 @@ export const ProfileUser = () => {
                         name="telefono"
                         type="number"
                         className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                        value={data.telefono}
+                        value={data.telefono_cliente}
                       />
                     </fieldset>
                     <fieldset className="w-full">
@@ -166,7 +169,7 @@ export const ProfileUser = () => {
                         name="direccion"
                         type="text"
                         className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                        value={data.direccion}
+                        value={data.direccion_cliente}
                       />
                     </fieldset>
                   </div>

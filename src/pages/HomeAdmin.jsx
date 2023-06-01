@@ -10,7 +10,7 @@ export const HomeAdmin = () => {
     return (
       <>
       {
-        rolAdmin === null ? <HeaderCliente /> : null
+        rolAdmin == null ? <HeaderCliente /> : null
       }
       <Main/>
       <Footer />
