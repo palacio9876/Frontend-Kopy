@@ -19,6 +19,7 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.8.2",
     "react-toastify": "^9.1.2",
+    "react-use": "^17.4.0",
     "sweetalert2": "^11.7.3",
     "swiper": "^9.1.0",
     "xtend": "^4.0.2"

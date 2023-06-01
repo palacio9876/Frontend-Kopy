@@ -31,13 +31,16 @@ function App() {
         <title>Kopy</title>
       </Helmet>
       <Routes>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />} />
         <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/register" element={<Register />} />
         <Route path="/recoverpassword" element={<RecoverPassword />} />
         <Route path="/recoverpasswordAdmin" element={<RecoverPasswordAdmin />} />
-        <Route path="/registerAdmin" element={<RegisterAdmin />} />
+         <Route path="/registerAdmin" element={<RegisterAdmin />} />
+         <Route element={<ProtectedRoute canActivate={false} />}>
+         <Route path="/homeAdmin" element={<HomeAdmin />} />
+        </Route>
         <Route path="/loginAdmin" element={<LoginAdmin />} />
         <Route path="/recoverAdmin" element={<RecoverAdmin />} />
         <Route path="/recover" element={<Recover />} />
@@ -45,7 +48,7 @@ function App() {
         <Route path="/profile" element={<ProfileUser />} />
         <Route path="/addProduct" element={<AddProduct />} /> 
         <Route path="/domiCar" element={<DomiCar />} />
-        <Route path="/homeAdmin" element={<HomeAdmin />} />
+        
         <Route path="/registerDomiciliario" element={<RegisterDomiciliario />} />
         <Route path="/PinAdmin" element={<PinAdmin/>}/>
         <Route path="*" element={<Error404 />} />
