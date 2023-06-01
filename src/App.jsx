@@ -20,8 +20,13 @@ import { HomeAdmin } from "./pages/HomeAdmin"
 import { RegisterDomiciliario } from "./pages/RegisterDomiciliario";
 import { PinAdmin } from "./pages/PinAdmin";
 import {ProtectedRoute} from "./Components/ProtectedRoute";
+import { useLocalStorage } from "react-use";
 
 function App() {
+
+
+   const [user, setUser] = useLocalStorage('user'); 
+
   return (
     <div className="App">
       <Helmet>
@@ -39,7 +44,7 @@ function App() {
         <Route path="/recoverpassword" element={<RecoverPassword />} />
         <Route path="/recoverpasswordAdmin" element={<RecoverPasswordAdmin />} />
          <Route path="/registerAdmin" element={<RegisterAdmin />} />
-         <Route element={<ProtectedRoute canActivate={false} />}>
+         <Route element={<ProtectedRoute canActivate={user} redirectPath="/loginAdmin"/>}>
          <Route path="/homeAdmin" element={<HomeAdmin />} />
         </Route>
         <Route path="/loginAdmin" element={<LoginAdmin />} />
@@ -47,11 +52,17 @@ function App() {
         <Route path="/recover" element={<Recover />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<ProfileUser />} />
+
+        <Route element={<ProtectedRoute canActivate={user} redirectPath="/loginAdmin"/>}>
         <Route path="/addProduct" element={<AddProduct />} /> 
+        </Route>
         <Route path="/domiCar" element={<DomiCar />} />
         
         <Route path="/registerDomiciliario" element={<RegisterDomiciliario />} />
+
+
         <Route path="/PinAdmin" element={<PinAdmin/>}/>
+
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
