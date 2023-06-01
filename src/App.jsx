@@ -19,6 +19,7 @@ import { DomiCar } from "./pages/DomiCar"
 import { HomeAdmin } from "./pages/HomeAdmin"
 import { RegisterDomiciliario } from "./pages/RegisterDomiciliario";
 import { PinAdmin } from "./pages/PinAdmin";
+import {ProtectedRoute} from "./Components/ProtectedRoute";
 
 function App() {
   return (
