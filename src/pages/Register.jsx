@@ -30,12 +30,12 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let data = await Axios.post("http://localhost:3020/user/registro", form)
-      .then((res) => {
-        return res;
-      })
-      .catch((err) => {
-        return err;
-      });
+        .then((res) => {
+          return res;
+        })
+        .catch((err) => {
+          return err;
+        });
     console.log(data);
 
     toast.success("Resgister is sucessfull!", {
