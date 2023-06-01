@@ -44,7 +44,7 @@ function App() {
         <Route path="/recoverpassword" element={<RecoverPassword />} />
         <Route path="/recoverpasswordAdmin" element={<RecoverPasswordAdmin />} />
          <Route path="/registerAdmin" element={<RegisterAdmin />} />
-         <Route element={<ProtectedRoute canActivate={user} redirectPath="/loginAdmin"/>}>
+         <Route element={<ProtectedRoute canActivate={user} redirectPath="/pinAdmin"/>}>
          <Route path="/homeAdmin" element={<HomeAdmin />} />
         </Route>
         <Route path="/loginAdmin" element={<LoginAdmin />} />
@@ -53,7 +53,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<ProfileUser />} />
 
-        <Route element={<ProtectedRoute canActivate={user} redirectPath="/loginAdmin"/>}>
+        <Route element={<ProtectedRoute canActivate={user} redirectPath="/pinAdmin"/>}>
         <Route path="/addProduct" element={<AddProduct />} /> 
         </Route>
         <Route path="/domiCar" element={<DomiCar />} />

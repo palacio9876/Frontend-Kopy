@@ -25,7 +25,7 @@ export const PinAdmin = () => {
       );
       console.log("response", response);
 
-      toast.success("pin validate ok", {
+      toast.success("Access allowed", {
         position: "top-right",
         autoClose: 1000,
         hideProgressBar: false,
@@ -40,8 +40,8 @@ export const PinAdmin = () => {
       }, 2000);
     
     } catch (error) {
-      console.log("Error:", error);
-      toast.error("Error", {
+      console.log("Pin Validate Denied");
+      toast.error("Access denied", {
         position: "top-right",
         autoClose: 1000,
         hideProgressBar: false,
