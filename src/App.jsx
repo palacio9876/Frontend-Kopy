@@ -32,7 +32,7 @@ function App() {
       <Helmet>
         <link
           rel="shortcut icon"
-          href="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678978391/kopy/K_2_v9swkk.png"
+          href="https://res.cloudinary.com/dyhfwq81d/image/upload/v1685967326/2_xgzihz.jpg"
         />
         <title>Kopy</title>
       </Helmet>

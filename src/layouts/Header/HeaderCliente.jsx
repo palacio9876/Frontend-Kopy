@@ -29,7 +29,7 @@ export const HeaderCliente = () => {
       <div className="logo">
         <img
           className="w-20 h-w-20 rounded-full"
-          src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678978833/kopy/1_rah6cb.png"
+          src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1685967057/Kopy_tfpadn.jpg"
         />
       </div>
       <nav>
