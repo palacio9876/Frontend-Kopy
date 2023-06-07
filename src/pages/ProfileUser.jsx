@@ -78,11 +78,18 @@ export const ProfileUser = () => {
           <div className="flex flex-col w-1/5 rounded-2xl border-[--brown] bg-[color:var(--pink)]">
             <div className="flex p-2 gap-4 items-center justify-center flex-col my-2">
               <img
-                src="https://cdn-icons-png.flaticon.com/512/64/64572.png"
+                src="https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt=""
                 className="w-20"
               />
-              <input className="w-30 ml-[-50px] " type="file" />
+             <input type="file" class="block w-full text-sm text-slate-500 ml-20
+             
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-full file:border-0
+      file:text-sm file:font-semibold
+      file:bg-violet-50 file:text-orange-kopy
+      hover:file:bg-violet-100
+    "/>
               <div className="flex flex-col">
                 <p className="">Mi perfil</p>
                 <p className="flex flex-wrap text-[color:var(--orange)] font-semibold text-xl">

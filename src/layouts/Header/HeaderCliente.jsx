@@ -25,12 +25,12 @@ export const HeaderCliente = () => {
   return (
   <>
   <ToastContainer/>
-  <header className="bg-brown-kopy flex justify-between items-center px-[5%] py-2.5">
-      <div className="logo">
-        <img
-          className="w-20 h-w-20 rounded-full"
-          src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1685967057/Kopy_tfpadn.jpg"
-        />
+  <header className="bg-brown-kopy flex justify-between items-center px-[5%]">
+        <div className="h-5">
+          <img className="object-fill h-32 -top-14 relative z-10"
+            src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1685967057/Kopy_tfpadn.jpg"
+          />
+      
       </div>
       <nav>
         <ul className="flex items-center justify-center flex-wrap">

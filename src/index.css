@@ -36,6 +36,7 @@ header {
 
 .container-icon{
 	position:fixed;
+	
 	bottom:70%;
 	left: 96%;
 	z-index: 200;

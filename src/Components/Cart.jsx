@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -110,10 +110,28 @@ export const Cart = ({
       })
       .catch((err) => console.log(err));
   };
+  
+  useEffect(()=>{
+    
+    const principal = document.querySelector('#principal')
+  var height = principal.offsetTop
+  window.addEventListener("scroll",(e)=>{
+
+    
+    
+    if (window.pageYOffset > height) {
+      document.getElementById("df").style.top = "1rem"
+    } else {
+      document.getElementById("df").style.top = "7.8rem"
+  }
+  })
+},[])
 
   return (
+    <div id="principal">
+
     <header>
-      <div className="container-icon">
+      <div className="container-icon" id="df">
         <div className="container-cart-icon" onClick={() => setActive(!active)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -201,5 +219,7 @@ export const Cart = ({
         </div>
       </div>
     </header>
+
+    </div>
   );
 };
