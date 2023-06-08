@@ -53,9 +53,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<ProfileUser />} />
 
-        <Route element={<ProtectedRoute canActivate={user} redirectPath="/pinAdmin"/>}>
+
         <Route path="/addProduct" element={<AddProduct />} /> 
-        </Route>
+      
         <Route path="/domiCar" element={<DomiCar />} />
         
         <Route path="/registerDomiciliario" element={<RegisterDomiciliario />} />

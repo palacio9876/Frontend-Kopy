@@ -11,35 +11,49 @@ export const Cart = ({
   setCountProducts,
 }) => {
   const [active, setActive] = useState(false);
+
+  const addProduct=async()=>{
+    try {
+        const response = await axios.post("http://localhost:3020/product/obtener");
+        setActive(response.data);
+        active.map(active=>{
+          active.cantidad_producto=1;
+        })
+    
+    } catch (error) {
+      
+         
+    }
+  }
   console.log(active);
 
   const incrementQuantity = (product) => {
     const updatedProducts = allProducts.map((item) =>
-      item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      item.id === product.id ? { ...item, quantity: item.cantidad_producto +1  } : item
     );
     setAllProducts(updatedProducts);
-    setTotal(total + product.price);
+    setTotal(total + product.precio);
     setCountProducts(countProducts + 1);
   };
 
   const decrementQuantity = (product) => {
     if (product.quantity > 1) {
       const updatedProducts = allProducts.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+        item.id === product.id_producto ? { ...item, quantity: item.cantidad_producto - 1 } : item
       );
       setAllProducts(updatedProducts);
-      setTotal(total - product.price);
+      setTotal(total - product.precio);
       setCountProducts(countProducts - 1);
     }
   };
 
   const onDeleteProduct = (product) => {
     const updatedProducts = allProducts.filter(
-      (item) => item.id !== product.id
+      (item) => item.id !== product.id_producto
     );
     setAllProducts(updatedProducts);
-    setTotal(total - product.price * product.quantity);
-    setCountProducts(countProducts - product.quantity);
+    setTotal(total - product.precio * product.cantidad_producto);
+    setCountProducts(countProducts - product.cantidad_producto);
   };
 
   const onCleanCart = () => {
@@ -110,6 +124,12 @@ export const Cart = ({
       })
       .catch((err) => console.log(err));
   };
+  useEffect(() => {
+    addProduct();
+  })
+
+  
+
   
   useEffect(()=>{
     
@@ -122,7 +142,7 @@ export const Cart = ({
     if (window.pageYOffset > height) {
       document.getElementById("df").style.top = "1rem"
     } else {
-      document.getElementById("df").style.top = "7.8rem"
+      document.getElementById("df").style.top = "8.4rem"
   }
   })
 },[])
@@ -174,7 +194,7 @@ export const Cart = ({
                         <p className="text-green-500 text-2xl m-20px  mb-[-5px]" >+</p>
                       </button>
                       <span className="cantidad-producto-carrito">
-                        {product.quantity}
+                        {product.cantidad_producto}
                       </span>
                       <button
                         className="quantity-button"
@@ -184,10 +204,10 @@ export const Cart = ({
                       </button>
                       </div >
                       <p className="titulo-producto-carrito">
-                        {product.nameProduct}
+                        {product.nombre_producto}
                       </p>
                       <span className="precio-producto-carrito">
-                        ${product.price * product.quantity}
+                        ${product.precio * product.cantidad_producto}
                       </span>
                     </div>
 
