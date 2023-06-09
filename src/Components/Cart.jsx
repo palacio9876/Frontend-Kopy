@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState,useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -22,14 +22,12 @@ export const Cart = ({
     
     } catch (error) {
       
-         
     }
   }
-  console.log(active);
 
   const incrementQuantity = (product) => {
     const updatedProducts = allProducts.map((item) =>
-      item.id === product.id ? { ...item, quantity: item.cantidad_producto +1  } : item
+      item.id === product.id_producto ? { ...item, quantity: item.quantity + 1 } : item
     );
     setAllProducts(updatedProducts);
     setTotal(total + product.precio);
@@ -39,13 +37,14 @@ export const Cart = ({
   const decrementQuantity = (product) => {
     if (product.quantity > 1) {
       const updatedProducts = allProducts.map((item) =>
-        item.id === product.id_producto ? { ...item, quantity: item.cantidad_producto - 1 } : item
+        item.id === product.quantity ? { ...item, quantity: item.quantity - 1 } : item
       );
       setAllProducts(updatedProducts);
       setTotal(total - product.precio);
       setCountProducts(countProducts - 1);
     }
   };
+  
 
   const onDeleteProduct = (product) => {
     const updatedProducts = allProducts.filter(
@@ -124,34 +123,13 @@ export const Cart = ({
       })
       .catch((err) => console.log(err));
   };
-  useEffect(() => {
-    addProduct();
-  })
 
-  
-
-  
-  useEffect(()=>{
-    
-    const principal = document.querySelector('#principal')
-  var height = principal.offsetTop
-  window.addEventListener("scroll",(e)=>{
-
-    
-    
-    if (window.pageYOffset > height) {
-      document.getElementById("df").style.top = "1rem"
-    } else {
-      document.getElementById("df").style.top = "8.4rem"
-  }
-  })
-},[])
+ 
 
   return (
-    <div id="principal">
-
-    <header>
-      <div className="container-icon" id="df">
+   <div className="principal">
+     <header>
+      <div className="container-icon">
         <div className="container-cart-icon" onClick={() => setActive(!active)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +148,6 @@ export const Cart = ({
             <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
             <path d="M17 17h-11v-14h-2" />
             <path d="M6 5l14 1l-1 7h-13" />
-            
           </svg>
           <div className="count-products">
             <span id="contador-productos">{countProducts}</span>
@@ -239,7 +216,6 @@ export const Cart = ({
         </div>
       </div>
     </header>
-
-    </div>
+   </div>
   );
 };
