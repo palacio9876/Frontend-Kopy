@@ -130,26 +130,59 @@ export const ProductList = ({
     }
   };
 
-  const onAddProduct = (product) => {
-    if (allProducts.find((item) => item.id === product.id_producto)) {
+ const onAddProduct = (article) => {
+
+    if (allProducts.find((item) => item.id_producto === article.id_producto)) {
       const products = allProducts.map((item) =>
-        item.id === product.id_producto ? { ...item, cantidad_producto: item.cantidad_producto } : item
-      );
-      setTotal(total + product.precio * product.cantidad_producto);
-      setCountProducts(countProducts + product.cantidad_producto);
 
-      return setAllProducts([...products]);
-    }
 
-    setTotal(total + product.precio * product.cantidad_producto);
-    setCountProducts(countProducts + product.cantidad_producto);
-    setAllProducts([...allProducts, product]);
+       item.id_producto === article.id_producto ? { ...item, cantidad_producto: item.cantidad_producto + 1 } 
+       : item
+     );
+     
+    //  setCountProducts(countProducts + product.cantidad_producto);
+     setTotal(total + article.precio * article.cantidad_producto);
+    setCountProducts(countProducts + article.cantidad_producto);
+     return setAllProducts([...products]);
+   }
+
+    setTotal(total + article.precio * article.cantidad_producto);
+    setCountProducts(countProducts + article.cantidad_producto);
+    setAllProducts([...allProducts, article]);
+
+   
   };
 
   let rol = localStorage.getItem("rol");
   let rolAdmin = localStorage.getItem("rolAdmin");
 
   return (
+
+    <div className="container-items" >
+     {articles.map(article => (
+       <div className="item" key={article.id_producto}>
+           <figure>
+					<img
+						src={article.id_imagen} alt={article.nombre_producto}
+						
+					/>
+				</figure>
+				<div className="info-product">
+					<h2>{article.nombre_producto}</h2>
+					<p className="price">${article.precio}</p>
+					<button onClick={() => onAddProduct(article)} className="btn-add-cart">Añadir al carrito</button>
+				</div>
+
+       </div>
+
+
+    ))}
+
+    
+
+
+    </div>
+    /*
     <>
       <div className="container-items">
         {articles.map((article) => (
@@ -188,5 +221,6 @@ export const ProductList = ({
       </div>
       <ToastContainer />
     </>
+    */
   );
 };
