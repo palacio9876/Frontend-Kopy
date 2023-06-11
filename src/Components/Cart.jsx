@@ -88,19 +88,19 @@ export const Cart = ({
     <ToastContainer />;
   };
 
-  // const deleteList= ()=>{
-  //toast.error("producto eliminado del carrito ", {
-  //  position: "top-left",
-  //  autoClose: 900,
-  //  hideProgressBar: false,
-  //  closeOnClick: true,
-  //  pauseOnHover: true,
-  // draggable: true,
-  // progress: undefined,
-  // theme: "light",
-  //});
-  //<ToastContainer />;
-  //}
+  const deleteList= ()=>{
+  toast.error("producto eliminado del carrito ", {
+   position: "top-left",
+   autoClose: 900,
+   hideProgressBar: false,
+   closeOnClick: true,
+   pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  theme: "light",
+  });
+  <ToastContainer />;
+  }
 
   // Conectar con el backend
   const [cart, setCart] = useState({
@@ -129,6 +129,8 @@ export const Cart = ({
 
 
   return (
+    <>
+    <ToastContainer/>
     <header>
 
 
@@ -191,6 +193,7 @@ export const Cart = ({
                         stroke="currentColor"
                         className="icon-close"
                         onClick={() => onDeleteProduct(article)}
+                        onClickCapture={deleteList}
                       >
                         <path
                           strokeLinecap="round"
@@ -227,7 +230,7 @@ export const Cart = ({
         </div>
       </div>
     </header>
-
+</>
     /*
    
     

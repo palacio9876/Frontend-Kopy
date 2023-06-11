@@ -100,8 +100,7 @@ export const ProductList = ({
   const editProduct = async (product) => {
     // Aquí deberías implementar la lógica para editar un producto
     try {
-      // Realizar una petición PUT o PATCH al backend para actualizar el producto
-      // con la información proporcionada en el parámetro 'product'
+     
       const response = await axios.put(`http://localhost:3020/product/${product.id_producto}`, product);
       if (response.status === 200) {
         toast.success("Producto editado exitosamente", {
@@ -167,13 +166,34 @@ export const ProductList = ({
 						
 					/>
 				</figure>
-				<div className="info-product">
+        {rol === "rolAdmin" ? (
+                <>
+                  <button className="btn btn-danger rounded-[10px] mt-2 bg-orange-kopy h-14 w-72 hover:text-zinc-50 " onClick={() => editProduct(article)}>
+                    Editar
+                  </button>
+                    <br />
+                    
+                  <button className="btn btn-danger mt-2 rounded-[10px] bg-orange-kopy h-14 w-72 hover:text-zinc-50  " onClick={() => deleteProduct(article.id_producto)}>
+                    Eliminar
+                  </button>
+                </>
+              ) : (
+                <>
+                  <div className="info-product">
 					<h2>{article.nombre_producto}</h2>
 					<p className="price">${article.precio}</p>
-					<button onClick={() => onAddProduct(article)} className="btn-add-cart">Añadir al carrito</button>
+					<button onClick={() => onAddProduct(article)} onClickCapture={addCart} className="btn-add-cart">Añadir al carrito</button>
 				</div>
+                </>
+              )}
 
+				
+         
        </div>
+
+
+
+       
 
 
     ))}
