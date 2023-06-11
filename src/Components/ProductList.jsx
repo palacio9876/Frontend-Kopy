@@ -168,7 +168,10 @@ export const ProductList = ({
 				</figure>
         {rol === "rolAdmin" ? (
                 <>
-                  <button className="btn btn-danger rounded-[10px] mt-2 bg-orange-kopy h-14 w-72 hover:text-zinc-50 " onClick={() => editProduct(article)}>
+                  <div className="info-product">
+					<h2>{article.nombre_producto}</h2>
+					<p className="price">${article.precio}</p>
+          <button className="btn btn-danger rounded-[10px] mt-2 bg-orange-kopy h-14 w-72 hover:text-zinc-50 " onClick={() => editProduct(article)}>
                     Editar
                   </button>
                     <br />
@@ -176,6 +179,8 @@ export const ProductList = ({
                   <button className="btn btn-danger mt-2 rounded-[10px] bg-orange-kopy h-14 w-72 hover:text-zinc-50  " onClick={() => deleteProduct(article.id_producto)}>
                     Eliminar
                   </button>
+				</div>
+                
                 </>
               ) : (
                 <>
