@@ -26,7 +26,10 @@ export const Recover = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       console.log(data);
-      let response = await axios.post("http://localhost:3020/user/verificar", data)
+      let response = await axios.post(
+        // "http://localhost:3020/user/verificar",
+        "https://kopy-backend.up.railway.app/user/verificar",
+         data)
         .then((res) => {
           return res;
         }).catch((err) => {

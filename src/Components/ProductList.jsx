@@ -18,7 +18,10 @@ export const ProductList = ({
 
   const obtenerProductos = async () => {
     try {
-      const response = await axios.get("http://localhost:3020/product/obtener");
+      const response = await axios.get(
+        // "http://localhost:3020/product/obtener",
+        "https://kopy-backend.up.railway.app/product/obtener"
+      );
       setArticles(response.data);
 
       articles.map((article) => {
@@ -67,7 +70,10 @@ export const ProductList = ({
 
   const deleteProduct = async (productId) => {
     try {
-      const response = await axios.delete(`http://localhost:3020/product/eliminar/${productId}`);
+      const response = await axios.delete(
+        // `http://localhost:3020/product/eliminar/${productId}`
+        `https://kopy-backend.up.railway.app/product/eliminar/${productId}`
+        );
       if (response.status === 200) {
         const updatedProducts = articles.filter((article) => article.id_producto !== productId);
         setArticles(updatedProducts);
@@ -101,7 +107,10 @@ export const ProductList = ({
     // Aquí deberías implementar la lógica para editar un producto
     try {
      
-      const response = await axios.put(`http://localhost:3020/product/${product.id_producto}`, product);
+      const response = await axios.put(
+        // `http://localhost:3020/product/${product.id_producto}`
+        `https://kopy-backend.up.railway.app/product/${product.id_producto}`
+        , product);
       if (response.status === 200) {
         toast.success("Producto editado exitosamente", {
           position: "top-left",

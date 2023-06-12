@@ -2,11 +2,30 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ToastContainer,toast } from "react-toastify";
+
 
 export const Main = () => {
   AOS.init();
+
+
+  const onCash = () => {
+    toast.success("Comprando", {
+      position: "top-left",
+      autoClose: 900,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    <ToastContainer />;
+  };
+
   return (
     <main>
+      <ToastContainer/>
       <section className="section-main">
         <div
           className="flex justify-center items-center flex-col"
@@ -51,6 +70,7 @@ export const Main = () => {
             <div className="info-card">
               <p className="tittle-product">Cafe fresa</p>
               <p className="price">$7.000</p>
+              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
             </div>
           </div>
           <div className="card" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -60,6 +80,7 @@ export const Main = () => {
             <div className="info-card">
               <p className="tittle-product">Cafe mora</p>
               <p className="price"> $6.700</p>
+              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
             </div>
           </div>
           <div className="card" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -69,6 +90,7 @@ export const Main = () => {
             <div className="info-card">
               <p className="tittle-product">Cafe lite</p>
               <p className="price"> $6.500</p>
+              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
             </div>
           </div>
           <div className="card" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -76,8 +98,9 @@ export const Main = () => {
               <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721660/kopy/cafe-tradicional_vlqwlt.jpg" />
             </div>
             <div className="info-card">
-              <p className="tittle-product">Cafe con chocolate</p>
+              <p className="tittle-product">Cafe premium</p>
               <p className="price">$5.000</p>
+              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
             </div>
           </div>
         </div>

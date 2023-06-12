@@ -21,7 +21,10 @@ export const RecoverPassword = () => {
   const handleSubmitForm = (e) => {
     e.preventDefault();
     console.log(form);
-    Axios.post("http://localhost:3020/user/recuperar", form)
+    Axios.post(
+      // "http://localhost:3020/user/recuperar",
+      "https://kopy-backend.up.railway.app/user/recuperar",
+       form)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     toast.success("Recover is sucessfull!", {
