@@ -8,7 +8,9 @@ import { HeaderCliente } from "../layouts/Header/HeaderCliente";
 
 export const ProfileUser = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState({
+  const [data, setData] = useState([]);
+
+  const [dataCliente, setdataCliente] = useState({
     id: "",
     nombre: "",
     email: "",
@@ -16,48 +18,41 @@ export const ProfileUser = () => {
     direccion: "",
   });
 
-  const handleInputChange = (event) => {
-    setData({
-      ...data,
-      [event.target.name]: event.target.value,
+  const handdleChange = (e) => {
+    setdataCliente({
+      ...dataCliente,
+      [e.target.name]: e.target.value,
     });
   };
 
   let token = localStorage.getItem("token");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    console.log("no sirve");
     axios
-      .put(`http://localhost:3020/user/updateDatos`,{
+      .put(`http://localhost:3020/user/updateDatos`, dataCliente, {
         headers: {
           Authorization: token,
         },
       })
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
-        toast.success("Actualizado correctamente");
+        toast.success("Datos actualizados");
       })
       .catch((error) => {
         console.log(error);
-        toast.error("Error al actualizar");
       });
   };
 
-
   useEffect(() => {
-
     (() => {
       axios
         .get(`http://localhost:3020/user/profile`, {
           headers: {
             Authorization: token,
-
           },
         })
         .then((res) => {
           console.log(res);
-          console.log(res.data);
           setData(res.data);
         })
         .catch((error) => {
@@ -82,14 +77,17 @@ export const ProfileUser = () => {
                 alt=""
                 className="w-20"
               />
-             <input type="file" class="block w-full text-sm text-slate-500 ml-20
+              <input
+                type="file"
+                className="block w-full text-sm text-slate-500 ml-20
              
       file:mr-4 file:py-2 file:px-4
       file:rounded-full file:border-0
       file:text-sm file:font-semibold
       file:bg-violet-50 file:text-orange-kopy
       hover:file:bg-violet-100
-    "/>
+    "
+              />
               <div className="flex flex-col">
                 <p className="">Mi perfil</p>
                 <p className="flex flex-wrap text-[color:var(--orange)] font-semibold text-xl">
@@ -111,10 +109,7 @@ export const ProfileUser = () => {
               Información de tu cuenta
             </p>
             <div className="flex flex-wrap gap-4">
-              <form
-                onSubmit={handleSubmit}
-                className="flex flex-col w-full px-6"
-              >
+              <form className="flex flex-col w-full px-6">
                 <div className="flex w-full gap-12">
                   <div className="w-1/2">
                     <fieldset className="w-full">
@@ -122,7 +117,9 @@ export const ProfileUser = () => {
                         Identificación
                       </label>
                       <input
-                        onChange={handleInputChange}
+                        onChange={(e) => {
+                          handdleChange(e);
+                        }}
                         name="id"
                         type="number"
                         className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
@@ -131,10 +128,11 @@ export const ProfileUser = () => {
                       />
                     </fieldset>
                     <fieldset className="w-full">
-                      <label htmlFor="nombre" className="text-gray-500">
-                      </label>
+                      <label htmlFor="nombre" className="text-gray-500"></label>
                       <input
-                        onChange={handleInputChange}
+                        onChange={(e) => {
+                          handdleChange(e);
+                        }}
                         name="nombre"
                         type="text"
                         className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
@@ -146,11 +144,13 @@ export const ProfileUser = () => {
                         Correo Electrónico
                       </label>
                       <input
-                        onChange={handleInputChange}
+                        onChange={(e) => {
+                          handdleChange(e);
+                        }}
                         name="email"
                         type="text"
                         className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                        value={data.email_cliente}
+                        defaultValue={data.email_cliente}
                       />
                     </fieldset>
                   </div>
@@ -160,11 +160,13 @@ export const ProfileUser = () => {
                         Celular
                       </label>
                       <input
-                        onChange={handleInputChange}
+                        onChange={(e) => {
+                          handdleChange(e);
+                        }}
                         name="telefono"
                         type="number"
                         className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                        value={data.telefono_cliente}
+                        defaultValue={data.telefono_cliente}
                       />
                     </fieldset>
                     <fieldset className="w-full">
@@ -172,16 +174,24 @@ export const ProfileUser = () => {
                         Dirección
                       </label>
                       <input
-                        onChange={handleInputChange}
+                        onChange={(e) => {
+                          handdleChange(e);
+                        }}
                         name="direccion"
                         type="text"
                         className="w-full py-4 px-3 border-b-2 border-[color:var(--brown)] bg-transparent"
-                        value={data.direccion_cliente}
+                        defaultValue={data.direccion_cliente}
                       />
                     </fieldset>
                   </div>
                 </div>
-                <button type="submit" className="btn-main">
+                <button
+                  type="submit"
+                  className="btn-main"
+                  onClick={(e) => {
+                    handleSubmit(e);
+                  }}
+                >
                   <span>Actualizar datos ➔</span>
                   {/* <svg viewBox="0 0 13 10" height="10px" width="15px">
                       <path d="M1,5 L11,5"></path>
