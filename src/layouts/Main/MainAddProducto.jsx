@@ -26,7 +26,10 @@ export const MainAddProducto = () => {
     const handleSubmit = async(e) => {
       e.preventDefault();
       console.log(product);
-      const response= await axios.post("http://localhost:3020/product/ingreso", product);
+      const response= await axios.post(
+        // "http://localhost:3020/product/ingreso"
+        "https://kopy-backend.up.railway.app/product/ingreso"
+      , product);
       
       if (response.status === 200) {
         toast.success("Producto Ingresado Corretamente !", {

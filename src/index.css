@@ -32,15 +32,16 @@ header {
 	display: flex;
 	justify-content: space-between;
 	padding: 30px 0 40px 0;
+	
 }
 
 .container-icon{
 	position:fixed;
-	
 	bottom:70%;
 	left: 96%;
 	z-index: 200;
 	cursor: pointer;
+	
 }
 
 .count-products {
@@ -68,11 +69,46 @@ header {
 	top: 50px;
 	right: 0;
 	background-color: #fff;
-	width: 300px;
+	width: 350px;
 	z-index: 1;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
+	max-height: 500px;
+    overflow: auto; 
+    border: 1px solid #ccc;
+	
+  
+	
+    
 }
+
+.container-cart-products::-webkit-scrollbar{
+	-webkit-appearance: none;
+}
+
+.container-cart-products::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.container-cart-products::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.container-cart-products::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.container-cart-products::-webkit-scrollbar-thumb {
+    background-color:  rgb(250, 244, 244);
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.container-cart-products::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+
 
 .cart-product {
 	display: flex;
@@ -105,7 +141,6 @@ header {
 }
 
 .icon-close {
-	background: yellow;
 	color: red;
 	width: 25px;
 	height: 25px;

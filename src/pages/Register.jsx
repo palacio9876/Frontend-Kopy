@@ -29,7 +29,10 @@ export const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let data = await Axios.post("http://localhost:3020/user/registro", form)
+    let data = await Axios.post(
+      "http://localhost:3020/user/registro",
+      // "https://kopy-backend.up.railway.app/user/registro",
+       form)
         .then((res) => {
           return res;
         })

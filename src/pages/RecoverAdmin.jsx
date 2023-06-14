@@ -23,7 +23,10 @@ export const RecoverAdmin = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
       console.log(data);
-      let response = await axios.post("http://localhost:3020/admin/recuperar", data)
+      let response = await axios.post(
+        // "http://localhost:3020/admin/recuperar",
+        "https://kopy-backend.up.railway.app/admin/recuperar",
+         data)
         .then((res) => {
           return res;
         }).catch((err) => {

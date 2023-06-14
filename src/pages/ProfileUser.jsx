@@ -46,11 +46,15 @@ export const ProfileUser = () => {
   useEffect(() => {
     (() => {
       axios
-        .get(`http://localhost:3020/user/profile`, {
-          headers: {
-            Authorization: token,
-          },
-        })
+        .get(
+            `http://localhost:3020/user/profile`
+          // `https://kopy-backend.up.railway.app/user/profile`
+          , {
+            headers: {
+              Authorization: token,
+
+            },
+          })  
         .then((res) => {
           console.log(res);
           setData(res.data);
@@ -62,6 +66,43 @@ export const ProfileUser = () => {
   }, []);
 
   const rol = localStorage.getItem("rol");
+
+
+  //eliminar cuenta
+  const [showModal, setShowModal] = useState(false);
+  const handleDeleteAccount = () => {
+    setShowModal(true);
+  };
+  const handleDeleteConfirmation = () => {
+    axios
+      .delete(
+        // `http://localhost:3020/user/eliminar/${data.id_cliente}`
+        `https://kopy-backend.up.railway.app/user/eliminar/${data.id_cliente}`	
+      , {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+        toast.success("Cuenta eliminada correctamente");
+        localStorage.removeItem("token");
+        localStorage.removeItem("rol");
+        
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+       
+      })
+      
+      .catch((error) => {
+        console.log(error);
+        toast.error("Error al eliminar la cuenta");
+        
+      });
+      ;
+  };
 
   return (
     <>
@@ -77,9 +118,7 @@ export const ProfileUser = () => {
                 alt=""
                 className="w-20"
               />
-              <input
-                type="file"
-                className="block w-full text-sm text-slate-500 ml-20
+              <input type="file" class="block w-full text-sm text-slate-500 ml-20
              
       file:mr-4 file:py-2 file:px-4
       file:rounded-full file:border-0
@@ -101,8 +140,30 @@ export const ProfileUser = () => {
             </div>
             <div className="flex border-solid border-b-2 px-2 py-3 gap-2 border-[color:var(--brown)] items-center">
               <i className="bx bx-cog bx-spin"></i>
-              <p>Eliminar cuenta</p>
+              <button onClick={handleDeleteAccount}>Eliminar cuenta</button>
             </div>
+
+            {showModal && (
+              <div className="fixed inset-0 flex items-center justify-center z-50">
+                <div className="bg-white rounded-lg p-8">
+                  <input type="text" placeholder="Ingrese el id del usuario" />                  <p>¿Estás seguro de que quieres eliminar tu cuenta?</p>
+                  <div className="flex justify-center mt-4">
+                    <button
+                      className="btn-danger mr-4"
+                      onClick={handleDeleteConfirmation}
+                    >
+                      Sí, eliminar cuenta
+                    </button>
+                    <button
+                      className="btn-secondary"
+                      onClick={() => setShowModal(false)}
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
           <div className="flex flex-col flex-wrap rounded-2xl border-solid border-2 px-2 py-3 gap w-4/5 ml-5 bg-[color:var(--pink)] gap-8">
             <p className="text-orange-kopy text-center text-2xl font-semibold">
