@@ -11,6 +11,11 @@ export const ProductList = ({
   setTotal,
 }) => {
   const [articles, setArticles] = useState([]);
+  const [editingProduct, setEditingProduct] = useState(null);
+  const [updatedProduct, setUpdatedProduct] = useState({
+    nombre_producto: "",
+    precio: 0,
+  });
 
   useEffect(() => {
     obtenerProductos();
@@ -18,13 +23,10 @@ export const ProductList = ({
 
   const obtenerProductos = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:3020/product/obtener",
-        // "https://kopy-backend.up.railway.app/product/obtener"
-      );
+      const response = await axios.get("http://localhost:3020/product/obtener");
       setArticles(response.data);
 
-      articles.map((article) => {
+      articles.forEach((article) => {
         article.cantidad_producto = 1;
       });
 
@@ -72,7 +74,6 @@ export const ProductList = ({
     try {
       const response = await axios.delete(
         `http://localhost:3020/product/eliminar/${productId}`
-        // `https://kopy-backend.up.railway.app/product/eliminar/${productId}`
       );
       if (response.status === 200) {
         const updatedProducts = articles.filter(
@@ -105,18 +106,18 @@ export const ProductList = ({
     }
   };
 
-  const updateProduct = async (productId, product) => {
+  const updateProduct = async (productId) => {
     try {
       const response = await axios.put(
         `http://localhost:3020/product/actualizar/${productId}`,
-        // `https://kopy-backend.up.railway.app/product/actualizar/${productId}`,
-        product
+        updatedProduct
       );
       if (response.status === 200) {
         const updatedProducts = articles.map((article) =>
-          article.id_producto === productId ? product : article
+          article.id_producto === productId ? { ...article, ...updatedProduct } : article
         );
         setArticles(updatedProducts);
+        setEditingProduct(null);
         toast.success("Producto actualizado exitosamente", {
           position: "top-left",
           autoClose: 2000,
@@ -141,7 +142,7 @@ export const ProductList = ({
         theme: "light",
       });
     }
-  }
+  };
 
   const onAddProduct = (article) => {
     if (allProducts.find((item) => item.id_producto === article.id_producto)) {
@@ -151,7 +152,6 @@ export const ProductList = ({
           : item
       );
 
-      //  setCountProducts(countProducts + product.cantidad_producto);
       setTotal(total + article.precio * article.cantidad_producto);
       setCountProducts(countProducts + article.cantidad_producto);
       return setAllProducts([...products]);
@@ -160,6 +160,18 @@ export const ProductList = ({
     setTotal(total + article.precio * article.cantidad_producto);
     setCountProducts(countProducts + article.cantidad_producto);
     setAllProducts([...allProducts, article]);
+  };
+
+  const handleEditProduct = (productId, product) => {
+    setEditingProduct(productId);
+    setUpdatedProduct({ ...product });
+  };
+
+  const handleUpdateField = (e) => {
+    setUpdatedProduct({
+      ...updatedProduct,
+      [e.target.name]: e.target.value,
+    });
   };
 
   let rol = localStorage.getItem("rol");
@@ -174,29 +186,65 @@ export const ProductList = ({
           </figure>
           {rol === "rolAdmin" ? (
             <>
-              <h2 className="text-lg font-black ml-2">{article.nombre_producto}</h2>
-              <p className="text-lg ml-2">${article.precio}</p>
-              <div className="flex flex-col items-center mt-4">
-                {" "}
-                <button
-                  className="rounded-[10px]  bg-orange-kopy h-14 w-72 hover:text-zinc-50 "
-                  onClick={() => updateProduct(article.id_producto, article)}
-                >
-                  Editar
-                </button>
-                <br />
-                <button
-                  className="-mt-4 mb-4 rounded-[10px] bg-orange-kopy h-14 w-72 hover:text-zinc-50"
-                  onClick={() => deleteProduct(article.id_producto)}
-                >
-                  Eliminar
-                </button>
-              </div>
+              {editingProduct === article.id_producto ? (
+                <div className="edit-product">
+                  <input
+                    type="text"
+                    name="nombre_producto"
+                    value={updatedProduct.nombre_producto}
+                    onChange={handleUpdateField}
+                  />
+                  <input
+                    type="number"
+                    name="precio"
+                    value={updatedProduct.precio}
+                    onChange={handleUpdateField}
+                  />
+                  <div className="edit-product-buttons">
+                    <button
+                      className="btn-update"
+                      onClick={() => updateProduct(article.id_producto)}
+                    >
+                      Guardar
+                    </button>
+                    <button
+                      className="btn-cancel"
+                      onClick={() => setEditingProduct(null)}
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <h2 className="text-lg font-black ml-2">
+                    {article.nombre_producto}
+                  </h2>
+                  <p className="text-lg ml-2">${article.precio}</p>
+                  <div className="flex flex-col items-center mt-4">
+                    <button
+                      className="rounded-[10px]  bg-orange-kopy h-14 w-72 hover:text-zinc-50"
+                      onClick={() => handleEditProduct(article.id_producto, article)}
+                    >
+                      Editar
+                    </button>
+                    <br />
+                    <button
+                      className="-mt-4 mb-4 rounded-[10px] bg-orange-kopy h-14 w-72 hover:text-zinc-50"
+                      onClick={() => deleteProduct(article.id_producto)}
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                </>
+              )}
             </>
           ) : (
             <>
               <div className="info-product">
-                <h2 className="text-lg font-black ml-2">{article.nombre_producto}</h2>
+                <h2 className="text-lg font-black ml-2">
+                  {article.nombre_producto}
+                </h2>
                 <p className="text-lg ml-2">${article.precio}</p>
                 <button
                   onClick={() => onAddProduct(article)}
@@ -211,6 +259,5 @@ export const ProductList = ({
         </div>
       ))}
     </div>
-   
   );
 };
