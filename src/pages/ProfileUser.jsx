@@ -76,8 +76,8 @@ export const ProfileUser = () => {
   const handleDeleteConfirmation = () => {
     axios
       .delete(
-        // `http://localhost:3020/user/eliminar/${data.id_cliente}`
-        `https://kopy-backend.up.railway.app/user/eliminar/${data.id_cliente}`	
+        `http://localhost:3020/user/eliminar/${data.id_cliente}`
+        // `https://kopy-backend.up.railway.app/user/eliminar/${data.id_cliente}`	
       , {
         headers: {
           Authorization: token,
@@ -146,7 +146,7 @@ export const ProfileUser = () => {
             {showModal && (
               <div className="fixed inset-0 flex items-center justify-center z-50">
                 <div className="bg-white rounded-lg p-8">
-                  <input type="text" placeholder="Ingrese el id del usuario" />                  <p>¿Estás seguro de que quieres eliminar tu cuenta?</p>
+                              <p>¿Estás seguro de que quieres eliminar tu cuenta?</p>
                   <div className="flex justify-center mt-4">
                     <button
                       className="btn-danger mr-4"
@@ -189,7 +189,7 @@ export const ProfileUser = () => {
                       />
                     </fieldset>
                     <fieldset className="w-full">
-                      <label htmlFor="nombre" className="text-gray-500"></label>
+                      <label htmlFor="nombre" className="text-gray-500">Nombre</label>
                       <input
                         onChange={(e) => {
                           handdleChange(e);

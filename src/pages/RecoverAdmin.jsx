@@ -24,8 +24,8 @@ export const RecoverAdmin = () => {
       event.preventDefault();
       console.log(data);
       let response = await axios.post(
-        // "http://localhost:3020/admin/recuperar",
-        "https://kopy-backend.up.railway.app/admin/recuperar",
+        "http://localhost:3020/admin/recuperar",
+        // "https://kopy-backend.up.railway.app/admin/recuperar",
          data)
         .then((res) => {
           return res;
