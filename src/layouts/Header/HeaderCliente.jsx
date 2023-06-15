@@ -44,7 +44,7 @@ export const HeaderCliente = () => {
           <li className="mx-1.5 my-0 list-none uppercase hover:font-bold">
             <NavLink
               className="text-pink-kopy no-underline text-xl hover:text-orange-kopy"
-              to="/catalogo"
+              to="/catalogo/Todo"
             >
               Catálogo
             </NavLink>

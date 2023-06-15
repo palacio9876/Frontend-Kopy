@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "../layouts/Footer/Footer.jsx";
 import { Header } from "../layouts/Header/Header.jsx";
 import "../assets/css/Catalogo.css";
@@ -9,6 +9,7 @@ import { data } from "../data.js";
 import { ProductList } from "../Components/ProductList";
 import { HeaderCliente } from "../layouts/Header/HeaderCliente.jsx";
 import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const Catalogo = () => {
   let rol = localStorage.getItem("rol");
@@ -17,6 +18,7 @@ export const Catalogo = () => {
   const [countProducts, setCountProducts] = useState(0);
   AOS.init();
 
+  
   const allCategories = [
     "Todo",
     ...new Set(data.map((article) => article.category)),
@@ -25,17 +27,8 @@ export const Catalogo = () => {
   const [categories, setCategories] = useState(allCategories);
   const [articles, setArticles] = useState(data);
   const filterCategory = (category) => {
-    if (category === "Todo") {
-      setArticles(data);
-      return;
-    }
-
-    const filteredData = data.filter(
-      (article) => article.category === category
-    );
-    setArticles(filteredData);
-  };
-
+    window.location.href="/catalogo/"+category
+  }
   return (
     <>
       {rol === null ? <Header /> : <HeaderCliente />}
@@ -43,16 +36,16 @@ export const Catalogo = () => {
       <main className="main-catalogo">
         <h1 className="text-center text-5xl text-brown-kopy my-3">Catalogo</h1>
         <div className="btns-catalogo">
-          {categories.map((category) => (
-            <button
-              className="btn-catalogo bg-orange-kopy text-pink-kopy text-[1.3rem] cursor-pointer m-2.5 p-2.5 rounded-[10px] border-[none] hover:bg-green-kopy"
-              type="sumit"
-              onClick={() => filterCategory(category)}
-              key={category}
-            >
-              {category}
-            </button>
-          ))}
+      {categories.map((category) => (
+        <button
+          className="btn-catalogo bg-orange-kopy text-pink-kopy text-[1.3rem] cursor-pointer m-2.5 p-2.5 rounded-[10px] border-[none] hover:bg-green-kopy"
+          type="submit"
+          onClick={() => filterCategory(category)}
+          key={category}
+        >
+          {category}
+        </button>
+      ))}
           {rol === "rolAdmin" ? (
             <NavLink
               to="/addProduct"

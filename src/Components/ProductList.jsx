@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export const ProductList = ({
   allProducts,
@@ -11,15 +12,18 @@ export const ProductList = ({
   setTotal,
 }) => {
   const [articles, setArticles] = useState([]);
-
+  const {product}= useParams()
   useEffect(() => {
-    obtenerProductos();
+    obtenerProductos(product);
+    return function cleanup() {};
+    
   }, []);
+  
 
-  const obtenerProductos = async () => {
+  const obtenerProductos = async (product) => {
     try {
       const response = await axios.get(
-        "http://localhost:3020/product/obtener",
+        "http://localhost:3020/product/obtener/"+product,
         // "https://kopy-backend.up.railway.app/product/obtener"
       );
       setArticles(response.data);
@@ -161,6 +165,8 @@ export const ProductList = ({
     setCountProducts(countProducts + article.cantidad_producto);
     setAllProducts([...allProducts, article]);
   };
+
+
 
   let rol = localStorage.getItem("rol");
   let rolAdmin = localStorage.getItem("rolAdmin");

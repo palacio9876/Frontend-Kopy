@@ -47,8 +47,8 @@ export const ProfileUser = () => {
     (() => {
       axios
         .get(
-            `http://localhost:3020/user/profile`
-          // `https://kopy-backend.up.railway.app/user/profile`
+            // `http://localhost:3020/user/profile`
+           `https://kopy-backend.up.railway.app/user/profile`
           , {
             headers: {
               Authorization: token,
