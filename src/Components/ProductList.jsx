@@ -12,16 +12,13 @@ export const ProductList = ({
   setTotal,
 }) => {
   const [articles, setArticles] = useState([]);
-<<<<<<< HEAD
-  const {product}= useParams()
-=======
   const [editingProduct, setEditingProduct] = useState(null);
+  const {product}= useParams()
   const [updatedProduct, setUpdatedProduct] = useState({
     nombre_producto: "",
     precio: 0,
   });
 
->>>>>>> 41b5afc1f1eedcbe011ffa57398a514a7173e95a
   useEffect(() => {
     obtenerProductos(product);
     return function cleanup() {};
@@ -31,14 +28,10 @@ export const ProductList = ({
 
   const obtenerProductos = async (product) => {
     try {
-<<<<<<< HEAD
       const response = await axios.get(
         "http://localhost:3020/product/obtener/"+product,
         // "https://kopy-backend.up.railway.app/product/obtener"
       );
-=======
-      const response = await axios.get("http://localhost:3020/product/obtener");
->>>>>>> 41b5afc1f1eedcbe011ffa57398a514a7173e95a
       setArticles(response.data);
 
       articles.forEach((article) => {
@@ -177,9 +170,6 @@ export const ProductList = ({
     setAllProducts([...allProducts, article]);
   };
 
-<<<<<<< HEAD
-
-=======
   const handleEditProduct = (productId, product) => {
     setEditingProduct(productId);
     setUpdatedProduct({ ...product });
@@ -191,7 +181,6 @@ export const ProductList = ({
       [e.target.name]: e.target.value,
     });
   };
->>>>>>> 41b5afc1f1eedcbe011ffa57398a514a7173e95a
 
   let rol = localStorage.getItem("rol");
   let rolAdmin = localStorage.getItem("rolAdmin");
