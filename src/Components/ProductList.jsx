@@ -194,37 +194,35 @@ export const ProductList = ({
   return (
     <div className="container-items">
       {articles.map((article) => (
-        <div className="item flex flex-col items-center" key={article.id_producto}>
+        <div className="item" key={article.id_producto}>
           <figure>
             <img src={article.id_imagen} alt={article.nombre_producto} />
           </figure>
           {rol === "rolAdmin" ? (
             <>
               {editingProduct === article.id_producto ? (
-                <div className="edit-product flex flex-col gap-3 mt-4">
+                <div className="edit-product">
                   <input
-                  className="text-center h-9 rounded-xl"
                     type="text"
                     name="nombre_producto"
                     value={updatedProduct.nombre_producto}
                     onChange={handleUpdateField}
                   />
                   <input
-                  className="text-center h-9 rounded-xl"
                     type="number"
                     name="precio"
                     value={updatedProduct.precio}
                     onChange={handleUpdateField}
                   />
-                  <div className="edit-product-buttons flex gap-3 items-center">
+                  <div className="edit-product-buttons">
                     <button
-                      className="rounded-[10px]  bg-orange-kopy h-14 w-[47%] hover:text-zinc-50"
+                      className="btn-update"
                       onClick={() => updateProduct(article.id_producto)}
                     >
                       Guardar
                     </button>
                     <button
-                      className="rounded-[10px]  bg-orange-kopy h-14 w-[47%] hover:text-zinc-50"
+                      className="btn-cancel"
                       onClick={() => setEditingProduct(null)}
                     >
                       Cancelar
