@@ -15,9 +15,9 @@ export const Cart = ({
   const addProduct = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3020/product/obtener"
+        // "http://localhost:3020/product/obtener"
         // "https://kopy-backend.up.railway.app/product/obtener"
-        //"https://back-end-kopy.onrender.com/product/obtener"
+        "https://back-end-kopy.onrender.com/product/obtener"
         );
       setActive(response.data);
       active.map(active => {

@@ -23,9 +23,9 @@ export const RecoverPasswordAdmin = () => {
     e.preventDefault();
     console.log(form);
     Axios.post(
-      "http://localhost:3020/admin/verificar"
+      // "http://localhost:3020/admin/verificar"
       // "https://kopy-backend.up.railway.app/admin/verificar"
-      //"https://back-end-kopy.onrender.com/admin/verificar"
+      "https://back-end-kopy.onrender.com/admin/verificar"
     , form)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
