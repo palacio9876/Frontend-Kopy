@@ -21,6 +21,7 @@ import { RegisterDomiciliario } from "./pages/RegisterDomiciliario";
 import { PinAdmin } from "./pages/PinAdmin";
 import {ProtectedRoute} from "./Components/ProtectedRoute";
 import { useLocalStorage } from "react-use";
+import { Buys } from './pages/Buys';
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
       </Helmet>
       <Routes>
       <Route path="/" element={<Home />} />
-        <Route path="/catalogo/:product" element={<Catalogo />} />
+        <Route path="/catalogo" element={<Catalogo />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/register" element={<Register />} />
         <Route path="/recoverpassword" element={<RecoverPassword />} />
@@ -52,6 +53,7 @@ function App() {
         <Route path="/recover" element={<Recover />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<ProfileUser />} />
+        <Route path="/buys" element={<Buys/>} />
 
 
         <Route path="/addProduct" element={<AddProduct />} /> 
