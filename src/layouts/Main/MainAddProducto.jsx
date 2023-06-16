@@ -27,9 +27,9 @@ export const MainAddProducto = () => {
       e.preventDefault();
       console.log(product);
       const response= await axios.post(
-        // "http://localhost:3020/product/ingreso"
+        "http://localhost:3020/product/ingreso"
         // "https://kopy-backend.up.railway.app/product/ingreso"
-        "https://back-end-kopy.onrender.com/product/ingreso"
+        // "https://back-end-kopy.onrender.com/product/ingreso"
       , product);
       
       if (response.status === 200) {

@@ -29,9 +29,9 @@ export const ProductList = ({
   const obtenerProductos = async (product) => {
     try {
       const response = await axios.get(
-        // "http://localhost:3020/product/obtener/"+product,
+        "http://localhost:3020/product/obtener/"+product,
         // "https://kopy-backend.up.railway.app/product/obtener/"+product,
-        "https://back-end-kopy.onrender.com/product/obtener/"+product,
+        // "https://back-end-kopy.onrender.com/product/obtener/"+product,
       );
       setArticles(response.data);
 
@@ -82,9 +82,9 @@ export const ProductList = ({
   const deleteProduct = async (productId) => {
     try {
       const response = await axios.delete(
-        // `http://localhost:3020/product/eliminar/${productId}`
+        `http://localhost:3020/product/eliminar/${productId}`
         // `https://kopy-backend.up.railway.app/product/eliminar/${productId}`
-        `https://back-end-kopy.onrender.com/product/eliminar/${productId}`
+        // `https://back-end-kopy.onrender.com/product/eliminar/${productId}`
       );
       if (response.status === 200) {
         const updatedProducts = articles.filter(
@@ -120,9 +120,9 @@ export const ProductList = ({
   const updateProduct = async (productId) => {
     try {
       const response = await axios.put(
-        // `http://localhost:3020/product/actualizar/${productId}`,
+        `http://localhost:3020/product/actualizar/${productId}`,
         // `https://kopy-backend.up.railway.app/product/actualizar/${productId}`
-        `https://back-end-kopy.onrender.com/product/actualizar/${productId}`,
+        // `https://back-end-kopy.onrender.com/product/actualizar/${productId}`,
 
         updatedProduct
       );
