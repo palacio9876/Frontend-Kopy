@@ -78,6 +78,7 @@ export const ProfileUser = () => {
       .delete(
         `http://localhost:3020/user/eliminar/${data.id_cliente}`
         // `https://kopy-backend.up.railway.app/user/eliminar/${data.id_cliente}`	
+        //`https://back-end-kopy.onrender.com/user/eliminar/${data.id_cliente}`	
       , {
         headers: {
           Authorization: token,

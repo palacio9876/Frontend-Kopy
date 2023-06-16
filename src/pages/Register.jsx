@@ -32,6 +32,7 @@ export const Register = () => {
     let data = await Axios.post(
       "http://localhost:3020/user/registro",
       // "https://kopy-backend.up.railway.app/user/registro",
+      //"https://back-end-kopy.onrender.com/user/registro"
        form)
         .then((res) => {
           return res;

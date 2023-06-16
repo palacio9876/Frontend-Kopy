@@ -22,6 +22,7 @@ export const PinAdmin = () => {
       const response = await axios.post(
         "http://localhost:3020/admin/verificarPin",
         // "https://kopy-backend.up.railway.app/admin/verificarPin",
+        //"https://back-end-kopy.onrender.com/admin/verificarPin",
         data
       );
       console.log("response", response);

@@ -24,6 +24,7 @@ export const RecoverPassword = () => {
     Axios.post(
       "http://localhost:3020/user/recuperar",
       // "https://kopy-backend.up.railway.app/user/recuperar",
+      //"https://back-end-kopy.onrender.com/user/recuperar"
        form)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
