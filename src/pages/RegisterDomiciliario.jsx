@@ -21,7 +21,6 @@ export const RegisterDomiciliario = () => {
 
       [target.email]: target.value,
       [target.password]: target.value,
-
     });
   };
 
@@ -78,16 +77,15 @@ export const RegisterDomiciliario = () => {
     }
   };
 
-
   return (
     <>
-    <ToastContainer/>
+      <ToastContainer />
       <div className="bg-[url('https://res.cloudinary.com/dyhfwq81d/image/upload/v1679053889/pexels-hu%E1%BB%B3nh-%C4%91%E1%BA%A1t-2313037_qvujla.jpg')] h-screen W-full bg-cover bg-center p-24 flex items-center justify-center">
         <div className="absolute flex flex-col -translate-x-2/4 translate-y-[-55%] box-border shadow-[0_15px_25px_#00000099] mx-auto my-5 p-10 rounded-[10px] left-2/4 top-2/4 bg-brown-kopy">
           <p className="text-white text-center text-2xl font-[bold] tracking-[1px] mt-0 mb-[30px] mx-0 p-0;">
             Registro domiciliario
           </p>
-          <form  onSubmit={handleSubmit} className="flex gap-4 flex-col">
+          <form onSubmit={handleSubmit} className="flex gap-4 flex-col">
             <div className="flex gap-9">
               <div>
                 <div className="relative">
@@ -108,7 +106,7 @@ export const RegisterDomiciliario = () => {
                     required
                     autoComplete="off"
                     id="nombre"
-                      onChange={handleInputChange}
+                    onChange={handleInputChange}
                     name="nombre"
                     type="text"
                     placeholder="Nombre"
@@ -124,7 +122,7 @@ export const RegisterDomiciliario = () => {
                     name="telefono"
                     type="text"
                     placeholder="Telefono"
-                      onChange={handleInputChange}
+                    onChange={handleInputChange}
                     minLength={10}
                     maxLength={10}
                   />
@@ -151,7 +149,7 @@ export const RegisterDomiciliario = () => {
                     name="email"
                     id="email"
                     type="email"
-                      onChange={handleInputChange}
+                    onChange={handleInputChange}
                     placeholder="Correo electronico"
                   />
                 </div>
@@ -161,7 +159,7 @@ export const RegisterDomiciliario = () => {
                     type="password"
                     id="password"
                     name="password"
-                      onChange={handleInputChange}
+                    onChange={handleInputChange}
                     required
                     autoComplete="off"
                     placeholder="Contraseña"

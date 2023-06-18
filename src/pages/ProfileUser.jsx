@@ -47,14 +47,14 @@ export const ProfileUser = () => {
     (() => {
       axios
         .get(
-            // `http://localhost:3020/user/profile`
-           `https://kopy-backend.up.railway.app/user/profile`
-          , {
+          // `http://localhost:3020/user/profile`
+          `https://kopy-backend.up.railway.app/user/profile`,
+          {
             headers: {
               Authorization: token,
-
             },
-          })  
+          }
+        )
         .then((res) => {
           console.log(res);
           setData(res.data);
@@ -67,7 +67,6 @@ export const ProfileUser = () => {
 
   const rol = localStorage.getItem("rol");
 
-
   //eliminar cuenta
   const [showModal, setShowModal] = useState(false);
   const handleDeleteAccount = () => {
@@ -76,33 +75,31 @@ export const ProfileUser = () => {
   const handleDeleteConfirmation = () => {
     axios
       .delete(
-        `http://localhost:3020/user/eliminar/${data.id_cliente}`
-        // `https://kopy-backend.up.railway.app/user/eliminar/${data.id_cliente}`	
-        // `https://back-end-kopy.onrender.com/user/eliminar/${data.id_cliente}`	
-      , {
-        headers: {
-          Authorization: token,
-        },
-      })
+        `http://localhost:3020/user/eliminar/${data.id_cliente}`,
+        // `https://kopy-backend.up.railway.app/user/eliminar/${data.id_cliente}`
+        // `https://back-end-kopy.onrender.com/user/eliminar/${data.id_cliente}`
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
       .then((res) => {
         console.log(res);
         console.log(res.data);
         toast.success("Cuenta eliminada correctamente");
         localStorage.removeItem("token");
         localStorage.removeItem("rol");
-        
+
         setTimeout(() => {
           navigate("/login");
         }, 2000);
-       
       })
-      
+
       .catch((error) => {
         console.log(error);
         toast.error("Error al eliminar la cuenta");
-        
       });
-      ;
   };
 
   return (
@@ -117,12 +114,14 @@ export const ProfileUser = () => {
               <img
                 src="https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&w=600"
                 alt=""
-                className="w-20"
+                className="w-28 h-28 rounded-full "
               />
-              <input type="file" class="block w-full text-sm text-slate-500 ml-20
+              <input
+                type="file"
+                class="block text-transparent w-full text-sm  ml-20
              
       file:mr-4 file:py-2 file:px-4
-      file:rounded-full file:border-0
+      file: file:border-0
       file:text-sm file:font-semibold
       file:bg-violet-50 file:text-orange-kopy
       hover:file:bg-violet-100
@@ -135,11 +134,11 @@ export const ProfileUser = () => {
                 </p>
               </div>
             </div>
-            <div className="flex border-solid border-y-2 px-2 border-[color:var(--brown)] py-3 gap-2 items-center">
+            <div className="hover:bg-orange-kopy cursor-pointer flex border-solid border-y-2 px-2 border-[color:var(--brown)] py-3 gap-2 items-center">
               <i className="bx bx-cog bx-spin"></i>
               <p>Ajustes de cuenta</p>
             </div>
-            <div className="flex border-solid border-b-2 px-2 py-3 gap-2 border-[color:var(--brown)] items-center">
+            <div className="hover:bg-orange-kopy flex border-solid border-b-2 px-2 py-3 gap-2 border-[color:var(--brown)] items-center">
               <i className="bx bx-cog bx-spin"></i>
               <button onClick={handleDeleteAccount}>Eliminar cuenta</button>
             </div>
@@ -147,7 +146,7 @@ export const ProfileUser = () => {
             {showModal && (
               <div className="fixed inset-0 flex items-center justify-center z-50">
                 <div className="bg-white rounded-lg p-8">
-                              <p>¿Estás seguro de que quieres eliminar tu cuenta?</p>
+                  <p>¿Estás seguro de que quieres eliminar tu cuenta?</p>
                   <div className="flex justify-center mt-4">
                     <button
                       className="btn-danger mr-4"
@@ -190,7 +189,9 @@ export const ProfileUser = () => {
                       />
                     </fieldset>
                     <fieldset className="w-full">
-                      <label htmlFor="nombre" className="text-gray-500">Nombre</label>
+                      <label htmlFor="nombre" className="text-gray-500">
+                        Nombre
+                      </label>
                       <input
                         onChange={(e) => {
                           handdleChange(e);

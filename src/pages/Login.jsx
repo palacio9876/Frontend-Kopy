@@ -130,12 +130,6 @@ export const Login = () => {
             </NavLink>
           </p>
         </div>
-        <NavLink
-          to="/PinAdmin"
-            className="text-white no-underline text-2xl border-white border-2 p-3 rounded-full   text-center flex items-center "
-        >
-          <box-icon name='user' type='solid' color='#ffffff' ></box-icon> Soy administrador
-        </NavLink>
       </div>
     </>
   );
