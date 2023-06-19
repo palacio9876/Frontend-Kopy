@@ -9,29 +9,43 @@ import { HeaderCliente } from "../layouts/Header/HeaderCliente";
 export const ProfileUser = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
-
+  const [selectedImage, setSelectedImage] = useState(null);
   const [dataCliente, setdataCliente] = useState({
     id: "",
     nombre: "",
     email: "",
     telefono: "",
     direccion: "",
+    img: ""
   });
 
   const handdleChange = (e) => {
-    setdataCliente({
-      ...dataCliente,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.name === "image") {
+      setSelectedImage(e.target.files[0]);
+    } else {
+      setdataCliente({
+        ...dataCliente,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   let token = localStorage.getItem("token");
 
-  const handleSubmit = (e) => {
-    console.log("no sirve");
+  const handleSubmit = () => {
+    const formData = new FormData();
+    formData.append("id", dataCliente.id);
+    formData.append("email", dataCliente.email);
+    formData.append("telefono", dataCliente.telefono);
+    formData.append("direccion", dataCliente.direccion);
+    formData.append("image", dataCliente.img);
+
     axios
-      .put(`http://localhost:3020/user/updateDatos`, dataCliente, {
+      .put(`http://localhost:3020/user/updateDatos`, dataCliente,
+      
+      {
         headers: {
+          "Content-Type": "multipart/form-data",
           Authorization: token,
         },
       })
@@ -47,14 +61,14 @@ export const ProfileUser = () => {
     (() => {
       axios
         .get(
-            // `http://localhost:3020/user/profile`
-           `https://kopy-backend.up.railway.app/user/profile`
-          , {
+          `http://localhost:3020/user/profile`,
+          //  `https://kopy-backend.up.railway.app/user/profile`
+          {
             headers: {
               Authorization: token,
-
             },
-          })  
+          }
+        )
         .then((res) => {
           console.log(res);
           setData(res.data);
@@ -67,7 +81,6 @@ export const ProfileUser = () => {
 
   const rol = localStorage.getItem("rol");
 
-
   //eliminar cuenta
   const [showModal, setShowModal] = useState(false);
   const handleDeleteAccount = () => {
@@ -76,33 +89,31 @@ export const ProfileUser = () => {
   const handleDeleteConfirmation = () => {
     axios
       .delete(
-        `http://localhost:3020/user/eliminar/${data.id_cliente}`
-        // `https://kopy-backend.up.railway.app/user/eliminar/${data.id_cliente}`	
-        // `https://back-end-kopy.onrender.com/user/eliminar/${data.id_cliente}`	
-      , {
-        headers: {
-          Authorization: token,
-        },
-      })
+        `http://localhost:3020/user/eliminar/${data.id_cliente}`,
+        // `https://kopy-backend.up.railway.app/user/eliminar/${data.id_cliente}`
+        // `https://back-end-kopy.onrender.com/user/eliminar/${data.id_cliente}`
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
       .then((res) => {
         console.log(res);
         console.log(res.data);
         toast.success("Cuenta eliminada correctamente");
         localStorage.removeItem("token");
         localStorage.removeItem("rol");
-        
+
         setTimeout(() => {
           navigate("/login");
         }, 2000);
-       
       })
-      
+
       .catch((error) => {
         console.log(error);
         toast.error("Error al eliminar la cuenta");
-        
       });
-      ;
   };
 
   return (
@@ -115,11 +126,18 @@ export const ProfileUser = () => {
           <div className="flex flex-col w-1/5 rounded-2xl border-[--brown] bg-[color:var(--pink)]">
             <div className="flex p-2 gap-4 items-center justify-center flex-col my-2">
               <img
-                src="https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&w=600"
+                src={
+                  selectedImage ? URL.createObjectURL(selectedImage) : "img.png"
+                }
                 alt=""
                 className="w-20"
+                id="image"
               />
-              <input type="file" class="block w-full text-sm text-slate-500 ml-20
+              <input
+                type="file"
+                id="input"
+                onChange={handdleChange}
+                className="block w-full text-sm text-slate-500 ml-20
              
       file:mr-4 file:py-2 file:px-4
       file:rounded-full file:border-0
@@ -128,6 +146,7 @@ export const ProfileUser = () => {
       hover:file:bg-violet-100
     "
               />
+
               <div className="flex flex-col">
                 <p className="">Mi perfil</p>
                 <p className="flex flex-wrap text-[color:var(--orange)] font-semibold text-xl">
@@ -147,7 +166,7 @@ export const ProfileUser = () => {
             {showModal && (
               <div className="fixed inset-0 flex items-center justify-center z-50">
                 <div className="bg-white rounded-lg p-8">
-                              <p>¿Estás seguro de que quieres eliminar tu cuenta?</p>
+                  <p>¿Estás seguro de que quieres eliminar tu cuenta?</p>
                   <div className="flex justify-center mt-4">
                     <button
                       className="btn-danger mr-4"
@@ -190,7 +209,9 @@ export const ProfileUser = () => {
                       />
                     </fieldset>
                     <fieldset className="w-full">
-                      <label htmlFor="nombre" className="text-gray-500">Nombre</label>
+                      <label htmlFor="nombre" className="text-gray-500">
+                        Nombre
+                      </label>
                       <input
                         onChange={(e) => {
                           handdleChange(e);
