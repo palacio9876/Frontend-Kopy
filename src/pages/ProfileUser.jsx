@@ -16,7 +16,6 @@ export const ProfileUser = () => {
     email: "",
     telefono: "",
     direccion: "",
-    img: ""
   });
 
   const handdleChange = (e) => {
@@ -61,8 +60,8 @@ export const ProfileUser = () => {
     (() => {
       axios
         .get(
-          `http://localhost:3020/user/profile`,
-          //  `https://kopy-backend.up.railway.app/user/profile`
+           `http://localhost:3020/user/profile`,
+          // `https://kopy-backend.up.railway.app/user/profile`,
           {
             headers: {
               Authorization: token,
@@ -140,7 +139,7 @@ export const ProfileUser = () => {
                 className="block w-full text-sm text-slate-500 ml-20
              
       file:mr-4 file:py-2 file:px-4
-      file:rounded-full file:border-0
+      file: file:border-0
       file:text-sm file:font-semibold
       file:bg-violet-50 file:text-orange-kopy
       hover:file:bg-violet-100
@@ -154,11 +153,11 @@ export const ProfileUser = () => {
                 </p>
               </div>
             </div>
-            <div className="flex border-solid border-y-2 px-2 border-[color:var(--brown)] py-3 gap-2 items-center">
+            <div className="hover:bg-orange-kopy cursor-pointer flex border-solid border-y-2 px-2 border-[color:var(--brown)] py-3 gap-2 items-center">
               <i className="bx bx-cog bx-spin"></i>
               <p>Ajustes de cuenta</p>
             </div>
-            <div className="flex border-solid border-b-2 px-2 py-3 gap-2 border-[color:var(--brown)] items-center">
+            <div className="hover:bg-orange-kopy flex border-solid border-b-2 px-2 py-3 gap-2 border-[color:var(--brown)] items-center">
               <i className="bx bx-cog bx-spin"></i>
               <button onClick={handleDeleteAccount}>Eliminar cuenta</button>
             </div>

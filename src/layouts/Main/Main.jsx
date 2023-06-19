@@ -38,7 +38,7 @@ export const Main = () => {
           </p>
           <button className="btn-main">
             <span>
-              <NavLink to="/catalogo">Ver catalogo</NavLink>
+              <NavLink to="/catalogo/Todo">Ver catalogo</NavLink>
             </span>
             <svg viewBox="0 0 13 10" height="10px" width="15px">
               <path d="M1,5 L11,5"></path>
@@ -108,7 +108,7 @@ export const Main = () => {
           className="btn-products"
         >
           <span>
-            <NavLink to="/catalogo">Ver más</NavLink>
+            <NavLink to="/catalogo/Todo">Ver más</NavLink>
           </span>
           <svg viewBox="0 0 13 10" height="10px" width="15px">
             <path d="M1,5 L11,5"></path>
