@@ -9,7 +9,6 @@ import { HeaderCliente } from "../layouts/Header/HeaderCliente";
 export const ProfileUser = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
-  const [selectedImage, setSelectedImage] = useState(null);
   const [dataCliente, setdataCliente] = useState({
     id: "",
     nombre: "",
@@ -18,37 +17,36 @@ export const ProfileUser = () => {
     direccion: "",
   });
 
+  const [file, setFile] = useState([]);
+
+  console.log(file);
+
   const handdleChange = (e) => {
-    if (e.target.name === "image") {
-      setSelectedImage(e.target.files[0]);
-    } else {
-      setdataCliente({
-        ...dataCliente,
-        [e.target.name]: e.target.value,
-      });
-    }
+    setdataCliente({
+      ...dataCliente,
+      [e.target.name]: e.target.value,
+    });
   };
 
   let token = localStorage.getItem("token");
 
   const handleSubmit = () => {
-    const formData = new FormData();
-    formData.append("id", dataCliente.id);
-    formData.append("email", dataCliente.email);
-    formData.append("telefono", dataCliente.telefono);
-    formData.append("direccion", dataCliente.direccion);
-    formData.append("image", dataCliente.img);
-
+    let alamcenar = {
+      nombre: dataCliente.nombre,
+      email: dataCliente.email,
+      telefono: dataCliente.telefono,
+      direccion: dataCliente.direccion,
+      image: file,
+    };
     axios
-      .put(`http://localhost:3020/user/updateDatos`, dataCliente,
-      
-      {
+      .put(`http://localhost:3020/user/updateDatos`, alamcenar, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: token,
         },
       })
       .then((res) => {
+        window.location.href = "/porfile";
         toast.success("Datos actualizados");
       })
       .catch((error) => {
@@ -60,8 +58,8 @@ export const ProfileUser = () => {
     (() => {
       axios
         .get(
-           `http://localhost:3020/user/profile`,
-          // `https://kopy-backend.up.railway.app/user/profile`,
+          `http://localhost:3020/user/profile`,
+          //  `https://kopy-backend.up.railway.app/user/profile`
           {
             headers: {
               Authorization: token,
@@ -69,8 +67,8 @@ export const ProfileUser = () => {
           }
         )
         .then((res) => {
-          console.log(res);
           setData(res.data);
+        
         })
         .catch((error) => {
           console.log(error);
@@ -98,8 +96,6 @@ export const ProfileUser = () => {
         }
       )
       .then((res) => {
-        console.log(res);
-        console.log(res.data);
         toast.success("Cuenta eliminada correctamente");
         localStorage.removeItem("token");
         localStorage.removeItem("rol");
@@ -110,7 +106,6 @@ export const ProfileUser = () => {
       })
 
       .catch((error) => {
-        console.log(error);
         toast.error("Error al eliminar la cuenta");
       });
   };
@@ -124,22 +119,17 @@ export const ProfileUser = () => {
         <div className="flex items-stretch py-8 px-5 bg-[color:var(--brown)] rounded-2xl">
           <div className="flex flex-col w-1/5 rounded-2xl border-[--brown] bg-[color:var(--pink)]">
             <div className="flex p-2 gap-4 items-center justify-center flex-col my-2">
-              <img
-                src={
-                  selectedImage ? URL.createObjectURL(selectedImage) : "img.png"
-                }
-                alt=""
-                className="w-20"
-                id="image"
-              />
+              <img src={data.image} alt="" className="w-20" id="image" />
               <input
                 type="file"
                 id="input"
-                onChange={handdleChange}
+                onChange={(e) => {
+                  setFile(e.target.files[0]);
+                }}
                 className="block w-full text-sm text-slate-500 ml-20
              
       file:mr-4 file:py-2 file:px-4
-      file: file:border-0
+      file:rounded-full file:border-0
       file:text-sm file:font-semibold
       file:bg-violet-50 file:text-orange-kopy
       hover:file:bg-violet-100
@@ -153,11 +143,11 @@ export const ProfileUser = () => {
                 </p>
               </div>
             </div>
-            <div className="hover:bg-orange-kopy cursor-pointer flex border-solid border-y-2 px-2 border-[color:var(--brown)] py-3 gap-2 items-center">
+            <div className="flex border-solid border-y-2 px-2 border-[color:var(--brown)] py-3 gap-2 items-center">
               <i className="bx bx-cog bx-spin"></i>
               <p>Ajustes de cuenta</p>
             </div>
-            <div className="hover:bg-orange-kopy flex border-solid border-b-2 px-2 py-3 gap-2 border-[color:var(--brown)] items-center">
+            <div className="flex border-solid border-b-2 px-2 py-3 gap-2 border-[color:var(--brown)] items-center">
               <i className="bx bx-cog bx-spin"></i>
               <button onClick={handleDeleteAccount}>Eliminar cuenta</button>
             </div>

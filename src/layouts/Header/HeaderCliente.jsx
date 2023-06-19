@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+
 export const HeaderCliente = () => {
+  const [data, setData] = useState([]);
   localStorage.getItem('rolAdmin')
+  let token = localStorage.getItem("token");
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -17,10 +21,30 @@ export const HeaderCliente = () => {
       theme: "light",
     });
     localStorage.clear();
-    setTimeout(() => {
-      navigate("/");
-    }, 2000);
+      window.location.href = "/";
+    
   };
+
+  useEffect(() => {
+    (() => {
+      axios
+        .get(
+          `http://localhost:3020/user/profile`,
+          //  `https://kopy-backend.up.railway.app/user/profile`
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        )
+        .then((res) => {
+          setData(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    })();
+  }, []);
 
   return (
   <>
@@ -68,7 +92,7 @@ export const HeaderCliente = () => {
           >
          
               <img
-                src="https://cdn-icons-png.flaticon.com/512/64/64572.png"
+                src={data.image}
                 alt=""
                 className="w-12 "
               />
