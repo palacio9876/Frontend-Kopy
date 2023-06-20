@@ -31,7 +31,7 @@ export const ProfileUser = () => {
   let token = localStorage.getItem("token");
 
   const handleSubmit = () => {
-    let alamcenar = {
+    let almacenar = {
       nombre: dataCliente.nombre,
       email: dataCliente.email,
       telefono: dataCliente.telefono,
@@ -39,20 +39,26 @@ export const ProfileUser = () => {
       image: file,
     };
     axios
-      .put(`http://localhost:3020/user/updateDatos`, alamcenar, {
+      .put(`http://localhost:3020/user/updateDatos`, almacenar, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: token,
         },
       })
-      .then((res) => {
-        window.location.href = "/porfile";
-        toast.success("Datos actualizados");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+      .then((res)=>{
+        console.log(res);
+        toast.success("Datos Actualizados");
+        window.location.href=("/profile")
+      }
+      )
+      .catch((err)=>{
+        console.log(err);
+        toast.error("No se Actualizaron los Datos");
+        
+      }
+      );
+    };
+  
 
   useEffect(() => {
     (() => {
