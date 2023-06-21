@@ -38,19 +38,19 @@ export const Cart = ({
     setCountProducts(countProducts + 1);
    };
 
-   const decrementQuantity = (article) => {
-    if (article.cantidad_producto > 1) {
-      const updatedProducts = allProducts.map((item) =>
-        item.id_producto === article.id_producto
-          ? { ...item, cantidad_producto: item.cantidad_producto - 1 }
-          : item
-      );
-      setAllProducts(updatedProducts);
-      setTotal(total - article.precio);
-      setCountProducts(countProducts - 1);
-    }
-    console.log("Hola", article.cantidad_producto);
-  };
+ const decrementQuantity = (article) => {
+  if (article.cantidad_producto > 1) {
+    const updatedProducts = allProducts.map((item) =>
+      item.id_producto === article.id_producto
+        ? { ...item, cantidad_producto: item.cantidad_producto - 1 }
+        : item
+    );
+    setAllProducts(updatedProducts);
+    setTotal(total - article.precio);
+    setCountProducts(countProducts - 1);
+  }
+  
+};
 
 
   const onDeleteProduct = (article) => {

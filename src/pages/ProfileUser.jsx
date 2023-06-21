@@ -123,9 +123,11 @@ export const ProfileUser = () => {
 
       <main className="py-6 px-16 bg-[color:var(--pink)]">
         <div className="flex items-stretch py-8 px-5 bg-[color:var(--brown)] rounded-2xl">
-          <div className="flex flex-col w-1/5 rounded-2xl border-[--brown] bg-[color:var(--pink)]">
+          <div className="flex flex-col w-1/5 rounded-2xl  bg-[color:var(--pink)]">
             <div className="flex p-2 gap-4 items-center justify-center flex-col my-2">
-              <img src={data.image} alt="" className="w-20" id="image" />
+         
+              <img src={data.image} alt="" className=" profile" id="image" />
+              
               <input
                 type="file"
                 id="input"

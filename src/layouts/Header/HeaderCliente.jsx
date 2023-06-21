@@ -94,7 +94,7 @@ export const HeaderCliente = () => {
               <img
                 src={data.image}
                 alt=""
-                className="w-12 "
+                className="profile-header"
               />
           </NavLink>
           <NavLink

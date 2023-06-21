@@ -12,7 +12,29 @@
 	box-sizing: border-box;
 }
 
+.profile{
+	width: 140px;
+	height:140px;
+	background-position: top;
+	background-image: cover;
+	background-color: transparent;
+	border-radius: 100px;
+    background-position:0cm ;
+	background-color: transparent;
+	border: 3.6px solid  #d56012;
+	cursor: pointer;
+}
+.profile-header{
+	width: 70px;
+	height:70px;
+	background-position: top;
+	background-image: cover;
+	background-color: transparent;
+	border-radius: 100px;
+	background-color: transparent;
+	cursor: pointer;
 
+}
 .icon-cart {
 	width: 40px;
 	height: 40px;
