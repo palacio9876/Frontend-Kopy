@@ -38,6 +38,7 @@ export const Cart = ({
     setCountProducts(countProducts + 1);
   };
 
+<<<<<<< HEAD
   const decrementQuantity = (article) => {
     if (article.cantidad_producto > 1) {
       const updatedProducts = allProducts.map((item) =>
@@ -51,6 +52,21 @@ export const Cart = ({
     }
     console.log("Hola", article.cantidad_producto);
   };
+=======
+ const decrementQuantity = (article) => {
+  if (article.cantidad_producto > 1) {
+    const updatedProducts = allProducts.map((item) =>
+      item.id_producto === article.id_producto
+        ? { ...item, cantidad_producto: item.cantidad_producto - 1 }
+        : item
+    );
+    setAllProducts(updatedProducts);
+    setTotal(total - article.precio);
+    setCountProducts(countProducts - 1);
+  }
+  
+};
+>>>>>>> 46f774901bb9cf8ef98825640d949c0079f647af
 
   const onDeleteProduct = (article) => {
     const updatedProducts = allProducts.filter(

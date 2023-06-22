@@ -129,6 +129,14 @@ export const Login = () => {
               ¿Olvidaste tu contraseña?
             </NavLink>
           </p>
+          <p className="text-[#aaa] text-sm">
+            <NavLink
+              to="/pinAdmin"
+              className="text-white no-underline hover:text-[#aaa] hover:rounded-[5px] hover:bg-transparent"
+            >
+              ¿Eres Administrador?
+            </NavLink>
+          </p>
         </div>
       </div>
     </>
