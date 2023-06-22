@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 
 export const Cart = ({
   allProducts,
@@ -18,25 +19,24 @@ export const Cart = ({
         "http://localhost:3020/product/obtener"
         // "https://kopy-backend.up.railway.app/product/obtener"
         // "https://back-end-kopy.onrender.com/product/obtener"
-        );
+      );
       setActive(response.data);
-      active.map(active => {
+      active.map((active) => {
         active.cantidad_producto = 1;
-      })
+      });
+    } catch (error) {}
+  };
 
-    } catch (error) {
-
-    }
-  }
-
-   const incrementQuantity = (article) => {
+  const incrementQuantity = (article) => {
     const updatedProducts = allProducts.map((item) =>
-     item.id_producto === article.id_producto ? { ...item, cantidad_producto: item.cantidad_producto + 1 } : item
-   );
-   setAllProducts(updatedProducts);
-   setTotal(total + article.precio);
+      item.id_producto === article.id_producto
+        ? { ...item, cantidad_producto: item.cantidad_producto + 1 }
+        : item
+    );
+    setAllProducts(updatedProducts);
+    setTotal(total + article.precio);
     setCountProducts(countProducts + 1);
-   };
+  };
 
  const decrementQuantity = (article) => {
   if (article.cantidad_producto > 1) {
@@ -52,12 +52,10 @@ export const Cart = ({
   
 };
 
-
   const onDeleteProduct = (article) => {
     const updatedProducts = allProducts.filter(
       (item) => item.id_producto !== article.id_producto
     );
-
 
     setAllProducts(updatedProducts);
     setTotal(total - article.precio * article.cantidad_producto);
@@ -95,19 +93,19 @@ export const Cart = ({
     <ToastContainer />;
   };
 
-  const deleteList= ()=>{
-  toast.error("producto eliminado del carrito ", {
-   position: "top-left",
-   autoClose: 900,
-   hideProgressBar: false,
-   closeOnClick: true,
-   pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: "light",
-  });
-  <ToastContainer />;
-  }
+  const deleteList = () => {
+    toast.error("producto eliminado del carrito ", {
+      position: "top-left",
+      autoClose: 900,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    <ToastContainer />;
+  };
 
   // Conectar con el backend
   const [cart, setCart] = useState({
@@ -133,64 +131,74 @@ export const Cart = ({
       .catch((err) => console.log(err));
   };
 
-
-
   return (
     <>
-    <ToastContainer/>
-    <header>
-
-
-      <div className="container-icon">
-        <div className="container-cart-icon"
-          onClick={() => setActive(!active)}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="icon-cart"
+      <ToastContainer />
+      <header>
+        <div className="container-icon">
+          <div
+            className="container-cart-icon"
+            onClick={() => setActive(!active)}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-            />
-          </svg>
-          <div className="count-products">
-            <span id="contador-productos">{countProducts}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="icon-cart"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+              />
+            </svg>
+            <div className="count-products">
+              <span id="contador-productos">{countProducts}</span>
+            </div>
           </div>
-        </div>
 
-        <div className={`container-cart-products ${active ? "" : "hidden-cart"}`}>
-          {
-            allProducts.length ? (
+          <div
+            className={`container-cart-products ${active ? "" : "hidden-cart"}`}
+          >
+            {allProducts.length ? (
               <>
                 <div className="row-product ">
-                  {allProducts.map(article => (
-                    <div className="cart-product flex align-center justify-center" key={article.id_producto}>
+                  {allProducts.map((article) => (
+                    <div
+                      className="cart-product flex align-center justify-center"
+                      key={article.id_producto}
+                    >
                       <div className="info-cart-product">
                         <div className="flex flex-col h-5 mt-[-25px]">
                           <button
                             className="quantity-button"
                             onClick={() => incrementQuantity(article)}
                           >
-                            <p className="text-green-500 text-2xl m-20px  mb-[-5px]" >+</p>
+                            <p className="text-green-500 text-2xl m-20px  mb-[-5px]">
+                              +
+                            </p>
                           </button>
-                          <span className="cantidad-producto-carrito">{article.cantidad_producto}</span>
+                          <span className="cantidad-producto-carrito">
+                            {article.cantidad_producto}
+                          </span>
 
                           <button
                             className="quantity-button"
-                            onClick={() => decrementQuantity(article)}>
-
-                            <p className="text-red-500 text-2xl  mt-[-10px] ">-</p>
+                            onClick={() => decrementQuantity(article)}
+                          >
+                            <p className="text-red-500 text-2xl  mt-[-10px] ">
+                              -
+                            </p>
                           </button>
-
                         </div>
-                        <p className="titulo-producto-carrito">{article.nombre_producto}</p>
-                        <span className="precio-producto-carrito">${article.precio}</span>
+                        <p className="titulo-producto-carrito">
+                          {article.nombre_producto}
+                        </p>
+                        <span className="precio-producto-carrito">
+                          ${article.precio}
+                        </span>
                       </div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -209,10 +217,7 @@ export const Cart = ({
                         />
                       </svg>
                     </div>
-
                   ))}
-
-
                 </div>
 
                 <div className="cart-total ">
@@ -220,24 +225,28 @@ export const Cart = ({
                   <span className="total-pagar">${total}</span>
                 </div>
 
-                <button className=" text-white block w-full  cursor-pointer text-base transition-all duration-[0.3s] ease-[ease] px-0 py-[15px] border-[none] bg-green-600" onClick={onCash}>
+                <NavLink
+                  to="/buys"
+                  className=" text-center text-white block w-full  cursor-pointer text-base transition-all duration-[0.3s] ease-[ease] px-0 py-[15px] border-[none] bg-green-600"
+                  onClick={onCash}
+                >
                   Comprar
-                </button>
+                </NavLink>
 
-                <button className=" text-white block w-full cursor-pointer text-base transition-all duration-[0.3s] ease-[ease]  px-0 py-[15px] rounded-br-[10px] rounded-bl-[10px] border-[none] bg-red-600" onClick={onCleanCart}>
+                <button
+                  className=" text-white block w-full cursor-pointer text-base transition-all duration-[0.3s] ease-[ease]  px-0 py-[15px] rounded-br-[10px] rounded-bl-[10px] border-[none] bg-red-600"
+                  onClick={onCleanCart}
+                >
                   Vaciar Carrito
                 </button>
-
               </>
             ) : (
               <p className="cart-empty">El carrito está vacío</p>
-            )
-          }
-
+            )}
+          </div>
         </div>
-      </div>
-    </header>
-</>
+      </header>
+    </>
     /*
    
     
