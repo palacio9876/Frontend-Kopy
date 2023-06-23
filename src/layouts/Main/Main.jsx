@@ -2,12 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { ToastContainer,toast } from "react-toastify";
-
+import { ToastContainer, toast } from "react-toastify";
 
 export const Main = () => {
   AOS.init();
-
 
   const onCash = () => {
     toast.success("Comprando", {
@@ -25,25 +23,25 @@ export const Main = () => {
 
   return (
     <main>
-      <ToastContainer/>
+      <ToastContainer />
       <section className="section-main  ">
         <div
           className="flex justify-center items-center flex-col"
           data-aos="fade-up-right"
-          data-aos-duration="1500">
+          data-aos-duration="1500"
+        >
           <p className="md:text-5xl font-bold uppercase text-[color:var(--brown)] text-center font-Alkatra ">
             Deleitate con nuestros <br />
             deliciosos productos <br />
-            <span className="text-[color:var(--orange)]"> Los mejores precios! </span>
+            <span className="text-[color:var(--orange)]">
+              {" "}
+              Los mejores precios!{" "}
+            </span>
           </p>
           <button className="btn-main">
             <span>
-              <NavLink to="/catalogo/Todo">Ver catalogo</NavLink>
+              <NavLink to="/catalogo/Todo">Ver catalogo ⮞</NavLink>
             </span>
-            <svg viewBox="0 0 13 10" height="10px" width="15px">
-              <path d="M1,5 L11,5"></path>
-              <polyline points="8 1 12 5 8 9"></polyline>
-            </svg>
           </button>
         </div>
         <div
@@ -70,7 +68,12 @@ export const Main = () => {
             <div className="info-card">
               <p className="tittle-product">Cafe fresa</p>
               <p className="price">$7.000</p>
-              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
+              <button
+                className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50"
+                onClick={onCash}
+              >
+                comprar
+              </button>
             </div>
           </div>
           <div className="card" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -80,7 +83,12 @@ export const Main = () => {
             <div className="info-card">
               <p className="tittle-product">Cafe mora</p>
               <p className="price"> $6.700</p>
-              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
+              <button
+                className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50"
+                onClick={onCash}
+              >
+                comprar
+              </button>
             </div>
           </div>
           <div className="card" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -90,7 +98,12 @@ export const Main = () => {
             <div className="info-card">
               <p className="tittle-product">Cafe lite</p>
               <p className="price"> $6.500</p>
-              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
+              <button
+                className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50"
+                onClick={onCash}
+              >
+                comprar
+              </button>
             </div>
           </div>
           <div className="card" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -100,33 +113,53 @@ export const Main = () => {
             <div className="info-card">
               <p className="tittle-product">Cafe premium</p>
               <p className="price">$5.000</p>
-              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
+              <button
+                className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50"
+                onClick={onCash}
+              >
+                comprar
+              </button>
             </div>
           </div>
         </div>
-        <button
-          className="btn-products"
-        >
+        <button className="btn-products">
           <span>
-            <NavLink to="/catalogo/Todo">Ver más</NavLink>
+            <NavLink to="/catalogo/Todo">Ver más ⮞</NavLink>
           </span>
-          <svg viewBox="0 0 13 10" height="10px" width="15px">
-            <path d="M1,5 L11,5"></path>
-            <polyline points="8 1 12 5 8 9"></polyline>
-          </svg>
         </button>
       </section>
       <article className="bg-[color:var(--pink)]  md:items-center p-4 flex-wrap flex-col sm:flex sm:flex-row sm:justify-evenly gap-5 h-80">
-        <div className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]" data-aos="fade-up" data-aos-duration="1500">
-          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980032/kopy/camionEnvio_yn0wjt.webp" className="w-30 h-55"/>
+        <div
+          className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          <img
+            src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980032/kopy/camionEnvio_yn0wjt.webp"
+            className="w-30 h-55"
+          />
           <p> Envios a toda la ciudad</p>
         </div>
-        <div className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]" data-aos="fade-up" data-aos-duration="1500">
-          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980057/kopy/pagsos_o0lwmc.png"  className="w-30 h-55"/>
+        <div
+          className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          <img
+            src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980057/kopy/pagsos_o0lwmc.png"
+            className="w-30 h-55"
+          />
           <p> Todos los medios de pago</p>
         </div>
-        <div className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]" data-aos="fade-up" data-aos-duration="1500">
-          <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980047/kopy/sonreir_a61eep.png" className="w-30 h-55" />
+        <div
+          className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          <img
+            src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980047/kopy/sonreir_a61eep.png"
+            className="w-30 h-55"
+          />
           <p> Cliente satisfecho</p>
         </div>
       </article>
