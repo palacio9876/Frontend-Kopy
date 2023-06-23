@@ -29,17 +29,17 @@ export const Catalogo = () => {
     window.location.href = "/catalogo/" + category;
   };
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const redirectToLogin = () => {
-    navigate("/login");
-  };
+  // const redirectToLogin = () => {
+  //   navigate("/login");
+  // };
 
-  useEffect(() => {
-    if (rol === null) {
-      redirectToLogin();
-    }
-  }, [rol]);
+  // useEffect(() => {
+  //   if (rol === null) {
+  //     redirectToLogin();
+  //   }
+  // }, [rol]);
 
   return (
     <>

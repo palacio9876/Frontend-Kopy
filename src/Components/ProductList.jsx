@@ -40,7 +40,7 @@ export const ProductList = ({
       });
 
       if (response.status === 200) {
-        toast.info("Productos obtenidos de la db exitosamente", {
+        toast.success("Productos obtenidos exitosamente", {
           position: "top-left",
           autoClose: 2000,
           hideProgressBar: false,
