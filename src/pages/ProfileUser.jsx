@@ -104,8 +104,8 @@ export const ProfileUser = () => {
       {rol === null ? <Header /> : <HeaderCliente />}
 
       <main className="py-6 px-16 bg-[color:var(--pink)]">
-        <div className="flex items-stretch py-8 px-5 bg-[color:var(--brown)] rounded-2xl">
-          <div className=" perfil flex flex-col w-10/12 rounded-2xl bg-[color:var(--pink)]">
+        <div className="md:flex flex-rows py-8 px-5 bg-[color:var(--brown)] rounded-2xl">
+          <div className=" perfil sm:w-1/2 flex flex-col w-1/5 rounded-2xl border-[--brown] bg-[color:var(--pink)]">
             <div className="flex p-2 gap-4 items-center justify-center flex-col my-2">
               <img src={data.image} alt="" className="profile" id="image" />
 
@@ -119,19 +119,19 @@ export const ProfileUser = () => {
                 className=" archive block w-full text-sm text-slate-500 ml-64 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-orange-kopy hover:file:bg-violet-100"
               />
 
-              <div className="flex flex-col">
+              <div className="md:flex flex-col">
                 <p className="my-perfil">Mi perfil</p>
-                <p className=" nombre-user flex flex-wrap text-[color:var(--orange)] font-semibold text-xl">
+                <p className=" nombre-user md:flex flex-wrap text-[color:var(--orange)] font-semibold text-xl">
                   {data.nombre_cliente}
                 </p>
               </div>
             </div>
-            <div className=" ajustes flex border-solid border-y-2 px-2 border-[color:var(--brown)] py-3 gap-2 items-center">
-              <i className="bx bx-cog bx-spin"></i>
+            <div className=" ajustes md:flex border-solid border-y-2 px-2 border-[color:var(--brown)] py-3 gap-2 items-center">
+              <i className="md:bx bx-cog bx-spin"></i>
               <p>Ajustes de cuenta</p>
             </div>
-            <div className="flex border-solid border-b-2 px-2 py-3 gap-2 border-[color:var(--brown)] items-center">
-              <i className="bx bx-cog bx-spin"></i>
+            <div className="md:flex border-solid border-b-2 px-2 py-3 gap-2 border-[color:var(--brown)] items-center">
+              <i className="md:bx bx-cog bx-spin"></i>
               <button onClick={handleDeleteAccount}>Eliminar cuenta</button>
             </div>
 
@@ -159,7 +159,7 @@ export const ProfileUser = () => {
               </div>
             )}
           </div>
-          <div className="flex flex-col flex-wrap rounded-2xl border-solid border-2 px-2 py-3 gap w-4/5 ml-5 bg-[color:var(--pink)] gap-8">
+          <div className="sm:w-1/2  flex flex-col flex-wrap rounded-2xl border-solid border-2 px-2 py-3 gap w-4/5 ml-5 bg-[color:var(--pink)] gap-8">
             <p className="text-orange-kopy text-center text-2xl font-semibold">
               Información de tu cuenta
             </p>

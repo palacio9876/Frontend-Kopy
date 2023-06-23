@@ -53,7 +53,7 @@ export const MainAddProducto = () => {
   return (
     <>
       <ToastContainer />
-      <main className="bg-pink-kopy">
+      <main className="md: bg-pink-kopy">
         <h1 className="text-brown-kopy text-center text-4xl pt-4">
           Agregar un producto
         </h1>

@@ -17,9 +17,9 @@ export const Nosotros = () => {
         
     }
 
-      <main className="bg-pink-kopy p-9 flex flex-col gap-5">
+      <main className="bg-pink-kopy p-9 flex flex-col gap-5  ">
         <h1 className="text-center text-5xl text-brown-kopy">Sobre nosotros</h1>
-        <div className="grid grid-cols-3">
+        <div className=" md:grid grid-cols-3">
           <div className="p-9 bg-brown-kopy text-center font-medium rounded-3xl">
             <h1 className="text-orange-kopy text-3xl mb-5">
               ¿Porque Nosotros?

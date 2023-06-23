@@ -26,23 +26,25 @@ export const Main = () => {
   return (
     <main>
       <ToastContainer/>
-      <section className="section-main">
+      <section className="section-main  ">
         <div
           className="flex justify-center items-center flex-col"
           data-aos="fade-up-right"
           data-aos-duration="1500">
-          <p className="text-5xl font-bold uppercase text-[color:var(--brown)] text-center font-Alkatra">
+          <p className="md:text-5xl font-bold uppercase text-[color:var(--brown)] text-center font-Alkatra ">
             Deleitate con nuestros <br />
             deliciosos productos <br />
             <span className="text-[color:var(--orange)]"> Los mejores precios! </span>
           </p>
-          <a  to="/catalogo/Todo" className="btn-main">
+          <button className="btn-main">
             <span>
-              <NavLink to="/catalogo/Todo">Ver catalogo ⮞</NavLink>
+              <NavLink to="/catalogo/Todo">Ver catalogo</NavLink>
             </span>
-            
-            
-          </a>
+            <svg viewBox="0 0 13 10" height="10px" width="15px">
+              <path d="M1,5 L11,5"></path>
+              <polyline points="8 1 12 5 8 9"></polyline>
+            </svg>
+          </button>
         </div>
         <div
           className="section-right"
@@ -52,7 +54,7 @@ export const Main = () => {
           <img
             src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721661/kopy/canva_c8envd.jpg"
             alt="imagen demostrativa"
-            className="w-full h-full object-cover object-[center_-110px] rounded-[100%] "
+            className="md:w-full h-full object-cover object-[center_-110px] rounded-[100%] sm:w-30 h-30 "
           />
         </div>
       </section>
@@ -68,7 +70,7 @@ export const Main = () => {
             <div className="info-card">
               <p className="tittle-product">Cafe fresa</p>
               <p className="price">$7.000</p>
-              <button className="bg-orange-kopy w-20  mb-2 bc: text-cyan-50 rounded-full mt-3" onClick={onCash}>Comprar</button>
+              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
             </div>
           </div>
           <div className="card" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -78,7 +80,7 @@ export const Main = () => {
             <div className="info-card">
               <p className="tittle-product">Cafe mora</p>
               <p className="price"> $6.700</p>
-              <button className="bg-orange-kopy w-20  mb-2 bc: text-cyan-50 rounded-full mt-3" onClick={onCash}>Comprar</button>
+              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
             </div>
           </div>
           <div className="card" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -88,7 +90,7 @@ export const Main = () => {
             <div className="info-card">
               <p className="tittle-product">Cafe lite</p>
               <p className="price"> $6.500</p>
-              <button className="bg-orange-kopy w-20  mb-2 bc: text-cyan-50 rounded-full mt-3" onClick={onCash}>Comprar</button>
+              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
             </div>
           </div>
           <div className="card" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -98,20 +100,23 @@ export const Main = () => {
             <div className="info-card">
               <p className="tittle-product">Cafe premium</p>
               <p className="price">$5.000</p>
-              <button className="bg-orange-kopy w-20  mb-2 bc: text-cyan-50 rounded-full mt-3" onClick={onCash}>Comprar</button>
+              <button className="bg-orange-kopy w-20 mt-4 mb-4 rounded-[-10] bc: text-cyan-50" onClick={onCash}>comprar</button>
             </div>
           </div>
         </div>
-        <a
+        <button
           className="btn-products"
         >
           <span>
-            <NavLink to="/catalogo/Todo">Ver más ⮞</NavLink>
+            <NavLink to="/catalogo/Todo">Ver más</NavLink>
           </span>
-        
-        </a>
+          <svg viewBox="0 0 13 10" height="10px" width="15px">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+          </svg>
+        </button>
       </section>
-      <article className="  info-envios bg-[color:var(--pink)] flex items-center p-4 flex-wrap flex-col sm:flex sm:flex-row sm:justify-evenly gap-5 h-80">
+      <article className="bg-[color:var(--pink)]  md:items-center p-4 flex-wrap flex-col sm:flex sm:flex-row sm:justify-evenly gap-5 h-80">
         <div className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]" data-aos="fade-up" data-aos-duration="1500">
           <img src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678980032/kopy/camionEnvio_yn0wjt.webp" className="w-30 h-55"/>
           <p> Envios a toda la ciudad</p>

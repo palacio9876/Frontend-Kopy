@@ -85,7 +85,7 @@ const navigate= useNavigate();
   <ToastContainer />
     <div className="bg-[url('https://res.cloudinary.com/digw0vkdp/image/upload/v1682270938/kopy/pexels-cottonbro-studio-3205736_lxn4mm.jpg')] h-screen W-full bg-cover bg-center p-24 flex items-center justify-center opacity-2 ">
       <div className="absolute w-[400px] -translate-x-2/4 translate-y-[-55%] box-border shadow-[0_15px_25px_#00000099] mx-auto my-5 p-10 rounded-[10px] left-2/4 top-2/4 bg-[#473b3be3]">
-        <p className="text-white text-center text-2xl font-[bold] tracking-[1px] mt-0 mb-[30px] mx-0 p-0;">
+        <p className="text-white md:text-center text-2xl font-[bold] tracking-[1px] mt-0 mb-[30px] mx-0 p-0;">
           Inicio de sesión Administrador
         </p>
         <form onSubmit={handleSubmit} className="flex flex-col">
