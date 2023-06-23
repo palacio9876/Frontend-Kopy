@@ -22,6 +22,7 @@ import { PinAdmin } from "./pages/PinAdmin";
 import {ProtectedRoute} from "./Components/ProtectedRoute";
 import { useLocalStorage } from "react-use";
 import { Buys } from './pages/Buys';
+import ContextCart from "./context/ContextCart";
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
         />
         <title>Kopy</title>
       </Helmet>
+        <ContextCart>
       <Routes>
       <Route path="/" element={<Home />} />
         <Route path="/catalogo/:product" element={<Catalogo />} />
@@ -53,7 +55,10 @@ function App() {
         <Route path="/recover" element={<Recover />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<ProfileUser />} />
+
+
         <Route path="/buys" element={<Buys/>} />
+
 
 
         <Route path="/addProduct" element={<AddProduct />} /> 
@@ -67,6 +72,7 @@ function App() {
 
         <Route path="*" element={<Error404 />} />
       </Routes>
+        </ContextCart>
     </div>
   );
 }

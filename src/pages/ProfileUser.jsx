@@ -134,7 +134,7 @@ export const ProfileUser = () => {
                 onChange={(e) => {
                   setFile(e.target.files[0]);
                 }}
-                className="block w-full text-sm text-slate-500 ml-20
+                className="block w-full text-transparent text-sm text-slate-500 ml-20
              
       file:mr-4 file:py-2 file:px-4
       file:rounded-full file:border-0

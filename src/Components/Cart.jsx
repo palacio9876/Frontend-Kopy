@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
+import { CheckoutForm } from "../pages/Buys";
+import { contextKopy } from "../context/ContextCart";
 
 export const Cart = ({
   allProducts,
@@ -12,7 +14,7 @@ export const Cart = ({
   setCountProducts,
 }) => {
   const [active, setActive] = useState(false);
-
+  const context = useContext(contextKopy);
   const addProduct = async () => {
     try {
       const response = await axios.post(
@@ -38,19 +40,18 @@ export const Cart = ({
     setCountProducts(countProducts + 1);
   };
 
- const decrementQuantity = (article) => {
-  if (article.cantidad_producto > 1) {
-    const updatedProducts = allProducts.map((item) =>
-      item.id_producto === article.id_producto
-        ? { ...item, cantidad_producto: item.cantidad_producto - 1 }
-        : item
-    );
-    setAllProducts(updatedProducts);
-    setTotal(total - article.precio);
-    setCountProducts(countProducts - 1);
-  }
-  
-};
+  const decrementQuantity = (article) => {
+    if (article.cantidad_producto > 1) {
+      const updatedProducts = allProducts.map((item) =>
+        item.id_producto === article.id_producto
+          ? { ...item, cantidad_producto: item.cantidad_producto - 1 }
+          : item
+      );
+      setAllProducts(updatedProducts);
+      setTotal(total - article.precio);
+      setCountProducts(countProducts - 1);
+    }
+  };
 
   const onDeleteProduct = (article) => {
     const updatedProducts = allProducts.filter(
@@ -80,6 +81,7 @@ export const Cart = ({
   };
 
   const onCash = () => {
+    context.setAmount(total);
     toast.success("Comprando", {
       position: "top-left",
       autoClose: 900,
