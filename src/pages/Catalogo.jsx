@@ -18,7 +18,6 @@ export const Catalogo = () => {
   const [countProducts, setCountProducts] = useState(0);
   AOS.init();
 
-  
   const allCategories = [
     "Todo",
     ...new Set(data.map((article) => article.category)),
@@ -27,8 +26,21 @@ export const Catalogo = () => {
   const [categories, setCategories] = useState(allCategories);
   const [articles, setArticles] = useState(data);
   const filterCategory = (category) => {
-    window.location.href="/catalogo/"+category
-  }
+    window.location.href = "/catalogo/" + category;
+  };
+
+  const navigate = useNavigate();
+
+  const redirectToLogin = () => {
+    navigate("/login");
+  };
+
+  useEffect(() => {
+    if (rol === null) {
+      redirectToLogin();
+    }
+  }, [rol]);
+
   return (
     <>
       {rol === null ? <Header /> : <HeaderCliente />}
@@ -36,16 +48,16 @@ export const Catalogo = () => {
       <main className="main-catalogo">
         <h1 className="text-center text-5xl text-brown-kopy my-3">Catalogo</h1>
         <div className="btns-catalogo">
-      {categories.map((category) => (
-        <button
-          className="btn-catalogo bg-orange-kopy text-pink-kopy text-[1.3rem] cursor-pointer m-2.5 p-2.5 rounded-[10px] border-[none] hover:bg-green-kopy"
-          type="submit"
-          onClick={() => filterCategory(category)}
-          key={category}
-        >
-          {category}
-        </button>
-      ))}
+          {categories.map((category) => (
+            <button
+              className="btn-catalogo bg-orange-kopy text-pink-kopy text-[1.3rem] cursor-pointer m-2.5 p-2.5 rounded-[10px] border-[none] hover:bg-green-kopy"
+              type="submit"
+              onClick={() => filterCategory(category)}
+              key={category}
+            >
+              {category}
+            </button>
+          ))}
           {rol === "rolAdmin" ? (
             <NavLink
               to="/addProduct"

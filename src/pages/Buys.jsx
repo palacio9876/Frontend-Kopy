@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -23,6 +23,7 @@ export const CheckoutForm = ({ amountCart }) => {
   const stripe = useStripe();
   const elements = useElements();
   const context = useContext(contextKopy);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,14 +32,23 @@ export const CheckoutForm = ({ amountCart }) => {
       type: "card",
       card: elements.getElement(CardElement),
     });
+
+    setLoading(true);
+
     if (!error) {
       const { id } = paymentMethod;
 
-      const {data} = await axios.post("https://localhost:3020/buy/compra", {
-        id,
-        amount: context.amount,
-      });
-      console.log(data);
+      try {
+        const { data } = await axios.post("http://localhost:3020/buy/compra", {
+          id,
+          amount: context.amount,
+        });
+        // console.log(data);
+        elements.getElement(CardElement).clear();
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
     }
   };
   console.log(context.amount);
@@ -50,10 +60,11 @@ export const CheckoutForm = ({ amountCart }) => {
       <CardElement className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
       <div className="flex items-center justify-center mt-6">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-brown-kopy hover:bg-brown-kopy text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
+          disabled={!stripe}
         >
-          Pagar
+          {loading ? "Procesando..." : "Pagar"}
         </button>
       </div>
     </form>

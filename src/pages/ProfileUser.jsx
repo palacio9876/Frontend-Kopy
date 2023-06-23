@@ -17,9 +17,7 @@ export const ProfileUser = () => {
     direccion: "",
   });
 
-  const [file, setFile] = useState([]);
-
-  console.log(file);
+  const [file, setFile] = useState(null);
 
   const handdleChange = (e) => {
     setdataCliente({
@@ -31,76 +29,61 @@ export const ProfileUser = () => {
   let token = localStorage.getItem("token");
 
   const handleSubmit = () => {
-    let almacenar = {
-      nombre: dataCliente.nombre,
-      email: dataCliente.email,
-      telefono: dataCliente.telefono,
-      direccion: dataCliente.direccion,
-      image: file,
-    };
+    let formData = new FormData();
+    formData.append("nombre", dataCliente.nombre);
+    formData.append("email", dataCliente.email);
+    formData.append("telefono", dataCliente.telefono);
+    formData.append("direccion", dataCliente.direccion);
+    if (file) {
+      formData.append("image", file);
+    }
+
     axios
-      .put(`http://localhost:3020/user/updateDatos`, almacenar, {
+      .put(`http://localhost:3020/user/updateDatos`, formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
           Authorization: token,
         },
       })
-      .then((res)=>{
+      .then((res) => {
         console.log(res);
-        toast.success("Datos Actualizados");
-        window.location.href=("/profile")
-      }
-      )
-      .catch((err)=>{
+        toast.success("Datos actualizados");
+        window.location.href = "/profile";
+      })
+      .catch((err) => {
         console.log(err);
-        toast.error("No se Actualizaron los Datos");
-        
-      }
-      );
-    };
-  
+        toast.error("No se pudieron actualizar los datos");
+      });
+  };
 
   useEffect(() => {
-    (() => {
-      axios
-        .get(
-          `http://localhost:3020/user/profile`,
-          //  `https://kopy-backend.up.railway.app/user/profile`
-          {
-            headers: {
-              Authorization: token,
-            },
-          }
-        )
-        .then((res) => {
-          setData(res.data);
-        
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    })();
+    axios
+      .get(`http://localhost:3020/user/profile`, {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   const rol = localStorage.getItem("rol");
 
-  //eliminar cuenta
+
   const [showModal, setShowModal] = useState(false);
   const handleDeleteAccount = () => {
     setShowModal(true);
   };
   const handleDeleteConfirmation = () => {
     axios
-      .delete(
-        `http://localhost:3020/user/eliminar/${data.id_cliente}`,
-        // `https://kopy-backend.up.railway.app/user/eliminar/${data.id_cliente}`
-        // `https://back-end-kopy.onrender.com/user/eliminar/${data.id_cliente}`
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      )
+      .delete(`http://localhost:3020/user/eliminar/${data.id_cliente}`, {
+        headers: {
+          Authorization: token,
+        },
+      })
       .then((res) => {
         toast.success("Cuenta eliminada correctamente");
         localStorage.removeItem("token");
@@ -110,7 +93,6 @@ export const ProfileUser = () => {
           navigate("/login");
         }, 2000);
       })
-
       .catch((error) => {
         toast.error("Error al eliminar la cuenta");
       });
@@ -123,35 +105,28 @@ export const ProfileUser = () => {
 
       <main className="py-6 px-16 bg-[color:var(--pink)]">
         <div className="flex items-stretch py-8 px-5 bg-[color:var(--brown)] rounded-2xl">
-          <div className="flex flex-col w-1/5 rounded-2xl  bg-[color:var(--pink)]">
+          <div className=" perfil flex flex-col w-10/12 rounded-2xl bg-[color:var(--pink)]">
             <div className="flex p-2 gap-4 items-center justify-center flex-col my-2">
-         
-              <img src={data.image} alt="" className=" profile" id="image" />
-              
+              <img src={data.image} alt="" className="profile" id="image" />
+
               <input
                 type="file"
                 id="input"
                 onChange={(e) => {
                   setFile(e.target.files[0]);
                 }}
-                className="block w-full text-transparent text-sm text-slate-500 ml-20
-             
-      file:mr-4 file:py-2 file:px-4
-      file:rounded-full file:border-0
-      file:text-sm file:font-semibold
-      file:bg-violet-50 file:text-orange-kopy
-      hover:file:bg-violet-100
-    "
+                  
+                className=" archive block w-full text-sm text-slate-500 ml-64 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-orange-kopy hover:file:bg-violet-100"
               />
 
               <div className="flex flex-col">
-                <p className="">Mi perfil</p>
-                <p className="flex flex-wrap text-[color:var(--orange)] font-semibold text-xl">
+                <p className="my-perfil">Mi perfil</p>
+                <p className=" nombre-user flex flex-wrap text-[color:var(--orange)] font-semibold text-xl">
                   {data.nombre_cliente}
                 </p>
               </div>
             </div>
-            <div className="flex border-solid border-y-2 px-2 border-[color:var(--brown)] py-3 gap-2 items-center">
+            <div className=" ajustes flex border-solid border-y-2 px-2 border-[color:var(--brown)] py-3 gap-2 items-center">
               <i className="bx bx-cog bx-spin"></i>
               <p>Ajustes de cuenta</p>
             </div>
@@ -163,7 +138,9 @@ export const ProfileUser = () => {
             {showModal && (
               <div className="fixed inset-0 flex items-center justify-center z-50">
                 <div className="bg-white rounded-lg p-8">
-                  <p>¿Estás seguro de que quieres eliminar tu cuenta?</p>
+                  <p>
+                    ¿Estás seguro de que quieres eliminar tu cuenta?
+                  </p>
                   <div className="flex justify-center mt-4">
                     <button
                       className="btn-danger mr-4"
@@ -267,16 +244,12 @@ export const ProfileUser = () => {
                 </div>
                 <button
                   type="submit"
-                  className="btn-main"
+                  className="btn-main2"
                   onClick={(e) => {
                     handleSubmit(e);
                   }}
                 >
-                  <span>Actualizar datos ➔</span>
-                  {/* <svg viewBox="0 0 13 10" height="10px" width="15px">
-                      <path d="M1,5 L11,5"></path>
-                      <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg> */}
+                  <a>Actualizar datos ➔</a>
                 </button>
               </form>
             </div>
@@ -287,3 +260,4 @@ export const ProfileUser = () => {
     </>
   );
 };
+export default ProfileUser;

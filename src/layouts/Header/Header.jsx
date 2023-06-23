@@ -3,9 +3,12 @@ import { NavLink } from "react-router-dom";
     
   return (
     
-      <header className="bg-brown-kopy flex justify-between items-center px-[5%]">
+      <header className= "bg-brown-kopy flex justify-between items-center px-[5%]" >
+       
         <div className="h-5">
-          <img className="object-fill h-32 -top-14 relative z-10"
+          
+          <img className="object-fill h-32 -top-14 relative z-10"  to="/"
+          
             src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1685967057/Kopy_tfpadn.jpg"
           />
       </div>
