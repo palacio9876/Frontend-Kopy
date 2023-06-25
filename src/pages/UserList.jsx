@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Footer } from "../layouts/Footer/Footer";
 import { HeaderCliente } from '../layouts/Header/HeaderCliente';
+
 
 
 
@@ -45,57 +47,57 @@ const UserList = () => {
         }
       };
       
-    
 
-
-
-
-    return (<>
+    return (
+        <>
         <ToastContainer />
         <HeaderCliente />
-        <div className="container">
-            <h1>Lista de usuarios</h1>
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Id</th>
-                        <th>Correo</th>
-                        <th>Estado</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {Array.isArray(users) && users.length > 0 ? (
-                        users.map((user) => (
-                            <tr key={user.id_cliente}>
-                                <td>{user.nombre_cliente}</td>
-                                <td>{user.apellido_cliente}</td>
-                                <td>{user.id_cliente}</td>
-                                <td>{user.email_cliente}</td>
-                                <td>{user.habilitado === 1 ? 'Habilitado' : 'Inhabilitado'}</td>
-                                <td>
-                                    <button
-                                        className="btn btn-primary"
-                                        onClick={() => handleEnableUser(user.email_cliente)}
-                                        disabled={user.habilitado === 1}
-                                    >
-                                        Habilitar
-                                    </button>
-                                </td>
-                            </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan="5">No hay usuarios disponibles</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-        </div>
-        </>
-    );
-};
+        <main className="py-6 px-16 bg-[color:var(--pink)]">
+        <h1 className="text-center text-5xl text-brown-kopy my-3">Lista Usuarios</h1>
+        <table className="table-auto w-full mt-10 text-pink-kopy">
+          <thead>
+            <tr className=" text-600 uppercase text-sm text-orange-kopy ">
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Id</th>
+              <th>Correo</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Array.isArray(users) && users.length > 0 ? (
+              users.map((user) => (
+                <tr key={user.id_cliente} className="bg-white">
+                  <td className="py-5 px-10 text-brown-kopy my-3 text-center">{user.nombre_cliente}</td>
+                  <td className="py-5 px-10 text-brown-kopy my-3 text-center">{user.apellido_cliente}</td>
+                  <td className="py-5 px-10 text-brown-kopy my-3 text-center">{user.id_cliente}</td>
+                  <td className="py-5 px-10 text-brown-kopy my-3 text-center">{user.email_cliente}</td>
+                  <td className="py-5 px-10 text-brown-kopy my-3 text-center">{user.habilitado === 1 ? 'Habilitado' : 'Inhabilitado'}</td>
+                  <td className="py-5 px-10 text-brown-kopy my-3 text-center">
+                    <button
+                      className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${user.habilitado === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                      onClick={() => handleEnableUser(user.email_cliente)}
+                      disabled={user.habilitado === 1}
+                    >
+                      Habilitar
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6" className="py-2 px-4 text-gray-500">
+                  No hay usuarios disponibles
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+        </main>
+        <Footer />
+      </>
+    )
+}      
 
 export default UserList;

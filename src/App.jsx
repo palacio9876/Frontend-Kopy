@@ -23,7 +23,7 @@ import {ProtectedRoute} from "./Components/ProtectedRoute";
 import { useLocalStorage } from "react-use";
 import { Buys } from './pages/Buys';
 import ContextCart from "./context/ContextCart";
-import UserList from "./pages/userList";
+import UserList from "./pages/UserList";
 
 
 
