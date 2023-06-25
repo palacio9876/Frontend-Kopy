@@ -30,18 +30,18 @@ export const Main = () => {
           data-aos="fade-up-right"
           data-aos-duration="1500"
         >
-          <p className="md:text-5xl font-bold uppercase text-[color:var(--brown)] text-center font-Alkatra ">
+          <p className="texto-main md:text-5xl font-bold uppercase text-[color:var(--brown)] text-center font-Alkatra ">
             Deleitate con nuestros <br />
             deliciosos productos <br />
-            <span className="text-[color:var(--orange)]">
+            
               {" "}
               Los mejores precios!{" "}
-            </span>
+            
           </p>
           <button className="btn-main">
-            <span>
+
               <NavLink to="/catalogo/Todo">Ver catalogo ⮞</NavLink>
-            </span>
+            
           </button>
         </div>
         <div
@@ -52,7 +52,7 @@ export const Main = () => {
           <img
             src="https://res.cloudinary.com/dyhfwq81d/image/upload/v1678721661/kopy/canva_c8envd.jpg"
             alt="imagen demostrativa"
-            className="md:w-full h-full object-cover object-[center_-110px] rounded-[100%] sm:w-30 h-30 "
+            className="imagen-main md:w-full h-full object-cover object-[center_-110px] rounded-[100%] sm:w-30 h-30 "
           />
         </div>
       </section>
@@ -128,7 +128,7 @@ export const Main = () => {
           </span>
         </button>
       </section>
-      <article className="bg-[color:var(--pink)]  md:items-center p-4 flex-wrap flex-col sm:flex sm:flex-row sm:justify-evenly gap-5 h-80">
+      <article className="envios bg-[color:var(--pink)]  md:items-center p-4 flex-wrap flex-col sm:flex sm:flex-row sm:justify-evenly gap-5 h-80">
         <div
           className="w-[80%]  flex flex-col justify-evenly items-center flex-wrap gap-[2%] sm:w-[15%]"
           data-aos="fade-up"

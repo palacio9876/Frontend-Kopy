@@ -40,16 +40,7 @@ export const ProductList = ({
       });
 
       if (response.status === 200) {
-        toast.success("Productos obtenidos exitosamente", {
-          position: "top-left",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+       console.log("ok");
       }
     } catch (error) {
       console.log(error);
