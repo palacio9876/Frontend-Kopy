@@ -30,7 +30,11 @@ export const MainAddProducto = () => {
       img: file,
     }
     e.preventDefault();
-    await axios.post ("http://localhost:3020/product/ingreso", data,
+    await axios.post (
+      // "http://localhost:3020/product/ingreso"
+      // "https://kopy-backend.up.railway.app/product/ingreso"
+      "https://back-end-kopy.onrender.com/product/ingreso" 
+    , data,
     {
       headers: {
         "Content-Type": "multipart/form-data",
