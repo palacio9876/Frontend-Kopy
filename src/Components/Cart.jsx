@@ -80,21 +80,6 @@ export const Cart = ({
     setCountProducts(0);
   };
 
-  const onCash = () => {
-    context.setAmount(total);
-    toast.success("Comprando", {
-      position: "top-left",
-      autoClose: 900,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
-    <ToastContainer />;
-  };
-
   const deleteList = () => {
     toast.error("producto eliminado del carrito ", {
       position: "top-left",
@@ -116,6 +101,7 @@ export const Cart = ({
     price: "",
     quantity: "",
   });
+
   const handleInputChange = ({ target }) => {
     setCart({
       ...cart,
@@ -132,7 +118,32 @@ export const Cart = ({
       })
       .catch((err) => console.log(err));
   };
+  const onCash = () => {
+    context.setAmount(total);
+    toast.success("Comprando", {
+      position: "top-left",
+      autoClose: 900,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    <ToastContainer />;
+    // const sendProductsToBackend = async () => {
+    //   try {
+    //     const products = cart();
 
+    //     const response = await axios.post("http://localhost:3020/buy/compra", {
+    //       products,
+    //     });
+    //     console.log(response.data);
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // };
+  };
   return (
     <>
       <ToastContainer />
