@@ -15,9 +15,7 @@ export const Login = () => {
   const handleInputChange = ({ target }) => {
     setForm({
       ...form,
-
       [target.name]: target.value,
-      [target.password]: target.value,
     });
   };
 
@@ -27,15 +25,13 @@ export const Login = () => {
     try {
       const response = await Axios.post(
         "http://localhost:3020/user/login",
-        // "https://kopy-backend.up.railway.app/user/login",
-        // "https://back-end-kopy.onrender.com/user/login",
         form
       );
       if (response.status === 200) {
         let rol = "cliente";
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("rol", rol);
-        toast.success("¡Login successful!", {
+        toast.success("¡Inicio de sesión exitoso!", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -48,7 +44,7 @@ export const Login = () => {
           navigate("/");
         }, 2000);
       } else {
-        toast.error("¡Login is not successful!", {
+        toast.error("¡Inicio de sesión no exitoso!", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -59,18 +55,37 @@ export const Login = () => {
         });
       }
     } catch (error) {
-      console.log("Error en la solicitud de inicio de sesión:", error);
-      toast.error("¡Error, por favor ingrese correctamente el correo y la contraseña!", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      if (error.response && error.response.status === 403) {
+        toast.error(
+          "El usuario está deshabilitado. Por favor, comuníquese con el administrador.",
+          {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
+      } else {
+        console.log("Error en la solicitud de inicio de sesión:", error);
+        toast.error(
+          "Error, por favor ingrese correctamente el correo y la contraseña.",
+          {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
+      }
     }
   };
+
   return (
     <>
       <ToastContainer />

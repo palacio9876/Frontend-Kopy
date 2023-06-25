@@ -59,12 +59,20 @@ export const Catalogo = () => {
             </button>
           ))}
           {rol === "rolAdmin" ? (
+            <>
             <NavLink
               to="/addProduct"
               className="bg-orange-kopy text-pink-kopy text-[1.3rem] cursor-pointer m-2.5 p-2.5 rounded-[10px] border-[none] hover:bg-green-kopy"
             >
               Añadir producto
             </NavLink>
+             <NavLink
+             to="/userList"
+             className="bg-orange-kopy text-pink-kopy text-[1.3rem] cursor-pointer m-2.5 p-2.5 rounded-[10px] border-[none] hover:bg-green-kopy"
+           >
+             Usuarios Inabilitados
+           </NavLink>
+           </>
           ) : null}
         </div>
         <Cart

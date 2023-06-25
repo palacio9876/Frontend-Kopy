@@ -23,6 +23,9 @@ import {ProtectedRoute} from "./Components/ProtectedRoute";
 import { useLocalStorage } from "react-use";
 import { Buys } from './pages/Buys';
 import ContextCart from "./context/ContextCart";
+import UserList from "./pages/userList";
+
+
 
 function App() {
 
@@ -69,6 +72,9 @@ function App() {
 
 
         <Route path="/PinAdmin" element={<PinAdmin/>}/>
+        <Route path="/userList" element={<UserList/>}/>
+        
+
 
         <Route path="*" element={<Error404 />} />
       </Routes>
